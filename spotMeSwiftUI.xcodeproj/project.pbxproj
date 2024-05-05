@@ -1,0 +1,859 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */; };
+		0BF748F02BDA797F005273C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748EF2BDA797F005273C7 /* ContentView.swift */; };
+		0BF748F22BDA797F005273C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF748F12BDA797F005273C7 /* Assets.xcassets */; };
+		0BF748F52BDA797F005273C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF748F42BDA797F005273C7 /* Preview Assets.xcassets */; };
+		0BF748FF2BDA7980005273C7 /* spotMeSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748FE2BDA7980005273C7 /* spotMeSwiftUITests.swift */; };
+		0BF749092BDA7980005273C7 /* spotMeSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749082BDA7980005273C7 /* spotMeSwiftUIUITests.swift */; };
+		0BF7490B2BDA7980005273C7 /* spotMeSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7490A2BDA7980005273C7 /* spotMeSwiftUIUITestsLaunchTests.swift */; };
+		0BF749182BDA7CDD005273C7 /* CamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749172BDA7CDD005273C7 /* CamView.swift */; };
+		0BF749192BDA7CDD005273C7 /* CamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749172BDA7CDD005273C7 /* CamView.swift */; };
+		0BF7491A2BDA7CDD005273C7 /* CamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749172BDA7CDD005273C7 /* CamView.swift */; };
+		0BF7491C2BDA8060005273C7 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7491B2BDA8060005273C7 /* CameraManager.swift */; };
+		0BF7491D2BDA8060005273C7 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7491B2BDA8060005273C7 /* CameraManager.swift */; };
+		0BF7491E2BDA8060005273C7 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7491B2BDA8060005273C7 /* CameraManager.swift */; };
+		0BF749202BDA8202005273C7 /* CameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7491F2BDA8202005273C7 /* CameraError.swift */; };
+		0BF749212BDA8202005273C7 /* CameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7491F2BDA8202005273C7 /* CameraError.swift */; };
+		0BF749222BDA8202005273C7 /* CameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7491F2BDA8202005273C7 /* CameraError.swift */; };
+		0BF749242BDA8514005273C7 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749232BDA8514005273C7 /* FrameManager.swift */; };
+		0BF749252BDA8514005273C7 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749232BDA8514005273C7 /* FrameManager.swift */; };
+		0BF749262BDA8514005273C7 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749232BDA8514005273C7 /* FrameManager.swift */; };
+		0BF749282BDAB3F4005273C7 /* CamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749272BDAB3F4005273C7 /* CamViewModel.swift */; };
+		0BF749292BDAB3F4005273C7 /* CamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749272BDAB3F4005273C7 /* CamViewModel.swift */; };
+		0BF7492A2BDAB3F4005273C7 /* CamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749272BDAB3F4005273C7 /* CamViewModel.swift */; };
+		0BF7492C2BDACC7E005273C7 /* CGImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */; };
+		0BF7492D2BDACC7E005273C7 /* CGImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */; };
+		0BF7492E2BDACC7E005273C7 /* CGImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */; };
+		0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749302BDAD184005273C7 /* PoseModel.swift */; };
+		0BF749322BDAD184005273C7 /* PoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749302BDAD184005273C7 /* PoseModel.swift */; };
+		0BF749332BDAD184005273C7 /* PoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749302BDAD184005273C7 /* PoseModel.swift */; };
+		0BF749352BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */ = {isa = PBXBuildFile; fileRef = 0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */; };
+		0BF749362BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */ = {isa = PBXBuildFile; fileRef = 0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */; };
+		0BF749372BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */ = {isa = PBXBuildFile; fileRef = 0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */; };
+		0BF749392BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */; };
+		0BF7493A2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */; };
+		0BF7493B2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */; };
+		0BF7493D2BDBDBB3005273C7 /* PoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7493C2BDBDBB3005273C7 /* PoseView.swift */; };
+		0BF7493E2BDBDBB3005273C7 /* PoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7493C2BDBDBB3005273C7 /* PoseView.swift */; };
+		0BF7493F2BDBDBB3005273C7 /* PoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7493C2BDBDBB3005273C7 /* PoseView.swift */; };
+		0BF749502BE50D2E005273C7 /* LlamaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7494F2BE50D2E005273C7 /* LlamaState.swift */; };
+		0BF749512BE50D2E005273C7 /* LlamaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7494F2BE50D2E005273C7 /* LlamaState.swift */; };
+		0BF749522BE50D2E005273C7 /* LlamaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7494F2BE50D2E005273C7 /* LlamaState.swift */; };
+		0BF749542BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
+		0BF749552BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
+		0BF749562BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
+		0BF749582BE51DDC005273C7 /* llama in Frameworks */ = {isa = PBXBuildFile; productRef = 0BF749572BE51DDC005273C7 /* llama */; };
+		3C73F017B3CC9ABE4036F6F5 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7290961229B59CAEDBF35D7 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */; };
+		46F5BE739CB8E2AC600A8CAB /* Pods_spotMeSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */; };
+		EC07963C0BCFC752E3679A59 /* Pods_spotMeSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0BF748FB2BDA7980005273C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BF748E22BDA797F005273C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BF748E92BDA797F005273C7;
+			remoteInfo = spotMeSwiftUI;
+		};
+		0BF749052BDA7980005273C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BF748E22BDA797F005273C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BF748E92BDA797F005273C7;
+			remoteInfo = spotMeSwiftUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		010235AE1F9B8C8F997308E8 /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI-spotMeSwiftUIUITests/Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		012A3AAD8AA61057C6F02337 /* Pods-spotMeSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUITests/Pods-spotMeSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		057CD60B90F62119E95D2F8D /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI-spotMeSwiftUIUITests/Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotMeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotMeSwiftUIApp.swift; sourceTree = "<group>"; };
+		0BF748EF2BDA797F005273C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0BF748F12BDA797F005273C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BF748F42BDA797F005273C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0BF748FA2BDA7980005273C7 /* spotMeSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spotMeSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BF748FE2BDA7980005273C7 /* spotMeSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotMeSwiftUITests.swift; sourceTree = "<group>"; };
+		0BF749042BDA7980005273C7 /* spotMeSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spotMeSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BF749082BDA7980005273C7 /* spotMeSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotMeSwiftUIUITests.swift; sourceTree = "<group>"; };
+		0BF7490A2BDA7980005273C7 /* spotMeSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotMeSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BF749172BDA7CDD005273C7 /* CamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamView.swift; sourceTree = "<group>"; };
+		0BF7491B2BDA8060005273C7 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		0BF7491F2BDA8202005273C7 /* CameraError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraError.swift; sourceTree = "<group>"; };
+		0BF749232BDA8514005273C7 /* FrameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
+		0BF749272BDAB3F4005273C7 /* CamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamViewModel.swift; sourceTree = "<group>"; };
+		0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExtension.swift; sourceTree = "<group>"; };
+		0BF7492F2BDAD12D005273C7 /* spotMeSwiftUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spotMeSwiftUI-Bridging-Header.h"; sourceTree = "<group>"; };
+		0BF749302BDAD184005273C7 /* PoseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseModel.swift; sourceTree = "<group>"; };
+		0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "yolov8n-pose-pre.onnx"; sourceTree = "<group>"; };
+		0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnnxPoseUtils.swift; sourceTree = "<group>"; };
+		0BF7493C2BDBDBB3005273C7 /* PoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseView.swift; sourceTree = "<group>"; };
+		0BF7494F2BE50D2E005273C7 /* LlamaState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamaState.swift; sourceTree = "<group>"; };
+		0BF749532BE51D2E005273C7 /* LibLlama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibLlama.swift; sourceTree = "<group>"; };
+		3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI/Pods-spotMeSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		9032388F5A85089C6DB52757 /* Pods-spotMeSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUITests/Pods-spotMeSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE13954052C4DF49E3918EF4 /* Pods-spotMeSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI/Pods-spotMeSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7290961229B59CAEDBF35D7 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0BF748E72BDA797F005273C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC07963C0BCFC752E3679A59 /* Pods_spotMeSwiftUI.framework in Frameworks */,
+				0BF749582BE51DDC005273C7 /* llama in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BF748F72BDA7980005273C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46F5BE739CB8E2AC600A8CAB /* Pods_spotMeSwiftUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BF749012BDA7980005273C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C73F017B3CC9ABE4036F6F5 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02889894E4AA3E14152C685E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */,
+				F7290961229B59CAEDBF35D7 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */,
+				A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0BF748E12BDA797F005273C7 = {
+			isa = PBXGroup;
+			children = (
+				0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */,
+				0BF7492F2BDAD12D005273C7 /* spotMeSwiftUI-Bridging-Header.h */,
+				0BF748EC2BDA797F005273C7 /* spotMeSwiftUI */,
+				0BF748FD2BDA7980005273C7 /* spotMeSwiftUITests */,
+				0BF749072BDA7980005273C7 /* spotMeSwiftUIUITests */,
+				0BF748EB2BDA797F005273C7 /* Products */,
+				7CA2540D77DB9DC16EE2C83E /* Pods */,
+				02889894E4AA3E14152C685E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0BF748EB2BDA797F005273C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */,
+				0BF748FA2BDA7980005273C7 /* spotMeSwiftUITests.xctest */,
+				0BF749042BDA7980005273C7 /* spotMeSwiftUIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0BF748EC2BDA797F005273C7 /* spotMeSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */,
+				0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */,
+				0BF748EF2BDA797F005273C7 /* ContentView.swift */,
+				0BF7494E2BE50D15005273C7 /* Models */,
+				0BF7491B2BDA8060005273C7 /* CameraManager.swift */,
+				0BF749232BDA8514005273C7 /* FrameManager.swift */,
+				0BF749272BDAB3F4005273C7 /* CamViewModel.swift */,
+				0BF7491F2BDA8202005273C7 /* CameraError.swift */,
+				0BF748F12BDA797F005273C7 /* Assets.xcassets */,
+				0BF748F32BDA797F005273C7 /* Preview Content */,
+				0BF749172BDA7CDD005273C7 /* CamView.swift */,
+				0BF7493C2BDBDBB3005273C7 /* PoseView.swift */,
+				0BF749302BDAD184005273C7 /* PoseModel.swift */,
+				0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */,
+			);
+			path = spotMeSwiftUI;
+			sourceTree = "<group>";
+		};
+		0BF748F32BDA797F005273C7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0BF748F42BDA797F005273C7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0BF748FD2BDA7980005273C7 /* spotMeSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0BF748FE2BDA7980005273C7 /* spotMeSwiftUITests.swift */,
+			);
+			path = spotMeSwiftUITests;
+			sourceTree = "<group>";
+		};
+		0BF749072BDA7980005273C7 /* spotMeSwiftUIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0BF749082BDA7980005273C7 /* spotMeSwiftUIUITests.swift */,
+				0BF7490A2BDA7980005273C7 /* spotMeSwiftUIUITestsLaunchTests.swift */,
+			);
+			path = spotMeSwiftUIUITests;
+			sourceTree = "<group>";
+		};
+		0BF7494E2BE50D15005273C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0BF7494F2BE50D2E005273C7 /* LlamaState.swift */,
+				0BF749532BE51D2E005273C7 /* LibLlama.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7CA2540D77DB9DC16EE2C83E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE13954052C4DF49E3918EF4 /* Pods-spotMeSwiftUI.debug.xcconfig */,
+				3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */,
+				010235AE1F9B8C8F997308E8 /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig */,
+				057CD60B90F62119E95D2F8D /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig */,
+				9032388F5A85089C6DB52757 /* Pods-spotMeSwiftUITests.debug.xcconfig */,
+				012A3AAD8AA61057C6F02337 /* Pods-spotMeSwiftUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0BF748E92BDA797F005273C7 /* spotMeSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BF7490E2BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUI" */;
+			buildPhases = (
+				229A61F4203BE0229130A6D2 /* [CP] Check Pods Manifest.lock */,
+				0BF748E62BDA797F005273C7 /* Sources */,
+				0BF748E72BDA797F005273C7 /* Frameworks */,
+				0BF748E82BDA797F005273C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = spotMeSwiftUI;
+			packageProductDependencies = (
+				0BF749572BE51DDC005273C7 /* llama */,
+			);
+			productName = spotMeSwiftUI;
+			productReference = 0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0BF748F92BDA7980005273C7 /* spotMeSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BF749112BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUITests" */;
+			buildPhases = (
+				AF5829D525CFA174E805FE67 /* [CP] Check Pods Manifest.lock */,
+				0BF748F62BDA7980005273C7 /* Sources */,
+				0BF748F72BDA7980005273C7 /* Frameworks */,
+				0BF748F82BDA7980005273C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BF748FC2BDA7980005273C7 /* PBXTargetDependency */,
+			);
+			name = spotMeSwiftUITests;
+			productName = spotMeSwiftUITests;
+			productReference = 0BF748FA2BDA7980005273C7 /* spotMeSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0BF749032BDA7980005273C7 /* spotMeSwiftUIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BF749142BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUIUITests" */;
+			buildPhases = (
+				6CFD5DB21B2BEA0E52265DD3 /* [CP] Check Pods Manifest.lock */,
+				0BF749002BDA7980005273C7 /* Sources */,
+				0BF749012BDA7980005273C7 /* Frameworks */,
+				0BF749022BDA7980005273C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BF749062BDA7980005273C7 /* PBXTargetDependency */,
+			);
+			name = spotMeSwiftUIUITests;
+			productName = spotMeSwiftUIUITests;
+			productReference = 0BF749042BDA7980005273C7 /* spotMeSwiftUIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0BF748E22BDA797F005273C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					0BF748E92BDA797F005273C7 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					0BF748F92BDA7980005273C7 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 0BF748E92BDA797F005273C7;
+					};
+					0BF749032BDA7980005273C7 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 0BF748E92BDA797F005273C7;
+					};
+				};
+			};
+			buildConfigurationList = 0BF748E52BDA797F005273C7 /* Build configuration list for PBXProject "spotMeSwiftUI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0BF748E12BDA797F005273C7;
+			packageReferences = (
+				0BF749402BDE79E2005273C7 /* XCRemoteSwiftPackageReference "mlx-swift" */,
+				0BF7494D2BE50B82005273C7 /* XCRemoteSwiftPackageReference "llama.cpp" */,
+			);
+			productRefGroup = 0BF748EB2BDA797F005273C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0BF748E92BDA797F005273C7 /* spotMeSwiftUI */,
+				0BF748F92BDA7980005273C7 /* spotMeSwiftUITests */,
+				0BF749032BDA7980005273C7 /* spotMeSwiftUIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0BF748E82BDA797F005273C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BF748F52BDA797F005273C7 /* Preview Assets.xcassets in Resources */,
+				0BF749352BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */,
+				0BF748F22BDA797F005273C7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BF748F82BDA7980005273C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BF749362BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BF749022BDA7980005273C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BF749372BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		229A61F4203BE0229130A6D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spotMeSwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CFD5DB21B2BEA0E52265DD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spotMeSwiftUI-spotMeSwiftUIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF5829D525CFA174E805FE67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spotMeSwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0BF748E62BDA797F005273C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BF748F02BDA797F005273C7 /* ContentView.swift in Sources */,
+				0BF749242BDA8514005273C7 /* FrameManager.swift in Sources */,
+				0BF749202BDA8202005273C7 /* CameraError.swift in Sources */,
+				0BF749502BE50D2E005273C7 /* LlamaState.swift in Sources */,
+				0BF7492C2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
+				0BF749182BDA7CDD005273C7 /* CamView.swift in Sources */,
+				0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */,
+				0BF7493D2BDBDBB3005273C7 /* PoseView.swift in Sources */,
+				0BF749282BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
+				0BF7491C2BDA8060005273C7 /* CameraManager.swift in Sources */,
+				0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */,
+				0BF749392BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */,
+				0BF749542BE51D2E005273C7 /* LibLlama.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BF748F62BDA7980005273C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BF749292BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
+				0BF749252BDA8514005273C7 /* FrameManager.swift in Sources */,
+				0BF749512BE50D2E005273C7 /* LlamaState.swift in Sources */,
+				0BF749322BDAD184005273C7 /* PoseModel.swift in Sources */,
+				0BF7492D2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
+				0BF749192BDA7CDD005273C7 /* CamView.swift in Sources */,
+				0BF7491D2BDA8060005273C7 /* CameraManager.swift in Sources */,
+				0BF748FF2BDA7980005273C7 /* spotMeSwiftUITests.swift in Sources */,
+				0BF7493E2BDBDBB3005273C7 /* PoseView.swift in Sources */,
+				0BF7493A2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */,
+				0BF749212BDA8202005273C7 /* CameraError.swift in Sources */,
+				0BF749552BE51D2E005273C7 /* LibLlama.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BF749002BDA7980005273C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BF7490B2BDA7980005273C7 /* spotMeSwiftUIUITestsLaunchTests.swift in Sources */,
+				0BF749262BDA8514005273C7 /* FrameManager.swift in Sources */,
+				0BF749222BDA8202005273C7 /* CameraError.swift in Sources */,
+				0BF749522BE50D2E005273C7 /* LlamaState.swift in Sources */,
+				0BF7492E2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
+				0BF7491A2BDA7CDD005273C7 /* CamView.swift in Sources */,
+				0BF749332BDAD184005273C7 /* PoseModel.swift in Sources */,
+				0BF7493F2BDBDBB3005273C7 /* PoseView.swift in Sources */,
+				0BF7492A2BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
+				0BF7491E2BDA8060005273C7 /* CameraManager.swift in Sources */,
+				0BF749092BDA7980005273C7 /* spotMeSwiftUIUITests.swift in Sources */,
+				0BF7493B2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */,
+				0BF749562BE51D2E005273C7 /* LibLlama.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BF748FC2BDA7980005273C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BF748E92BDA797F005273C7 /* spotMeSwiftUI */;
+			targetProxy = 0BF748FB2BDA7980005273C7 /* PBXContainerItemProxy */;
+		};
+		0BF749062BDA7980005273C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BF748E92BDA797F005273C7 /* spotMeSwiftUI */;
+			targetProxy = 0BF749052BDA7980005273C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0BF7490C2BDA7980005273C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0BF7490D2BDA7980005273C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0BF7490F2BDA7980005273C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE13954052C4DF49E3918EF4 /* Pods-spotMeSwiftUI.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"spotMeSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = CX634G49Y7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera usage for pose detection\"";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "spotMeSwiftUI-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0BF749102BDA7980005273C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"spotMeSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = CX634G49Y7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera usage for pose detection\"";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "spotMeSwiftUI-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0BF749122BDA7980005273C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9032388F5A85089C6DB52757 /* Pods-spotMeSwiftUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CX634G49Y7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spotMeSwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/spotMeSwiftUI";
+			};
+			name = Debug;
+		};
+		0BF749132BDA7980005273C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 012A3AAD8AA61057C6F02337 /* Pods-spotMeSwiftUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CX634G49Y7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spotMeSwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/spotMeSwiftUI";
+			};
+			name = Release;
+		};
+		0BF749152BDA7980005273C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 010235AE1F9B8C8F997308E8 /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CX634G49Y7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = spotMeSwiftUI;
+			};
+			name = Debug;
+		};
+		0BF749162BDA7980005273C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057CD60B90F62119E95D2F8D /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CX634G49Y7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = spotMeSwiftUI;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0BF748E52BDA797F005273C7 /* Build configuration list for PBXProject "spotMeSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BF7490C2BDA7980005273C7 /* Debug */,
+				0BF7490D2BDA7980005273C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BF7490E2BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BF7490F2BDA7980005273C7 /* Debug */,
+				0BF749102BDA7980005273C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BF749112BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BF749122BDA7980005273C7 /* Debug */,
+				0BF749132BDA7980005273C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BF749142BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BF749152BDA7980005273C7 /* Debug */,
+				0BF749162BDA7980005273C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0BF749402BDE79E2005273C7 /* XCRemoteSwiftPackageReference "mlx-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
+		0BF7494D2BE50B82005273C7 /* XCRemoteSwiftPackageReference "llama.cpp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ggerganov/llama.cpp.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BF749572BE51DDC005273C7 /* llama */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BF7494D2BE50B82005273C7 /* XCRemoteSwiftPackageReference "llama.cpp" */;
+			productName = llama;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0BF748E22BDA797F005273C7 /* Project object */;
+}
