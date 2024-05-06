@@ -24,7 +24,7 @@ class OnnxPoseUtils : NSObject {
     }
     
     func getPoseKeyPoints(inputData: Data, ortSession: ORTSession) -> [Float32]{
-        print("Inside getPoseKeyPoints")
+        
         var keypoints:[Float32] = [0.0]
         do {
             let inputDataLength = inputData.count

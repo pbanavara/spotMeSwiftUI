@@ -11,7 +11,7 @@ import UIKit
 class FrameManager:NSObject, ObservableObject {
     static let shared = FrameManager()
     @Published var current: CVPixelBuffer?
-    @Published var currentKeyPoints: [Float32]?
+    @Published var poseImage:UIImage?
     
     let videoOutputQueue = DispatchQueue(label: "videoOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
@@ -36,13 +36,9 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
             let ortSession = PoseModel.shared.ortSession
             if ortSession != nil {
                 let poseUtil = OnnxPoseUtils()
-                let startTime = CACurrentMediaTime()
-                print("Before Image create \(startTime)")
-                
-                let imageData = UIImage(cgImage: cgImage!).jpegData(compressionQuality: 0.1)!
-                print("After Image write \(CACurrentMediaTime() - startTime)")
-                self.currentKeyPoints = poseUtil.getPoseKeyPoints(inputData: imageData, ortSession: ortSession!)
-                print("Keypoints Array \(self.currentKeyPoints?.debugDescription)")
+                let image = UIImage(cgImage: cgImage!)
+                let imageData = image.jpegData(compressionQuality: 0.1)!
+                self.poseImage = poseUtil.plotPose(inputData: imageData, ortSession: ortSession!)
             }
         }
         

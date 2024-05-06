@@ -10,27 +10,19 @@ import SwiftUI
 struct CamView: View {
     @StateObject var model = CamViewModel()
     var body: some View {
-        if let image = model.frame {
-            if let keyPoints = model.keyPoints {
+        if let image = model.poseImage {
                 GeometryReader { geometry in
-                    Image(image, scale:1.0, orientation: .upMirrored,
-                          label:Text("Camera feed"))
+                    let gh = geometry.size.height
+                    let gw = geometry.size.width
+                    Image(image, scale:1.0, orientation: .upMirrored, label:Text(""))
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
                     .frame(
                         width: geometry.size.width,
                         height: geometry.size.height,
                         alignment: .center
                     )
-                    .overlay(
-                        Rectangle().path(in: CGRect(x: Double(keyPoints[0]),
-                                                    y: Double(keyPoints[1]),
-                                                    width: Double(keyPoints[2]),
-                                                    height: Double(keyPoints[3])).insetBy(dx: geometry.size.width, dy: geometry.size.height)
-                        ).stroke(.red, lineWidth: 2.0).scaledToFit())
                 }
-            }
-            
         }
         else {
             Color.black
