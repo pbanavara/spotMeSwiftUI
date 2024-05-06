@@ -12,9 +12,7 @@ struct CamView: View {
     var body: some View {
         if let image = model.poseImage {
                 GeometryReader { geometry in
-                    let gh = geometry.size.height
-                    let gw = geometry.size.width
-                    Image(image, scale:1.0, orientation: .upMirrored, label:Text(""))
+                    Image(image, scale:1.0, orientation: .up, label:Text(""))
                     .resizable()
                     .scaledToFit()
                     .frame(

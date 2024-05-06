@@ -41,9 +41,6 @@
 		0BF749392BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */; };
 		0BF7493A2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */; };
 		0BF7493B2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */; };
-		0BF7493D2BDBDBB3005273C7 /* PoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7493C2BDBDBB3005273C7 /* PoseView.swift */; };
-		0BF7493E2BDBDBB3005273C7 /* PoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7493C2BDBDBB3005273C7 /* PoseView.swift */; };
-		0BF7493F2BDBDBB3005273C7 /* PoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7493C2BDBDBB3005273C7 /* PoseView.swift */; };
 		0BF749502BE50D2E005273C7 /* LlamaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7494F2BE50D2E005273C7 /* LlamaState.swift */; };
 		0BF749512BE50D2E005273C7 /* LlamaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7494F2BE50D2E005273C7 /* LlamaState.swift */; };
 		0BF749522BE50D2E005273C7 /* LlamaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7494F2BE50D2E005273C7 /* LlamaState.swift */; };
@@ -97,7 +94,6 @@
 		0BF749302BDAD184005273C7 /* PoseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseModel.swift; sourceTree = "<group>"; };
 		0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "yolov8n-pose-pre.onnx"; sourceTree = "<group>"; };
 		0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnnxPoseUtils.swift; sourceTree = "<group>"; };
-		0BF7493C2BDBDBB3005273C7 /* PoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseView.swift; sourceTree = "<group>"; };
 		0BF7494F2BE50D2E005273C7 /* LlamaState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamaState.swift; sourceTree = "<group>"; };
 		0BF749532BE51D2E005273C7 /* LibLlama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibLlama.swift; sourceTree = "<group>"; };
 		3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI/Pods-spotMeSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,7 +181,6 @@
 				0BF748F12BDA797F005273C7 /* Assets.xcassets */,
 				0BF748F32BDA797F005273C7 /* Preview Content */,
 				0BF749172BDA7CDD005273C7 /* CamView.swift */,
-				0BF7493C2BDBDBB3005273C7 /* PoseView.swift */,
 				0BF749302BDAD184005273C7 /* PoseModel.swift */,
 				0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */,
 			);
@@ -458,7 +453,6 @@
 				0BF7492C2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
 				0BF749182BDA7CDD005273C7 /* CamView.swift in Sources */,
 				0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */,
-				0BF7493D2BDBDBB3005273C7 /* PoseView.swift in Sources */,
 				0BF749282BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
 				0BF7491C2BDA8060005273C7 /* CameraManager.swift in Sources */,
 				0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */,
@@ -479,7 +473,6 @@
 				0BF749192BDA7CDD005273C7 /* CamView.swift in Sources */,
 				0BF7491D2BDA8060005273C7 /* CameraManager.swift in Sources */,
 				0BF748FF2BDA7980005273C7 /* spotMeSwiftUITests.swift in Sources */,
-				0BF7493E2BDBDBB3005273C7 /* PoseView.swift in Sources */,
 				0BF7493A2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */,
 				0BF749212BDA8202005273C7 /* CameraError.swift in Sources */,
 				0BF749552BE51D2E005273C7 /* LibLlama.swift in Sources */,
@@ -497,7 +490,6 @@
 				0BF7492E2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
 				0BF7491A2BDA7CDD005273C7 /* CamView.swift in Sources */,
 				0BF749332BDAD184005273C7 /* PoseModel.swift in Sources */,
-				0BF7493F2BDBDBB3005273C7 /* PoseView.swift in Sources */,
 				0BF7492A2BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
 				0BF7491E2BDA8060005273C7 /* CameraManager.swift in Sources */,
 				0BF749092BDA7980005273C7 /* spotMeSwiftUIUITests.swift in Sources */,

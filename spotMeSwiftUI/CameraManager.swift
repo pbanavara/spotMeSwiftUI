@@ -9,6 +9,7 @@ import AVFoundation
 
 class CameraManager: ObservableObject {
     @Published var error: CameraError?
+    @Published var cameraStatus: String?
     let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label :"cameraQueue")
     private let videoOutput = AVCaptureVideoDataOutput()
@@ -22,13 +23,22 @@ class CameraManager: ObservableObject {
     }
     static let shared = CameraManager()
     private init() {
-        configure()
+        //configure()
     }
-    private func configure() {
+    func configure() {
         checkPermissions()
         sessionQueue.async {
             self.configureCameraSession()
             self.session.startRunning()
+            self.cameraStatus = "running"
+        }
+    }
+    func stopCamera() {
+        sessionQueue.async {
+            if (self.session.isRunning) {
+                self.session.stopRunning()
+                self.cameraStatus = "stopped"
+            }
         }
     }
     

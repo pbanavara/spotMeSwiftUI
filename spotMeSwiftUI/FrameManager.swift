@@ -10,6 +10,8 @@ import UIKit
 
 class FrameManager:NSObject, ObservableObject {
     static let shared = FrameManager()
+    let poseUtil = OnnxPoseUtils()
+    var ortSession: ORTSession?
     @Published var current: CVPixelBuffer?
     @Published var poseImage:UIImage?
     
@@ -18,6 +20,9 @@ class FrameManager:NSObject, ObservableObject {
     private override init() {
         super.init()
         CameraManager.shared.set(self, queue: videoOutputQueue)
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.ortSession = PoseModel.shared.ortSession
+        }
     }
 }
 
@@ -33,9 +38,7 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
         let cgImage = CGImage.create(from: buffer)
         
         if ( cgImage != nil) {
-            let ortSession = PoseModel.shared.ortSession
             if ortSession != nil {
-                let poseUtil = OnnxPoseUtils()
                 let image = UIImage(cgImage: cgImage!)
                 let imageData = image.jpegData(compressionQuality: 0.1)!
                 self.poseImage = poseUtil.plotPose(inputData: imageData, ortSession: ortSession!)

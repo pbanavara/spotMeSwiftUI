@@ -13,20 +13,10 @@ class CamViewModel: ObservableObject {
     @Published var frame: CGImage?
     @Published var poseImage: CGImage?
     private let frameManager = FrameManager.shared
+    
     init() {
-        setupSubscriptions()
         getPoseImage()
     }
-    func setupSubscriptions() {
-        frameManager.$current
-            .receive(on: RunLoop.main)
-            .compactMap { buffer in
-                let cgImage = CGImage.create(from: buffer)
-                return cgImage
-            }
-            .assign(to: &$frame)
-    }
-
     func getPoseImage() {
         frameManager.$poseImage
             .receive(on: RunLoop.main)
