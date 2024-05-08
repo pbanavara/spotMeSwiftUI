@@ -14,7 +14,7 @@ struct ContentView: View {
             Text("Hello").tabItem { Label("Past workouts", systemImage: "photo") }.tag("home")
             Text("Setup workouts")
                 .tabItem { Label("Setup workouts", systemImage: "mic") }.tag("setupWorkouts")
-            CamView().edgesIgnoringSafeArea(.all).tabItem {
+            CamView().tabItem {
                 Label("Workout now", systemImage: "video")
             }.tag("workoutNow")
         }.onChange(of: selectedTab){ value in

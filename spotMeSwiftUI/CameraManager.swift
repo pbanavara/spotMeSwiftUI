@@ -25,6 +25,8 @@ class CameraManager: ObservableObject {
     private init() {
         //configure()
     }
+    
+    
     func configure() {
         checkPermissions()
         sessionQueue.async {
@@ -73,6 +75,8 @@ class CameraManager: ObservableObject {
         }
     }
     
+    
+    
     private func configureCameraSession() {
         guard status == .uncofigured else {
             return
@@ -114,6 +118,7 @@ class CameraManager: ObservableObject {
             [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
             // 3
             let videoConnection = videoOutput.connection(with: .video)
+            // Fix this based on the device orientation
             videoConnection?.videoRotationAngle  = 90.0
         } else {
             // 4
@@ -122,6 +127,11 @@ class CameraManager: ObservableObject {
             return
         }
         status = .configured
+    }
+    
+    // This is exposed for video recorder to use the same settings for writing video
+    func getVideoOutputSettings() -> [String: Any]? {
+        return videoOutput.recommendedVideoSettingsForAssetWriter(writingTo: .mov)
     }
     
     func set(_ delegate: AVCaptureVideoDataOutputSampleBufferDelegate,

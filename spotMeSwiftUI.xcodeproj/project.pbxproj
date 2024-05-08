@@ -48,6 +48,9 @@
 		0BF749552BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
 		0BF749562BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
 		0BF749582BE51DDC005273C7 /* llama in Frameworks */ = {isa = PBXBuildFile; productRef = 0BF749572BE51DDC005273C7 /* llama */; };
+		0BF7495A2BE9C419005273C7 /* VideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749592BE9C419005273C7 /* VideoRecorder.swift */; };
+		0BF7495B2BE9C419005273C7 /* VideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749592BE9C419005273C7 /* VideoRecorder.swift */; };
+		0BF7495C2BE9C419005273C7 /* VideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749592BE9C419005273C7 /* VideoRecorder.swift */; };
 		3C73F017B3CC9ABE4036F6F5 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7290961229B59CAEDBF35D7 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */; };
 		46F5BE739CB8E2AC600A8CAB /* Pods_spotMeSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */; };
 		EC07963C0BCFC752E3679A59 /* Pods_spotMeSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */; };
@@ -96,6 +99,7 @@
 		0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnnxPoseUtils.swift; sourceTree = "<group>"; };
 		0BF7494F2BE50D2E005273C7 /* LlamaState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamaState.swift; sourceTree = "<group>"; };
 		0BF749532BE51D2E005273C7 /* LibLlama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibLlama.swift; sourceTree = "<group>"; };
+		0BF749592BE9C419005273C7 /* VideoRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecorder.swift; sourceTree = "<group>"; };
 		3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI/Pods-spotMeSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		9032388F5A85089C6DB52757 /* Pods-spotMeSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUITests/Pods-spotMeSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +187,7 @@
 				0BF749172BDA7CDD005273C7 /* CamView.swift */,
 				0BF749302BDAD184005273C7 /* PoseModel.swift */,
 				0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */,
+				0BF749592BE9C419005273C7 /* VideoRecorder.swift */,
 			);
 			path = spotMeSwiftUI;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 				0BF749202BDA8202005273C7 /* CameraError.swift in Sources */,
 				0BF749502BE50D2E005273C7 /* LlamaState.swift in Sources */,
 				0BF7492C2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
+				0BF7495A2BE9C419005273C7 /* VideoRecorder.swift in Sources */,
 				0BF749182BDA7CDD005273C7 /* CamView.swift in Sources */,
 				0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */,
 				0BF749282BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
@@ -476,6 +482,7 @@
 				0BF7493A2BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */,
 				0BF749212BDA8202005273C7 /* CameraError.swift in Sources */,
 				0BF749552BE51D2E005273C7 /* LibLlama.swift in Sources */,
+				0BF7495B2BE9C419005273C7 /* VideoRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +495,7 @@
 				0BF749222BDA8202005273C7 /* CameraError.swift in Sources */,
 				0BF749522BE50D2E005273C7 /* LlamaState.swift in Sources */,
 				0BF7492E2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
+				0BF7495C2BE9C419005273C7 /* VideoRecorder.swift in Sources */,
 				0BF7491A2BDA7CDD005273C7 /* CamView.swift in Sources */,
 				0BF749332BDAD184005273C7 /* PoseModel.swift in Sources */,
 				0BF7492A2BDAB3F4005273C7 /* CamViewModel.swift in Sources */,

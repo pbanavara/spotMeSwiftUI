@@ -24,5 +24,7 @@ class CamViewModel: ObservableObject {
                 return image?.cgImage
 
             }.assign(to: &$poseImage)
+        
     }
+    
 }

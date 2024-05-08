@@ -213,7 +213,7 @@ class OnnxPoseUtils : NSObject {
         // Calculate Hip Hinge
         //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
         let hip_hinge = (atan2(left_knee_hip_angle_x, left_knee_hip_angle_y) - atan2(left_hip_shoulder_angle_x, left_hip_shoulder_angle_y)) * 57.2958
-        NSLog("Hip Hinge \(hip_hinge)")
+
         
         // Write the hip hinge into text
         drawTextInImage(hip_hinge: Double(hip_hinge), image: image)
