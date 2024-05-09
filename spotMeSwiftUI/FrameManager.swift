@@ -50,49 +50,29 @@ class FrameManager:NSObject, ObservableObject {
         case idle, start, capturing, end
     }
     
-    private func convertUIImageToPixelBuffer(input: UIImage) -> CVPixelBuffer {
-        var pbInput:CVPixelBuffer? = nil
-        guard let cgInput = input.cgImage else {
-                return pbInput!
-            }
+    func bufferFromImage(image: UIImage) -> CVPixelBuffer? {
+      let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+      var pixelBuffer : CVPixelBuffer?
+      let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(image.size.width), Int(image.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
+      guard (status == kCVReturnSuccess) else {
+        return nil
+      }
 
-            // Image size
-            let width = cgInput.width
-            let height = cgInput.height
-            let region = CGRect(x: 0, y: 0, width: width, height: height)
+      CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+      let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
 
-            // Attributes needed to create the CVPixelBuffer
-            let attributes = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
-                              kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue]
+      let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+      let context = CGContext(data: pixelData, width: Int(image.size.width), height: Int(image.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
 
-            // Create the input CVPixelBuffer
-           
-            let status = CVPixelBufferCreate(kCFAllocatorDefault,
-                                             width,
-                                             height,
-                                             kCVPixelFormatType_32BGRA,
-                                             attributes as CFDictionary,
-                                             &pbInput)
+      context?.translateBy(x: 0, y: image.size.height)
+      context?.scaleBy(x: 1.0, y: -1.0)
 
-            // Sanity check
-            if status != kCVReturnSuccess {
-                return pbInput!
-            }
+      UIGraphicsPushContext(context!)
+      image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+      UIGraphicsPopContext()
+      CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
 
-            // Fill the input CVPixelBuffer with the content of the input CGImage
-            CVPixelBufferLockBaseAddress(pbInput!, CVPixelBufferLockFlags(rawValue: 0))
-            guard let context = CGContext(data: CVPixelBufferGetBaseAddress(pbInput!),
-                                          width: width,
-                                          height: height,
-                                          bitsPerComponent: cgInput.bitsPerComponent,
-                                          bytesPerRow: cgInput.bytesPerRow,
-                                          space: cgInput.colorSpace!,
-                                          bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else {
-                                          return pbInput!
-            }
-            context.draw(cgInput, in: region)
-            CVPixelBufferUnlockBaseAddress(pbInput!, CVPixelBufferLockFlags(rawValue: 0))
-        return pbInput!
+      return pixelBuffer
     }
     
     private func setupRecorder(timestamp: Double) {
@@ -105,7 +85,7 @@ class FrameManager:NSObject, ObservableObject {
         let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings) // [AVVideoCodecKey: AVVideoCodecType.h264, AVVideoWidthKey: 1920, AVVideoHeightKey: 1080])
         input.mediaTimeScale = CMTimeScale(bitPattern: 600)
         input.expectsMediaDataInRealTime = true
-        input.transform = CGAffineTransform(rotationAngle: .pi/2)
+        input.transform = CGAffineTransform(rotationAngle: 90.0)
         let adapter = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: nil)
         self._assetWriter = writer
         if self._assetWriter!.canAdd(input) {
@@ -113,7 +93,9 @@ class FrameManager:NSObject, ObservableObject {
             
         }
         self._assetWriter?.startWriting()
-        self._assetWriter?.startSession(atSourceTime: .zero)
+        // Ballpark delay to accomodate initial black screen
+        let startTime = CMTimeMakeWithSeconds(3.0, preferredTimescale: 1000000000)
+        self._assetWriter?.startSession(atSourceTime: startTime)
         self._assetWriterInput = input
         self._adapter = adapter
         self._captureState = .capturing
@@ -136,8 +118,9 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
             if ( cgImage != nil) {
                 if self.ortSession != nil {
                     let image = UIImage(cgImage: cgImage!)
-                    let imageData = image.jpegData(compressionQuality: 0.1)!
-                    let result = self.poseUtil.plotPose(inputData: imageData, ortSession: self.ortSession!)
+                    //Fiddle around with jpegquality until you have a proper number using 0.5 for now
+                    let imageData = image.jpegData(compressionQuality: 0.5)
+                    let result = self.poseUtil.plotPose(inputData: imageData!, ortSession: self.ortSession!)
                     self.poseImage = result
                     let timestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer).seconds
                     switch self._captureState {
@@ -147,14 +130,7 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
                     case .capturing:
                         if self._assetWriterInput?.isReadyForMoreMediaData == true {
                             let time = CMTime(seconds: timestamp - self._time, preferredTimescale: CMTimeScale(600))
-                            /*
-                            let pixelBuffer = CVPixelBuffer.from(result.jpegData(compressionQuality: 0.1)!,
-                                                                 width: Int(result.size.width),
-                                                                 height: Int(result.size.height),
-                                                                 pixelFormat:kCVPixelFormatType_32BGRA)
-                             */
-                            //let pixelBuffer = convertUIImageToPixelBuffer(input: result)
-                            let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+                            let pixelBuffer = bufferFromImage(image: result)
                             self._adapter?.append(pixelBuffer!, withPresentationTime: time)
                             print("Processing video")
                         }
