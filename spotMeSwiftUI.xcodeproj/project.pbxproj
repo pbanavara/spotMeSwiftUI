@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5E46742BF2006E00E10F91 /* VideoRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */; };
 		0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */; };
 		0BF748F02BDA797F005273C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748EF2BDA797F005273C7 /* ContentView.swift */; };
 		0BF748F22BDA797F005273C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF748F12BDA797F005273C7 /* Assets.xcassets */; };
@@ -48,6 +49,9 @@
 		0BF749552BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
 		0BF749562BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
 		0BF749582BE51DDC005273C7 /* llama in Frameworks */ = {isa = PBXBuildFile; productRef = 0BF749572BE51DDC005273C7 /* llama */; };
+		0BF7495E2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */; };
+		0BF7495F2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */; };
+		0BF749602BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */; };
 		3C73F017B3CC9ABE4036F6F5 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7290961229B59CAEDBF35D7 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */; };
 		46F5BE739CB8E2AC600A8CAB /* Pods_spotMeSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */; };
 		EC07963C0BCFC752E3679A59 /* Pods_spotMeSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */; };
@@ -74,6 +78,7 @@
 		010235AE1F9B8C8F997308E8 /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI-spotMeSwiftUIUITests/Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		012A3AAD8AA61057C6F02337 /* Pods-spotMeSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUITests/Pods-spotMeSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		057CD60B90F62119E95D2F8D /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI-spotMeSwiftUIUITests/Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecordManager.swift; sourceTree = "<group>"; };
 		0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotMeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotMeSwiftUIApp.swift; sourceTree = "<group>"; };
 		0BF748EF2BDA797F005273C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 		0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnnxPoseUtils.swift; sourceTree = "<group>"; };
 		0BF7494F2BE50D2E005273C7 /* LlamaState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamaState.swift; sourceTree = "<group>"; };
 		0BF749532BE51D2E005273C7 /* LibLlama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibLlama.swift; sourceTree = "<group>"; };
+		0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFeedbackUtils.swift; sourceTree = "<group>"; };
 		3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI/Pods-spotMeSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		9032388F5A85089C6DB52757 /* Pods-spotMeSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUITests/Pods-spotMeSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +176,7 @@
 		0BF748EC2BDA797F005273C7 /* spotMeSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */,
 				0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */,
 				0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */,
 				0BF748EF2BDA797F005273C7 /* ContentView.swift */,
@@ -183,6 +190,7 @@
 				0BF749172BDA7CDD005273C7 /* CamView.swift */,
 				0BF749302BDAD184005273C7 /* PoseModel.swift */,
 				0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */,
+				0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */,
 			);
 			path = spotMeSwiftUI;
 			sourceTree = "<group>";
@@ -452,11 +460,13 @@
 				0BF749502BE50D2E005273C7 /* LlamaState.swift in Sources */,
 				0BF7492C2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
 				0BF749182BDA7CDD005273C7 /* CamView.swift in Sources */,
+				0BF7495E2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */,
 				0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */,
 				0BF749282BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
 				0BF7491C2BDA8060005273C7 /* CameraManager.swift in Sources */,
 				0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */,
 				0BF749392BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */,
+				0B5E46742BF2006E00E10F91 /* VideoRecordManager.swift in Sources */,
 				0BF749542BE51D2E005273C7 /* LibLlama.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +478,7 @@
 				0BF749292BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
 				0BF749252BDA8514005273C7 /* FrameManager.swift in Sources */,
 				0BF749512BE50D2E005273C7 /* LlamaState.swift in Sources */,
+				0BF7495F2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */,
 				0BF749322BDAD184005273C7 /* PoseModel.swift in Sources */,
 				0BF7492D2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
 				0BF749192BDA7CDD005273C7 /* CamView.swift in Sources */,
@@ -489,6 +500,7 @@
 				0BF749522BE50D2E005273C7 /* LlamaState.swift in Sources */,
 				0BF7492E2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
 				0BF7491A2BDA7CDD005273C7 /* CamView.swift in Sources */,
+				0BF749602BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */,
 				0BF749332BDAD184005273C7 /* PoseModel.swift in Sources */,
 				0BF7492A2BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
 				0BF7491E2BDA8060005273C7 /* CameraManager.swift in Sources */,

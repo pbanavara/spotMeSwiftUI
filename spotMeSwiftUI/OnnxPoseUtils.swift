@@ -11,15 +11,17 @@ import onnxruntime_objc
 import UIKit
 import AVFoundation
 
-class OnnxPoseUtils : NSObject {
-    /**
-     ### This function accepts an UIImage and renders the detected pose points on the said image.
-     *  It is key to use the correct model for the said purpose. Use the [Model generation] (https://onnxruntime.ai/docs/tutorials/mobile/pose-detection.html)
-     *  It is also key to register the customOps function using the BridgingHeader
-     */
-    //var ortSession: ORTSession?
-    private var synthesizer = AVSpeechSynthesizer()
-    override init() {
+/**
+ * This is a singleton observable object that processes an UIImage and renders the detected pose points on the said image.
+ *  It is key to use the correct model for the said purpose. Use the [Model generation] (https://onnxruntime.ai/docs/tutorials/mobile/pose-detection.html)
+ *  It is also key to register the customOps function using the BridgingHeader
+ */
+class OnnxPoseUtils : NSObject, ObservableObject {
+    @Published var poseImage: UIImage?
+    @Published var hipHingeAngle: Double?
+    static let shared = OnnxPoseUtils()
+    
+    private override init() {
         super.init()
     }
     
@@ -69,8 +71,7 @@ class OnnxPoseUtils : NSObject {
         return keypoints
     }
     
-    func plotPose(inputData: Data, ortSession: ORTSession) -> UIImage{
-        var image = UIImage()
+    func plotPose(inputData: Data, ortSession: ORTSession) {
         do {
             //let inputData = image.pngData()!
             let inputDataLength = inputData.count
@@ -84,18 +85,17 @@ class OnnxPoseUtils : NSObject {
             guard let outputTensor = outputs[outputNames[0]] else {
                 fatalError("Failed to get model keypoint output from inference.")
             }
-            return try convertOutputTensorToImage(opTensor: outputTensor, inputImageData: inputData)
+            self.poseImage =  try convertOutputTensorToImage(opTensor: outputTensor, inputImageData: inputData)
             
         } catch {
             print(error)
         }
-        return image
     }
     
-    /**
-     Helper function to convert the output tensor into an image with the bounding box and keypoint data.
-     */
     private func convertOutputTensorToImage(opTensor: ORTValue, inputImageData: Data) throws -> UIImage{
+        /**
+         Helper function to convert the output tensor into an image with the bounding box and keypoint data.
+         */
         
         let output = try opTensor.tensorData()
         var arr2 = Array<Float32>(repeating: 0, count: output.count/MemoryLayout<Float32>.stride)   // Do not change the datatype Float32
@@ -123,14 +123,13 @@ class OnnxPoseUtils : NSObject {
         }
     }
     
-    /**
-     Helper function takes an input image and a boundding box CGRect along with the keypoints data to return a new image with the rect and keypoints drawn/
-     TODO: // Optimize on generating a new image instead paint the data on the same image. iOS experts to chime in.
-     
-     */
-    
     
     private func drawKeyPointsOnImage(image: UIImage, rectangle:CGRect, keypoints: [Float32]) -> UIImage {
+        /**
+         Helper function takes an input image and a boundding box CGRect along with the keypoints data to return a new image with the rect and keypoints drawn/
+         TODO: // Optimize on generating a new image instead paint the data on the same image. iOS experts to chime in.
+         
+         */
         var image = image
         let imageSize = image.size
         let scale: CGFloat = 0
@@ -142,20 +141,6 @@ class OnnxPoseUtils : NSObject {
         guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
         context.setLineWidth(2.0)
         context.setStrokeColor(UIColor.blue.cgColor)
-        //context.move(to: CGPoint(x: Double(keypoints[0]), y: Double(keypoints[1])))
-        /*
-         for i in stride(from: 0, through: keypoints.count-1, by: 3) {
-         let kp_x = keypoints[i]
-         let kp_y = keypoints[i+1]
-         let confidence = keypoints[i+2]
-         if (confidence < 0.5) { // Can potentially remove hardcoding and make the confidence configurable
-         continue
-         }
-         let rect = CGRect(x: Double(kp_x), y: Double(kp_y), width: 10.0, height: 10.0)
-         UIRectFill(rect)
-         
-         }
-         */
         image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return drawPoseLines(image: image, keypoints: keypoints)
@@ -213,8 +198,8 @@ class OnnxPoseUtils : NSObject {
         // Calculate Hip Hinge
         //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
         let hip_hinge = (atan2(left_knee_hip_angle_x, left_knee_hip_angle_y) - atan2(left_hip_shoulder_angle_x, left_hip_shoulder_angle_y)) * 57.2958
-
-        
+        self.hipHingeAngle = Double(hip_hinge)
+    
         // Write the hip hinge into text
         drawTextInImage(hip_hinge: Double(hip_hinge), image: image)
         
@@ -262,34 +247,7 @@ class OnnxPoseUtils : NSObject {
         context.strokePath()
     }
     
-    var player: AVAudioPlayer?
     
-    func textToSpeech(str: String) {
-        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .voicePrompt, options: [])
-        synthesizer.delegate = self
-        let utterance = AVSpeechUtterance(string: str)
-        utterance.rate = 0.57
-        utterance.pitchMultiplier = 0.8
-        utterance.postUtteranceDelay = 0.2
-        utterance.volume = 0.3
-        let voice = AVSpeechSynthesisVoice(language: "en-GB")
-        utterance.voice = voice
-        synthesizer.speak(utterance)
-        utterance.postUtteranceDelay = 1.0
-        //synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
-    }
 }
 
-extension OnnxPoseUtils: AVSpeechSynthesizerDelegate {
-    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
-        let mutableAttributedString = NSMutableAttributedString(string: utterance.speechString)
-        mutableAttributedString.addAttribute(.foregroundColor, value: UIColor.red, range: characterRange)
-        NSLog("Text is spoken")
-    }
-    
-    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        NSLog("Finished speaking")
-        synthesizer.stopSpeaking(at: AVSpeechBoundary.word)
-    }
-}
 

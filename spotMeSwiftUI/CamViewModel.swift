@@ -12,19 +12,22 @@ import UIKit
 class CamViewModel: ObservableObject {
     @Published var frame: CGImage?
     @Published var poseImage: CGImage?
+    @Published var hipAngle: Double?
+    
     private let frameManager = FrameManager.shared
+    private let videoRecManager = VideoRecordManager()
     
     init() {
         getPoseImage()
     }
+    
     func getPoseImage() {
-        frameManager.$poseImage
+        videoRecManager.$image
             .receive(on: RunLoop.main)
             .compactMap { image in
                 return image?.cgImage
 
             }.assign(to: &$poseImage)
-        
     }
     
 }

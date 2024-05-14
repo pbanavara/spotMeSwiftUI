@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CamView: View {
     @StateObject var model = CamViewModel()
-    let videoRecorder = FrameManager.shared
+    let videoRecorder = VideoRecordManager()
     @State var isPlaying = false
     var body: some View {
         
@@ -28,20 +28,18 @@ struct CamView: View {
                 Button(action: {
                     isPlaying.toggle()
                     if isPlaying {
-                        videoRecorder.setActionState(state: false)
+                       videoRecorder.setActionState(state: false)
                     } else {
-                        videoRecorder.setActionState(state: true)
+                       videoRecorder.setActionState(state: true)
                     }
                 }) {
                     switch isPlaying {
                     case true:
-                        //Text("Stop recording").background(Color.red)
-                        //Image(systemName: "stop.circle").resizable().foregroundColor(.red)
-                        Rectangle().cornerRadius(5.0).foregroundColor(.red).padding(.all, 20).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
+                        Rectangle().cornerRadius(5.0).foregroundColor(.red).padding(.all, 15).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
                     case false:
                         Circle().foregroundColor(.red).padding(.all, 5).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
                     }
-                }.frame(width: 50.0, height: 50.0).padding()
+                }.frame(width: 50.0, height: 50.0).padding(.bottom, 30)
             }
             
         }
