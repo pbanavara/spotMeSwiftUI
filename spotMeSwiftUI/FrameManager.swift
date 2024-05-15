@@ -50,6 +50,7 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
                     ///Following the pub-sub pattern, just invoke the plotPose method
                     ///poseUtil conforms to observable protocol any model/view can observe and take action on the image
                     self.poseUtil.plotPose(inputData: imageData!, ortSession: self.ortSession!)
+                
                 }
             }
             

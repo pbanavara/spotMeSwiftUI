@@ -15,14 +15,14 @@ class CamViewModel: ObservableObject {
     @Published var hipAngle: Double?
     
     private let frameManager = FrameManager.shared
-    private let videoRecManager = VideoRecordManager()
+    private let poseUtils = OnnxPoseUtils.shared
     
     init() {
-        getPoseImage()
+        //getPoseImage()
     }
     
     func getPoseImage() {
-        videoRecManager.$image
+        poseUtils.$poseImage
             .receive(on: RunLoop.main)
             .compactMap { image in
                 return image?.cgImage

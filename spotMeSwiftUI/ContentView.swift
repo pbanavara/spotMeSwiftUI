@@ -12,8 +12,6 @@ struct ContentView: View {
     var body: some View {
         TabView (selection: $selectedTab) {
             Text("Hello").tabItem { Label("Past workouts", systemImage: "photo") }.tag("home")
-            Text("Setup workouts")
-                .tabItem { Label("Setup workouts", systemImage: "mic") }.tag("setupWorkouts")
             CamView().tabItem {
                 Label("Workout now", systemImage: "video")
             }.tag("workoutNow")
@@ -27,6 +25,8 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Preview: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
