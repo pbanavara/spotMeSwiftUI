@@ -11,10 +11,13 @@ struct CamView: View {
     @StateObject var model = CamViewModel()
     
     let videoRecorder = VideoRecordManager()
+    let audioManager = AudioFeedbackManager.shared
+    
     @StateObject var agent = Agent()
+    @State var isPlaying = false
     var body: some View {
-        var isVisualizing = false
-        @State var isPlaying = false
+        let isVisualizing = false
+        
         if let image = model.poseImage {
             VStack {
                 GeometryReader { geometry in
@@ -62,15 +65,7 @@ struct CamView: View {
                 Button(action: {
                     model.getPoseImage()
                     agent.processVideoOutputText()
-                    agent.$chatResponse.receive(on: RunLoop.current)
-                        .compactMap ({ value in
-                            print(value)
-                            if (value.isEmpty) {
-                                isVisualizing = false
-                            } else {
-                                isVisualizing = true
-                            }
-                        })
+                    
                 }) {
                     Image(systemName: "record.circle").imageScale(.large)
                 }

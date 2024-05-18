@@ -18,7 +18,7 @@ import AVFoundation
  */
 class OnnxPoseUtils : NSObject, ObservableObject {
     @Published var poseImage: UIImage?
-    @Published var hingeAngles: Dictionary<String, String> = Dictionary()
+    @Published var hingeAngles: Dictionary<String, Double> = Dictionary()
     static let shared = OnnxPoseUtils()
     
     private override init() {
@@ -165,6 +165,7 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         let left_knee_x = keypoints[39]
         let left_knee_y = keypoints[40]
         drawSpecificLine(context: context, kp1_x: left_hip_x, kp1_y: left_hip_y, kp2_x: left_knee_x, kp2_y: left_knee_y, color: UIColor.white)
+        //Draw specific line - left knee to left ankle
         let left_ankle_x = keypoints[45]
         let left_ankle_y = keypoints[46]
         drawSpecificLine(context: context, kp1_x: left_knee_x, kp1_y: left_knee_y, kp2_x: left_ankle_x, kp2_y: left_ankle_y, color: UIColor.white)
@@ -198,13 +199,13 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         // Calculate Hip Hinge
         //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
         let hip_hinge = (atan2(left_knee_hip_angle_x, left_knee_hip_angle_y) - atan2(left_hip_shoulder_angle_x, left_hip_shoulder_angle_y)) * 57.2958
-        self.hingeAngles["hipHingeAngle"] = String(hip_hinge)
+        self.hingeAngles[BodyAngleContants.HIP_HINGE_ANGLE] = Double(hip_hinge)
     
         // Calculate knee hinge
         let left_ankle_knee_angle_x = left_ankle_x - left_knee_x
         let left_ankle_knee_angle_y = left_ankle_y - left_knee_y
         let knee_hinge = (atan2(left_ankle_knee_angle_x, left_ankle_knee_angle_y) - atan2(left_knee_hip_angle_x, left_knee_hip_angle_y)) * 57.2958
-        self.hingeAngles["kneeHipAngle"] = String(knee_hinge)
+        self.hingeAngles[BodyAngleContants.KNEE_HIP_ANGLE] = Double(knee_hinge)
         
         // Write the hip hinge into text
         drawTextInImage(hip_hinge: Double(hip_hinge), image: image)

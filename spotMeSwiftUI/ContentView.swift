@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab = "home"
+    let audioManager = AudioFeedbackManager.shared
     var body: some View {
         TabView (selection: $selectedTab) {
             Text("Hello").tabItem { Label("Past workouts", systemImage: "photo") }.tag("home")

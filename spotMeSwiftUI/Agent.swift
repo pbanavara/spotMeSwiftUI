@@ -8,28 +8,37 @@
 import Foundation
 
 class Agent: ObservableObject {
-    private let urlString = "http://192.168.29.172:8000/postPrompt"
-    @Published var angle: String?
+    private let urlString = "http://172.20.10.2:8000/postPrompt"
+    @Published var angle: Double?
     @Published var chatResponse = ""
     var numSamples = 0.0
-    let samplesLimit = 150.0
-    
+    let samplesLimit = 300.0
+    var prevHipAngle = 180.0
+    let prevKneeAngle = 0.0
     let onnxPoseUtils: OnnxPoseUtils = OnnxPoseUtils.shared
-    
+    let audioManager = AudioFeedbackManager.shared
+        
     init() {
         let startDict = ["prompt" : "hello"]
         postSamples(angles: startDict)
     }
     
     func processVideoOutputText() {
-        onnxPoseUtils.$hingeAngles.receive(on: RunLoop.main)
+        onnxPoseUtils.$hingeAngles.receive(on: DispatchQueue.main)
             .compactMap { angleDict in
-                self.numSamples += 1.0
+                let hipAngle = angleDict[BodyAngleContants.HIP_HINGE_ANGLE]
+                
+                self.numSamples += 1
                 if (self.numSamples == self.samplesLimit) {
-                    self.numSamples = 0.0
-                    let prompt = (angleDict["hipHingeAngle"] ?? "") + " " + (angleDict["kneeHipAngle"] ?? "")
-                    let promptDict = ["prompt": prompt]
-                    self.postSamples(angles: promptDict)
+                    self.numSamples = 0
+                    
+                    //if (hipAngle - self.prevHipAngle > 10) {
+                        self.prevHipAngle = hipAngle!
+                        self.numSamples = 0.0
+                        let prompt = "Hip hinge angle is " + String(angleDict["hipHingeAngle"]!)
+                        let promptDict = ["prompt": prompt]
+                        self.postSamples(angles: promptDict)
+                    //}
                 }
                 return angleDict["hipHingeAngle"]
             }.assign(to: &$angle)
@@ -45,11 +54,15 @@ class Agent: ObservableObject {
         
         let session = URLSession.shared
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
-            guard let data = data else { return }
+            guard let data = data else {
+                print("Upload error \(error.debugDescription)")
+                return
+            }
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let responseJSON = responseJSON as? [String: String] {
                     print(responseJSON) //Code after Successfull POST Request
-                    self.chatResponse = responseJSON["response"]!.description
+                    self.audioManager.textToSpeech(str: responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!)
+                    self.chatResponse = responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!.description
                 }
         })
         task.resume()

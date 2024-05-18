@@ -14,12 +14,20 @@ class AudioFeedbackManager:NSObject {
     
     private var synthesizer = AVSpeechSynthesizer()
     var player: AVAudioPlayer?
+    static let shared = AudioFeedbackManager()
+    
+    private override init() {
+        super.init()
+    }
     
     func textToSpeech(str: String) {
-        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .voicePrompt, options: [])
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .voicePrompt, options: [.interruptSpokenAudioAndMixWithOthers, .duckOthers])
         synthesizer.delegate = self
         let utterance = AVSpeechUtterance(string: str)
-        utterance.rate = 0.57
+        
+        utterance.rate = 0.4
+        utterance.preUtteranceDelay = TimeInterval.init(exactly:1)!
+        utterance.postUtteranceDelay = TimeInterval.init(exactly:1)!
         utterance.pitchMultiplier = 0.8
         utterance.postUtteranceDelay = 0.4
         utterance.volume = 0.3
@@ -38,6 +46,7 @@ extension AudioFeedbackManager: AVSpeechSynthesizerDelegate {
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        AudioProcessConstants.WAIT_UNTIL_PREV_SPEECH_FINISHED = true
         NSLog("Finished speaking")
         synthesizer.stopSpeaking(at: AVSpeechBoundary.word)
     }
