@@ -199,13 +199,13 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         // Calculate Hip Hinge
         //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
         let hip_hinge = (atan2(left_knee_hip_angle_x, left_knee_hip_angle_y) - atan2(left_hip_shoulder_angle_x, left_hip_shoulder_angle_y)) * 57.2958
-        self.hingeAngles[BodyAngleContants.HIP_HINGE_ANGLE] = Double(hip_hinge)
+        self.hingeAngles[BodyAngleContants.HIP_HINGE_ANGLE] = abs(Double(hip_hinge))
     
         // Calculate knee hinge
         let left_ankle_knee_angle_x = left_ankle_x - left_knee_x
         let left_ankle_knee_angle_y = left_ankle_y - left_knee_y
         let knee_hinge = (atan2(left_ankle_knee_angle_x, left_ankle_knee_angle_y) - atan2(left_knee_hip_angle_x, left_knee_hip_angle_y)) * 57.2958
-        self.hingeAngles[BodyAngleContants.KNEE_HIP_ANGLE] = Double(knee_hinge)
+        self.hingeAngles[BodyAngleContants.KNEE_HIP_ANGLE] = abs(Double(knee_hinge))
         
         // Write the hip hinge into text
         drawTextInImage(hip_hinge: Double(hip_hinge), image: image)

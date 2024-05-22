@@ -12,7 +12,7 @@ struct ContentView: View {
     let audioManager = AudioFeedbackManager.shared
     var body: some View {
         TabView (selection: $selectedTab) {
-            Text("Hello").tabItem { Label("Past workouts", systemImage: "photo") }.tag("home")
+            PhotoGridView().environmentObject(PhotoDataModel()).tabItem { Label("Past workouts", systemImage: "photo") }.tag("home")
             CamView().tabItem {
                 Label("Workout now", systemImage: "video")
             }.tag("workoutNow")

@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct PhotoDetailView: View {
+    let item: PhotoItem
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        AsyncImage(url: item.url) { image in
+            image
+                .resizable()
+                .scaledToFit()
+        } placeholder: {
+            ProgressView()
+        }
     }
 }
 
-#Preview {
-    PhotoDetailView()
+struct ImageView_Previews: PreviewProvider {
+    static var previews: some View {
+        if let url = Bundle.main.url(forResource: "mushy1", withExtension: "jpg") {
+            PhotoDetailView(item: PhotoItem(url: url))
+        }
+    }
 }

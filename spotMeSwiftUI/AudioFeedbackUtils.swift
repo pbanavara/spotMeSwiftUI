@@ -10,11 +10,12 @@ import AVFoundation
 import Combine
 import UIKit
 
-class AudioFeedbackManager:NSObject {
+class AudioFeedbackManager:NSObject,ObservableObject {
     
     private var synthesizer = AVSpeechSynthesizer()
     var player: AVAudioPlayer?
     static let shared = AudioFeedbackManager()
+    @Published var charLen = 0
     
     private override init() {
         super.init()
@@ -40,9 +41,7 @@ class AudioFeedbackManager:NSObject {
 
 extension AudioFeedbackManager: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
-        let mutableAttributedString = NSMutableAttributedString(string: utterance.speechString)
-        mutableAttributedString.addAttribute(.foregroundColor, value: UIColor.red, range: characterRange)
-        NSLog("Text is spoken")
+        charLen = characterRange.length
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {

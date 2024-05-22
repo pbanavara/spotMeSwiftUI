@@ -8,18 +8,18 @@
 import Foundation
 
 class Agent: ObservableObject {
-    private let urlString = "http://172.20.10.2:8000/postPrompt"
+    private let urlString = "http://192.168.29.172:8000/postPrompt"
     @Published var angle: Double?
     @Published var chatResponse = ""
     var numSamples = 0.0
-    let samplesLimit = 300.0
+    let samplesLimit = 200.0
     var prevHipAngle = 180.0
     let prevKneeAngle = 0.0
     let onnxPoseUtils: OnnxPoseUtils = OnnxPoseUtils.shared
     let audioManager = AudioFeedbackManager.shared
         
     init() {
-        let startDict = ["prompt" : "hello"]
+        let startDict = ["prompt" : "hello", "user": "user1"]
         postSamples(angles: startDict)
     }
     
@@ -35,8 +35,10 @@ class Agent: ObservableObject {
                     //if (hipAngle - self.prevHipAngle > 10) {
                         self.prevHipAngle = hipAngle!
                         self.numSamples = 0.0
-                        let prompt = "Hip hinge angle is " + String(angleDict["hipHingeAngle"]!)
-                        let promptDict = ["prompt": prompt]
+                    let prompt = "Hip hinge angle is " + String(angleDict[BodyAngleContants.HIP_HINGE_ANGLE]!)
+                                + "Knee hip angle is " + String(angleDict[BodyAngleContants.KNEE_HIP_ANGLE]!)
+                        var promptDict = ["prompt": prompt]
+                        promptDict["user"] = "user1"
                         self.postSamples(angles: promptDict)
                     //}
                 }
@@ -58,12 +60,19 @@ class Agent: ObservableObject {
                 print("Upload error \(error.debugDescription)")
                 return
             }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                if let responseJSON = responseJSON as? [String: String] {
-                    print(responseJSON) //Code after Successfull POST Request
-                    self.audioManager.textToSpeech(str: responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!)
-                    self.chatResponse = responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!.description
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                        if let responseJSON = responseJSON as? [String: String] {
+                            print(responseJSON) //Code after Successfull POST Request
+                            self.audioManager.textToSpeech(str: responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!)
+                            self.chatResponse = responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!.description
+                        }
+                } else {
+                    self.chatResponse = "Backend server error"
                 }
+            }
+            
         })
         task.resume()
         

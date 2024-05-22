@@ -8,11 +8,70 @@
 import SwiftUI
 
 struct PhotoGridView: View {
+    @EnvironmentObject var dataModel: PhotoDataModel
+    private static let initialColumns = 3
+    @State private var isAddingPhoto = false
+    @State private var isEditing = false
+    
+    
+    @State private var gridColumns = Array(repeating: GridItem(.flexible()), count: initialColumns)
+    @State private var numColumns = initialColumns
+    
+    private var columnsTitle: String {
+        gridColumns.count > 1 ? "\(gridColumns.count) Columns" : "1 Column"
+    }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView {
+                LazyVGrid(columns: gridColumns) {
+                    ForEach(dataModel.items) { item in
+                        GeometryReader { geo in
+                            NavigationLink(destination: PhotoDetailView(item: item)) {
+                                GridItemView(size: geo.size.width, item: item)
+                            }
+                        }.cornerRadius(8.0)
+                            .aspectRatio(1, contentMode: .fit)
+                            .overlay(alignment: .topTrailing) {
+                                if isEditing {
+                                    Button {
+                                        withAnimation {
+                                            dataModel.removeItem(item)
+                                        }
+                                    } label: {
+                                        Image(systemName: "xmark.square.fill")
+                                            .font(Font.title)
+                                            .symbolRenderingMode(.palette)
+                                            .foregroundStyle(.white, .red)
+                                    }
+                                    .offset(x: 7, y: -7)
+                                }
+                            }
+                    }
+                }.padding()
+            }
+        }.navigationTitle("Past workout videos")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(isEditing ? "Done" : "Edit") {
+                        withAnimation { isEditing.toggle() }
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isAddingPhoto = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .disabled(isEditing)
+                }
+            }
     }
 }
 
-#Preview {
-    PhotoGridView()
+struct GridView_Previews: PreviewProvider {
+    static var previews: some View {
+        PhotoGridView().environmentObject(PhotoDataModel())
+            .previewDevice("iPad (8th generation)")
+    }
 }

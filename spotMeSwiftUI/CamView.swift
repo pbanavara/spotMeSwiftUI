@@ -6,18 +6,24 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CamView: View {
     @StateObject var model = CamViewModel()
     
     let videoRecorder = VideoRecordManager()
-    let audioManager = AudioFeedbackManager.shared
+    @StateObject var audioManager = AudioFeedbackManager.shared
     
     @StateObject var agent = Agent()
     @State var isPlaying = false
+    @State var animationHeight:Double?
+    
+    
     var body: some View {
         let isVisualizing = false
-        
+        let amHeight = audioManager.$charLen.sink(receiveValue: { value in
+            animationHeight = Double(value)
+        })
         if let image = model.poseImage {
             VStack {
                 GeometryReader { geometry in
@@ -50,7 +56,7 @@ struct CamView: View {
                 HStack(spacing: 1.0) {
                     ForEach(0 ..< 20) { item in
                         RoundedRectangle(cornerRadius: 2.0)
-                            .frame(width: 5, height: .random(in: isVisualizing ? 10...50 : 4...30))
+                            .frame(width: 5, height: .random(in: 4...animationHeight!))
                             .animation(.easeInOut(duration: 0.25).repeatForever(autoreverses: true), value: isVisualizing)
                     }
                 }
