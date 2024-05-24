@@ -6,24 +6,31 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct PhotoDetailView: View {
     let item: PhotoItem
 
     var body: some View {
-        AsyncImage(url: item.url) { image in
-            image
-                .resizable()
-                .scaledToFit()
-        } placeholder: {
-            ProgressView()
+        VStack {
+            let player = AVPlayer(url: item.url)
+            VideoPlayer(player: player)
+                .onAppear{
+                      if player.currentItem == nil {
+                          let item = AVPlayerItem(url: item.url)
+                            player.replaceCurrentItem(with: item)
+                        }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            player.play()
+                        })
+                    }
         }
     }
 }
 
-struct ImageView_Previews: PreviewProvider {
+struct PhotoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        if let url = Bundle.main.url(forResource: "mushy1", withExtension: "jpg") {
+        if let url = Bundle.main.url(forResource: "IMG_8341", withExtension: "mov") {
             PhotoDetailView(item: PhotoItem(url: url))
         }
     }

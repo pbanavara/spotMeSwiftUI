@@ -11,16 +11,18 @@ class Agent: ObservableObject {
     private let urlString = "http://192.168.29.172:8000/postPrompt"
     @Published var angle: Double?
     @Published var chatResponse = ""
+    @Published var shouldRecord = false
     var numSamples = 0.0
-    let samplesLimit = 200.0
+    let samplesLimit = 100.0
     var prevHipAngle = 180.0
     let prevKneeAngle = 0.0
-    let onnxPoseUtils: OnnxPoseUtils = OnnxPoseUtils.shared
-    let audioManager = AudioFeedbackManager.shared
+    let onnxPoseUtils: OnnxPoseUtils = OnnxPoseUtils.sharedOnnx
+    //let audioManager = AudioFeedbackManager.shared
+    
+    static let shared = Agent()
+    
+    private init() {
         
-    init() {
-        let startDict = ["prompt" : "hello", "user": "user1"]
-        postSamples(angles: startDict)
     }
     
     func processVideoOutputText() {
@@ -33,17 +35,30 @@ class Agent: ObservableObject {
                     self.numSamples = 0
                     
                     //if (hipAngle - self.prevHipAngle > 10) {
-                        self.prevHipAngle = hipAngle!
-                        self.numSamples = 0.0
+                    self.prevHipAngle = hipAngle!
+                    self.numSamples = 0.0
                     let prompt = "Hip hinge angle is " + String(angleDict[BodyAngleContants.HIP_HINGE_ANGLE]!)
-                                + "Knee hip angle is " + String(angleDict[BodyAngleContants.KNEE_HIP_ANGLE]!)
-                        var promptDict = ["prompt": prompt]
-                        promptDict["user"] = "user1"
-                        self.postSamples(angles: promptDict)
+                    + "Knee hip angle is " + String(angleDict[BodyAngleContants.KNEE_HIP_ANGLE]!)
+                    var promptDict = [BodyAngleContants.HIP_HINGE_ANGLE: prompt]
+                    promptDict["user"] = "user1"
+                    //self.postSamples(angles: promptDict)
+                    self.calculateCorrectPosition(promptDict: angleDict)
                     //}
                 }
                 return angleDict["hipHingeAngle"]
             }.assign(to: &$angle)
+    }
+    
+    func calculateCorrectPosition(promptDict: Dictionary<String, Double>) {
+        if let hipHingeAngle = promptDict[BodyAngleContants.HIP_HINGE_ANGLE] {
+            if (hipHingeAngle > CorrectHipHingeConstants.CORRECT_HIP_L && hipHingeAngle <= CorrectHipHingeConstants.CORRECT_HIP_R) {
+                    self.chatResponse = "Hip hinge angle in correct position please lower your body until you can reach the kettle bell, grab the kettle bell and move back up straight"
+                } else if (hipHingeAngle > 90.0) {
+                    self.chatResponse = "Please bend your back forward keeping the back straight, do not curl shoulders"
+                } else if (hipHingeAngle < 70.0) {
+                    self.chatResponse = "You have bent too much please raise your back, keep looking forward."
+                }
+        }
     }
     
     func postSamples(angles: Dictionary<String, String>) {
@@ -63,11 +78,11 @@ class Agent: ObservableObject {
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
                     let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                        if let responseJSON = responseJSON as? [String: String] {
-                            print(responseJSON) //Code after Successfull POST Request
-                            self.audioManager.textToSpeech(str: responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!)
-                            self.chatResponse = responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!.description
-                        }
+                    if let responseJSON = responseJSON as? [String: String] {
+                        print(responseJSON) //Code after Successfull POST Request
+                        //self.audioManager.textToSpeech(str: responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!)
+                        self.chatResponse = responseJSON[BackendResponseConstants.BACKEND_JSON_RESPONSE]!.description
+                    }
                 } else {
                     self.chatResponse = "Backend server error"
                 }

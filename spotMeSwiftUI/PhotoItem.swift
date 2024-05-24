@@ -10,6 +10,7 @@ import SwiftUI
 struct PhotoItem: Identifiable {
     let id = UUID()
     let url: URL
+    //let annotationTextPath: String?
 }
 
 extension PhotoItem: Equatable {

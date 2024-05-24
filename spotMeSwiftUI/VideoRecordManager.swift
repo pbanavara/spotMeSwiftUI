@@ -11,13 +11,15 @@ import AVFoundation
 
 class VideoRecordManager: ObservableObject {
     private var _captureState: CaptureState?
-    private var poseUtils: OnnxPoseUtils = OnnxPoseUtils.shared
+    private var poseUtils: OnnxPoseUtils = OnnxPoseUtils.sharedOnnx
     @Published var image: UIImage?
     private var _filename = ""
     private var _time:Double = 0.0
     private var _assetWriter: AVAssetWriter?
     private var _assetWriterInput: AVAssetWriterInput?
     private var _adapter: AVAssetWriterInputPixelBufferAdaptor?
+    
+    //static let shared = VideoRecordManager()
     
     init() {
         startProcessing()
@@ -71,7 +73,8 @@ class VideoRecordManager: ObservableObject {
         }
         self._assetWriter?.startWriting()
         // Ballpark delay to accomodate initial black screen
-        let startTime = CMTimeMakeWithSeconds(3.0, preferredTimescale: 1000000000)
+        let startTime = CMTimeAdd(CMTimeMake(value: Int64(timestamp), timescale: 1000000000), CMTimeMakeWithSeconds(3.0, preferredTimescale: 1000000000))
+        
         self._assetWriter?.startSession(atSourceTime: startTime)
         self._assetWriterInput = input
         self._adapter = adapter
@@ -88,6 +91,10 @@ class VideoRecordManager: ObservableObject {
             self._captureState = .start
             
         }
+    }
+    
+    func pauseRecording() {
+        self._captureState = .idle
     }
     
     func startProcessing() {
@@ -110,9 +117,10 @@ class VideoRecordManager: ObservableObject {
                 let time = CMTime(seconds: timestamp - self._time, preferredTimescale: CMTimeScale(600))
                 let pixelBuffer = bufferFromImage(image: result)
                 self._adapter?.append(pixelBuffer!, withPresentationTime: time)
-                print("Processing video")
+                //print("Processing video")
             }
             break
+            
         case .end:
             self._captureState = .idle
             guard self._assetWriterInput?.isReadyForMoreMediaData == true, self._assetWriter!.status != .failed else { break }

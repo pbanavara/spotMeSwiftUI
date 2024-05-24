@@ -15,10 +15,12 @@ class CamViewModel: ObservableObject {
     @Published var hipAngle: Double?
     
     private let frameManager = FrameManager.shared
-    private let poseUtils = OnnxPoseUtils.shared
+    private let poseUtils = OnnxPoseUtils.sharedOnnx
+    private let agent = Agent.shared
     
     init() {
-        //getPoseImage()
+        agent.processVideoOutputText()
+        getPoseImage()
     }
     
     func getPoseImage() {

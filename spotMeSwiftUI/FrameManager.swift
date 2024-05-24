@@ -10,7 +10,7 @@ import UIKit
 
 class FrameManager:NSObject {
     static let shared = FrameManager()
-    let poseUtil = OnnxPoseUtils.shared
+    let poseUtil = OnnxPoseUtils.sharedOnnx
     var ortSession: ORTSession?
     @Published var current: CVPixelBuffer?
     @Published var poseImage:UIImage?
@@ -24,6 +24,7 @@ class FrameManager:NSObject {
     
     private override init() {
         super.init()
+        CameraManager.shared.configure()
         CameraManager.shared.set(self, queue: videoOutputQueue)
         DispatchQueue.global(qos: .userInitiated).async {
             self.ortSession = PoseModel.shared.ortSession

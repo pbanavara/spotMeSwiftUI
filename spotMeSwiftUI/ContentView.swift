@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab = "home"
-    let audioManager = AudioFeedbackManager.shared
+    @State private var selectedTab = "workoutNow"
+    //let audioManager = AudioFeedbackManager.shared
     var body: some View {
         TabView (selection: $selectedTab) {
-            PhotoGridView().environmentObject(PhotoDataModel()).tabItem { Label("Past workouts", systemImage: "photo") }.tag("home")
-            CamView().tabItem {
-                Label("Workout now", systemImage: "video")
+            CoachView().tabItem {
+                Label("Workout now", systemImage: "figure.strengthtraining.functional")
             }.tag("workoutNow")
+            PhotoGridView().environmentObject(PhotoDataModel()).tabItem { Label("Past workouts", systemImage: "photo.stack.fill") }.tag("history")
         }.onChange(of: selectedTab){ value in
             if (value == "workoutNow") {
                 CameraManager.shared.configure()
-            } else if (value == "home") {
+            } else if (value == "history") {
                 CameraManager.shared.stopCamera()
             }
         }

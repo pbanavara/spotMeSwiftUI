@@ -20,3 +20,8 @@ enum AudioProcessConstants {
 enum BackendResponseConstants {
     static let BACKEND_JSON_RESPONSE = "response"
 }
+
+enum CorrectHipHingeConstants {
+    static let CORRECT_HIP_L = 80.0
+    static let CORRECT_HIP_R = 110.0
+}

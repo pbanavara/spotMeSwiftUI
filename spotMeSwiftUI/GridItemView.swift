@@ -6,19 +6,28 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct GridItemView: View {
     let size: Double
     let item: PhotoItem
     
+    func videoPreviewImage(url: URL) -> UIImage? {
+        let asset = AVURLAsset(url: url)
+        let generator = AVAssetImageGenerator(asset: asset)
+        generator.appliesPreferredTrackTransform = true
+        if let cgImage = try? generator.copyCGImage(at: CMTime(seconds: 2, preferredTimescale: 60), actualTime: nil) {
+            return UIImage(cgImage: cgImage)
+        }
+        else {
+            return nil
+        }
+    }
+    
     var body: some View {
         ZStack (alignment: .topTrailing) {
-            
-            AsyncImage(url: item.url) { img in
-                img.resizable()
-                    .scaledToFill()
-            } placeholder: {
-                ProgressView()
+            if let image = videoPreviewImage(url: item.url) {
+                Image(uiImage: image).resizable().scaledToFit()
             }
         }
     }

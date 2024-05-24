@@ -38,6 +38,16 @@ class PhotoDataModel: ObservableObject {
         }
     }
     
+    func clearAllFile() {
+        let fileManager = FileManager.default
+        let myDocuments = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        do {
+            try fileManager.removeItem(at: myDocuments)
+        } catch {
+            return
+        }
+    }
+    
     func addPhotoItem(_ item: PhotoItem) {
         items.insert(item, at: 0)
     }

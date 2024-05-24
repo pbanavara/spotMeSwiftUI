@@ -21,51 +21,45 @@ struct PhotoGridView: View {
         gridColumns.count > 1 ? "\(gridColumns.count) Columns" : "1 Column"
     }
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVGrid(columns: gridColumns) {
-                    ForEach(dataModel.items) { item in
-                        GeometryReader { geo in
-                            NavigationLink(destination: PhotoDetailView(item: item)) {
-                                GridItemView(size: geo.size.width, item: item)
-                            }
-                        }.cornerRadius(8.0)
-                            .aspectRatio(1, contentMode: .fit)
-                            .overlay(alignment: .topTrailing) {
-                                if isEditing {
-                                    Button {
-                                        withAnimation {
-                                            dataModel.removeItem(item)
-                                        }
-                                    } label: {
-                                        Image(systemName: "xmark.square.fill")
-                                            .font(Font.title)
-                                            .symbolRenderingMode(.palette)
-                                            .foregroundStyle(.white, .red)
-                                    }
-                                    .offset(x: 7, y: -7)
+        NavigationStack {
+            VStack {
+                ScrollView {
+                    LazyVGrid(columns: gridColumns) {
+                        ForEach(dataModel.items) { item in
+                            GeometryReader { geo in
+                                NavigationLink(destination:
+                                                PhotoDetailView(item: item)) {
+                                    GridItemView(size: geo.size.width, item: item)
                                 }
-                            }
-                    }
-                }.padding()
-            }
-        }.navigationTitle("Past workout videos")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(isEditing ? "Done" : "Edit") {
-                        withAnimation { isEditing.toggle() }
+                            }.cornerRadius(8.0)
+                                .aspectRatio(1, contentMode: .fit)
+                                .overlay(alignment: .topTrailing) {
+                                    if isEditing {
+                                        Button {
+                                            withAnimation {
+                                                dataModel.removeItem(item)
+                                            }
+                                        } label: {
+                                            Image(systemName: "xmark.square.fill")
+                                                .font(Font.title)
+                                                .symbolRenderingMode(.palette)
+                                                .foregroundStyle(.white, .red)
+                                        }
+                                    }
+                                }
+                        }
+                    }.padding()
+                }
+            }.navigationBarTitle("Past workout videos")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(isEditing ? "Done" : "Edit") {
+                            withAnimation { isEditing.toggle() }
+                        }
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        isAddingPhoto = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .disabled(isEditing)
-                }
-            }
+        }
     }
 }
 
