@@ -27,11 +27,3 @@ struct PhotoDetailView: View {
         }
     }
 }
-
-struct PhotoDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        if let url = Bundle.main.url(forResource: "IMG_8341", withExtension: "mov") {
-            PhotoDetailView(item: PhotoItem(url: url))
-        }
-    }
-}
