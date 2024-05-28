@@ -18,7 +18,7 @@ struct CamView: View {
     var body: some View {
         if let image = model.poseImage {
             ZStack {
-                Image(image, scale:1.0, orientation: .up, label:Text(""))
+                Image(image, scale:1.0, orientation: .upMirrored, label:Text(""))
                     .resizable()
                     .scaledToFit()
                     .overlay(alignment: .bottom) {

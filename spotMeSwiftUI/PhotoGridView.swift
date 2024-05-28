@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct PhotoGridView: View {
     @EnvironmentObject var dataModel: PhotoDataModel
@@ -22,44 +23,50 @@ struct PhotoGridView: View {
     }
     var body: some View {
         NavigationStack {
-            VStack {
-                ScrollView {
-                    LazyVGrid(columns: gridColumns) {
-                        ForEach(dataModel.items) { item in
-                            GeometryReader { geo in
-                                NavigationLink(destination:
-                                                PhotoDetailView(item: item)) {
-                                    GridItemView(size: geo.size.width, item: item)
-                                }
-                            }.cornerRadius(8.0)
-                                .aspectRatio(1, contentMode: .fit)
-                                .overlay(alignment: .topTrailing) {
-                                    if isEditing {
-                                        Button {
-                                            withAnimation {
-                                                dataModel.removeItem(item)
+            ZStack {
+                VStack {
+                    ScrollView {
+                        LazyVGrid(columns: gridColumns) {
+                            ForEach(dataModel.items) { item in
+                                GeometryReader { geo in
+                                    NavigationLink(destination:
+                                                    PhotoDetailView(item: item)) {
+                                        GridItemView(size: geo.size.width, item: item)
+                                    }
+                                }.cornerRadius(8.0)
+                                    .aspectRatio(1, contentMode: .fill)
+                                    .overlay(alignment: .topTrailing) {
+                                        if isEditing {
+                                            Button {
+                                                withAnimation {
+                                                    dataModel.removeItem(item)
+                                                }
+                                            } label: {
+                                                Image(systemName: "xmark.square.fill")
+                                                    .font(Font.title)
+                                                    .symbolRenderingMode(.palette)
+                                                    .foregroundStyle(.white, .red)
                                             }
-                                        } label: {
-                                            Image(systemName: "xmark.square.fill")
-                                                .font(Font.title)
-                                                .symbolRenderingMode(.palette)
-                                                .foregroundStyle(.white, .red)
                                         }
                                     }
-                                }
-                        }
-                    }.padding()
+                            }
+                        }.padding()
+                    }
+                    PhotoGridChooseCapsuleView()
                 }
-            }.navigationBarTitle("Past workout videos")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(isEditing ? "Done" : "Edit") {
-                            withAnimation { isEditing.toggle() }
-                        }
+            }
+            .navigationBarTitle("Past workout videos")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(isEditing ? "Done" : "Edit") {
+                        withAnimation { isEditing.toggle() }
                     }
                 }
+            }
+            
         }
+        
     }
 }
 

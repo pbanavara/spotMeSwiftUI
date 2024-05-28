@@ -10,25 +10,28 @@ import SwiftUI
 struct CoachView: View {
     //@StateObject var agent = Agent()
     //@StateObject var model = CamViewModel()
-    var workouts = ["Kettlebell deadlift", "Kettlebell Swing", "Barbell deadlift", "Barbell Squat"]
-    var workoutDescr = "Starting position reference image. Note the hip and knee angles. Stand left facing to the camera. When ready click start camera"
-    @State private var selectedWorkout = "Kettlebell deadlift"
+    @State var selectedWorkout = KBWorkoutConstants.KB_DEAD_LIFT
     var body: some View {
-        
+        @ObservedObject var coachModel = CoachViewModel.shared
         NavigationStack {
             //Text(agent.chatResponse).frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding()
             VStack {
                 Picker("Please select a workout", selection: $selectedWorkout) {
-                    ForEach(workouts, id: \.self) {
-                        Text($0)
+                    ForEach(coachModel.workouts, id: \.self) { workout in
+                        Text(workout)
                     }
+                }.onAppear() {
+                    coachModel.selectedWorkout = selectedWorkout
                 }
-                Text(workoutDescr).frame(alignment: .center).padding()
+                if let descr = coachModel.workoutDescriptionDict[selectedWorkout] {
+                    Text(descr).frame(alignment: .center).padding()
+                }
                 Image(.KB).resizable().scaledToFit()
+                
             }
             NavigationLink("Start camera") {
                 CamView()
-            }.navigationTitle("Workout").navigationBarTitleDisplayMode(.inline).padding()
+            }.navigationTitle("Kettlebell Workout").navigationBarTitleDisplayMode(.inline).padding()
             
         }
     }

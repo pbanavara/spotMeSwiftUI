@@ -27,7 +27,7 @@ struct GridItemView: View {
     var body: some View {
         ZStack (alignment: .topTrailing) {
             if let image = videoPreviewImage(url: item.url) {
-                Image(uiImage: image).resizable().scaledToFit()
+                Image(uiImage: image).resizable().scaledToFill().frame(width:size, height: size)
             }
         }
     }

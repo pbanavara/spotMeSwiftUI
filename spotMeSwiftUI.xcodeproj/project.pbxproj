@@ -18,6 +18,8 @@
 		0BA43A5D2BFC9B970014EDFA /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A5C2BFC9B970014EDFA /* PhotoDetailView.swift */; };
 		0BA43A612C00AD5D0014EDFA /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A602C00AD5D0014EDFA /* AudioView.swift */; };
 		0BA43A632C00C7C30014EDFA /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */; };
+		0BA43A652C034EDE0014EDFA /* CoachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */; };
+		0BA43A672C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A662C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift */; };
 		0BDC75002BF3C612005A52E7 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC74FF2BF3C612005A52E7 /* Agent.swift */; };
 		0BDC75022BF4511A005A52E7 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC75012BF4511A005A52E7 /* TestView.swift */; };
 		0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */; };
@@ -57,6 +59,8 @@
 		0BA43A5C2BFC9B970014EDFA /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		0BA43A602C00AD5D0014EDFA /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
+		0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachViewModel.swift; sourceTree = "<group>"; };
+		0BA43A662C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridChooseCapsuleView.swift; sourceTree = "<group>"; };
 		0BDC74FF2BF3C612005A52E7 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		0BDC75012BF4511A005A52E7 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotMeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,7 @@
 				0BA43A542BFC861C0014EDFA /* PhotoDataModel.swift */,
 				0BA43A562BFC898D0014EDFA /* GridItemView.swift */,
 				0BA43A5A2BFC8E270014EDFA /* PhotoGridView.swift */,
+				0BA43A662C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift */,
 				0BA43A5C2BFC9B970014EDFA /* PhotoDetailView.swift */,
 				0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */,
 				0BF748EF2BDA797F005273C7 /* ContentView.swift */,
@@ -160,6 +165,7 @@
 				0BDC74FF2BF3C612005A52E7 /* Agent.swift */,
 				0BA43A602C00AD5D0014EDFA /* AudioView.swift */,
 				0BA43A4E2BF885290014EDFA /* Constants.swift */,
+				0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */,
 			);
 			path = spotMeSwiftUI;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA43A672C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift in Sources */,
 				0BF748F02BDA797F005273C7 /* ContentView.swift in Sources */,
 				0BF749242BDA8514005273C7 /* FrameManager.swift in Sources */,
 				0BA43A632C00C7C30014EDFA /* AudioViewModel.swift in Sources */,
@@ -314,6 +321,7 @@
 				0BDC75022BF4511A005A52E7 /* TestView.swift in Sources */,
 				0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */,
 				0B5E46762BF3561700E10F91 /* CoachView.swift in Sources */,
+				0BA43A652C034EDE0014EDFA /* CoachViewModel.swift in Sources */,
 				0BA43A532BFC85220014EDFA /* PhotoItem.swift in Sources */,
 				0BA43A5D2BFC9B970014EDFA /* PhotoDetailView.swift in Sources */,
 				0BF749282BDAB3F4005273C7 /* CamViewModel.swift in Sources */,

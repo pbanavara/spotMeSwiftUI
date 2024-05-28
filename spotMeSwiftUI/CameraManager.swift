@@ -11,6 +11,7 @@ class CameraManager: ObservableObject {
     @Published var error: CameraError?
     @Published var cameraStatus: String?
     let session = AVCaptureSession()
+    let DESIRED_FPS:Int32 = 30
     private let sessionQueue = DispatchQueue(label :"cameraQueue")
     private let videoOutput = AVCaptureVideoDataOutput()
     private var status = Status.uncofigured
@@ -88,6 +89,18 @@ class CameraManager: ObservableObject {
         let device = AVCaptureDevice.default(.builtInWideAngleCamera,
                                              for: .video,
                                              position: .front)
+        do {
+            try device?.lockForConfiguration()
+            let supporrtedFrameRanges = device?.activeFormat.videoSupportedFrameRateRanges.first
+
+            // Then use it, note that only fall back to bestFrameRateRange if supporrtedFrameRanges is nil.
+            device?.activeVideoMinFrameDuration = supporrtedFrameRanges?.minFrameDuration ?? CMTimeMake(value: 1, timescale: DESIRED_FPS)
+            device?.activeVideoMaxFrameDuration = supporrtedFrameRanges?.maxFrameDuration ?? CMTimeMake(value: 1, timescale: DESIRED_FPS)
+            device?.unlockForConfiguration()
+        } catch {
+            NSLog(error.localizedDescription.debugDescription)
+        }
+        
         guard let camera = device else {
             set(error: .cameraUnavailable)
             status = .failed

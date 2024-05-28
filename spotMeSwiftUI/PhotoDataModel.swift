@@ -17,9 +17,17 @@ class PhotoDataModel: ObservableObject {
             let docUrls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let documentDirectory = docUrls[0]
             do {
-                let urls = try FileManager.default.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: .none)
+                let urls = try FileManager.default.contentsOfDirectory(at: documentDirectory,
+                                                                       includingPropertiesForKeys: [.contentModificationDateKey],
+                                                                       options: [.skipsHiddenFiles])
+                    .sorted(by: {
+                        let date0 = try $0.promisedItemResourceValues(forKeys:[.contentModificationDateKey]).contentModificationDate!
+                        let date1 = try $1.promisedItemResourceValues(forKeys:[.contentModificationDateKey]).contentModificationDate!
+                        return date0.compare(date1) == .orderedDescending
+                    })
                 for url in urls {
                     if url.isVideo {
+                        // simplest if URL starts with 
                         let item = PhotoItem(url: url)
                         items.append(item)
                     }

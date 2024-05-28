@@ -13,7 +13,7 @@ class Agent: ObservableObject {
     @Published var chatResponse = ""
     @Published var shouldRecord = false
     var numSamples = 0.0
-    let samplesLimit = 100.0
+    let samplesLimit = 50.0
     var prevHipAngle = 180.0
     let prevKneeAngle = 0.0
     let onnxPoseUtils: OnnxPoseUtils = OnnxPoseUtils.sharedOnnx
@@ -29,7 +29,6 @@ class Agent: ObservableObject {
         onnxPoseUtils.$hingeAngles.receive(on: DispatchQueue.main)
             .compactMap { angleDict in
                 let hipAngle = angleDict[BodyAngleContants.HIP_HINGE_ANGLE]
-                
                 self.numSamples += 1
                 if (self.numSamples == self.samplesLimit) {
                     self.numSamples = 0
@@ -51,12 +50,15 @@ class Agent: ObservableObject {
     
     func calculateCorrectPosition(promptDict: Dictionary<String, Double>) {
         if let hipHingeAngle = promptDict[BodyAngleContants.HIP_HINGE_ANGLE] {
+            let hipDelta = abs(hipHingeAngle - prevHipAngle)
             if (hipHingeAngle > CorrectHipHingeConstants.CORRECT_HIP_L && hipHingeAngle <= CorrectHipHingeConstants.CORRECT_HIP_R) {
-                    self.chatResponse = "Hip hinge angle in correct position please lower your body until you can reach the kettle bell, grab the kettle bell and move back up straight"
-                } else if (hipHingeAngle > 90.0) {
-                    self.chatResponse = "Please bend your back forward keeping the back straight, do not curl shoulders"
-                } else if (hipHingeAngle < 70.0) {
-                    self.chatResponse = "You have bent too much please raise your back, keep looking forward."
+                    self.chatResponse = "Perfect hip hinge. Lower your body until you can reach the kettle bell, grab the kettle bell and move back up straight"
+                } else if (hipHingeAngle > 90.0 && hipDelta >= 10) {
+                    prevHipAngle = hipHingeAngle
+                    self.chatResponse = "Vertical back, bend your knees a bit and lean forward "
+                } else if (hipHingeAngle < 70.0 && hipDelta >= 10) {
+                    self.chatResponse = "Excessive forward lean, lean backwards a bit"
+                    prevHipAngle = hipHingeAngle
                 }
         }
     }
