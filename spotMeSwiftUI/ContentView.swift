@@ -15,7 +15,7 @@ struct ContentView: View {
             CoachView().tabItem {
                 Label("Workout now", systemImage: "figure.strengthtraining.functional")
             }.tag("workoutNow")
-            PhotoGridView().environmentObject(PhotoDataModel()).tabItem { Label("Past workouts", systemImage: "photo.stack.fill") }.tag("history")
+            PhotoGridView().environmentObject(PhotoDataModel.shared).tabItem { Label("Past workouts", systemImage: "photo.stack.fill") }.tag("history")
         }.onChange(of: selectedTab){ value in
             if (value == "workoutNow") {
                 CameraManager.shared.configure()

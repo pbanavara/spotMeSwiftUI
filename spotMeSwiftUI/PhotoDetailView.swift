@@ -13,17 +13,20 @@ struct PhotoDetailView: View {
 
     var body: some View {
         VStack {
-            let player = AVPlayer(url: item.url)
+            if let url = item.url {
+                let player = AVPlayer(url: url)
+            
             VideoPlayer(player: player)
                 .onAppear{
                       if player.currentItem == nil {
-                          let item = AVPlayerItem(url: item.url)
+                          let item = AVPlayerItem(url: url)
                             player.replaceCurrentItem(with: item)
                         }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                             player.play()
                         })
                     }
+            }
         }
     }
 }

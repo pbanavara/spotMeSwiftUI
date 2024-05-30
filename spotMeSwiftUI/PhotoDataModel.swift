@@ -8,11 +8,12 @@
 import Foundation
 
 class PhotoDataModel: ObservableObject {
-    
-    
     @Published var items:[PhotoItem] = []
+    @Published var filteredItems:[PhotoItem] = []
     
-    init() {
+    static let shared  = PhotoDataModel()
+    
+    private init() {
         if !FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).isEmpty {
             let docUrls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let documentDirectory = docUrls[0]
@@ -27,8 +28,23 @@ class PhotoDataModel: ObservableObject {
                     })
                 for url in urls {
                     if url.isVideo {
-                        // simplest if URL starts with 
-                        let item = PhotoItem(url: url)
+                        // simplest if URL contains the constant in the filename assign the workouttype to item
+                        var item = PhotoItem()
+                        item.url = url
+                        let urlString = url.absoluteString
+                        
+                        if urlString.localizedLowercase.contains("kettlebellswing".localizedLowercase) {
+                            item.workoutType = KBWorkoutConstants.KB_SWING
+                        }
+                        else if urlString.localizedLowercase.contains("kettlebellsquat".localizedLowercase) {
+                            item.workoutType = KBWorkoutConstants.KB_SQUAT
+                        }
+                        else if urlString.localizedLowercase.contains("kettlebelldeadlift".localizedLowercase) {
+                            item.workoutType = KBWorkoutConstants.KB_DEAD_LIFT
+                        }
+                        else if urlString.localizedLowercase.contains("general".localizedLowercase) {
+                            item.workoutType = KBWorkoutConstants.GEN_WORKOUT
+                        }
                         items.append(item)
                     }
                 }
@@ -39,7 +55,8 @@ class PhotoDataModel: ObservableObject {
         if let urls = Bundle.main.urls(forResourcesWithExtension: "mov", subdirectory: nil) {
             for url in urls {
                 if url.isVideo {
-                    let item = PhotoItem(url: url)
+                    var item = PhotoItem()
+                    item.url = url
                     items.append(item)
                 }
             }
@@ -64,7 +81,7 @@ class PhotoDataModel: ObservableObject {
         if let removeIndex = items.firstIndex(of: item) {
             items.remove(at: removeIndex)
             do {
-                try FileManager.default.removeItem(at: item.url)
+                try FileManager.default.removeItem(at: item.url!)
             } catch {
                 NSLog(error.localizedDescription)
             }

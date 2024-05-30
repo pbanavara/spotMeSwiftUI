@@ -14,9 +14,9 @@ class Agent: ObservableObject {
     @Published var shouldRecord = false
     var numSamples = 0.0
     let samplesLimit = 50.0
-    var prevHipAngle = 180.0
-    let prevKneeAngle = 0.0
     let onnxPoseUtils: OnnxPoseUtils = OnnxPoseUtils.sharedOnnx
+    var prevChatResponse = ""
+    var currentChatResponse = ""
     //let audioManager = AudioFeedbackManager.shared
     
     static let shared = Agent()
@@ -31,10 +31,6 @@ class Agent: ObservableObject {
                 let hipAngle = angleDict[BodyAngleContants.HIP_HINGE_ANGLE]
                 self.numSamples += 1
                 if (self.numSamples == self.samplesLimit) {
-                    self.numSamples = 0
-                    
-                    //if (hipAngle - self.prevHipAngle > 10) {
-                    self.prevHipAngle = hipAngle!
                     self.numSamples = 0.0
                     let prompt = "Hip hinge angle is " + String(angleDict[BodyAngleContants.HIP_HINGE_ANGLE]!)
                     + "Knee hip angle is " + String(angleDict[BodyAngleContants.KNEE_HIP_ANGLE]!)
@@ -42,7 +38,6 @@ class Agent: ObservableObject {
                     promptDict["user"] = "user1"
                     //self.postSamples(angles: promptDict)
                     self.calculateCorrectPosition(promptDict: angleDict)
-                    //}
                 }
                 return angleDict["hipHingeAngle"]
             }.assign(to: &$angle)
@@ -50,17 +45,32 @@ class Agent: ObservableObject {
     
     func calculateCorrectPosition(promptDict: Dictionary<String, Double>) {
         if let hipHingeAngle = promptDict[BodyAngleContants.HIP_HINGE_ANGLE] {
-            let hipDelta = abs(hipHingeAngle - prevHipAngle)
             if (hipHingeAngle > CorrectHipHingeConstants.CORRECT_HIP_L && hipHingeAngle <= CorrectHipHingeConstants.CORRECT_HIP_R) {
-                    self.chatResponse = "Perfect hip hinge. Lower your body until you can reach the kettle bell, grab the kettle bell and move back up straight"
-                } else if (hipHingeAngle > 90.0 && hipDelta >= 10) {
-                    prevHipAngle = hipHingeAngle
-                    self.chatResponse = "Vertical back, bend your knees a bit and lean forward "
-                } else if (hipHingeAngle < 70.0 && hipDelta >= 10) {
-                    self.chatResponse = "Excessive forward lean, lean backwards a bit"
-                    prevHipAngle = hipHingeAngle
+                    currentChatResponse = "Perfect hip hinge. Lower your body until you can reach the kettle bell, grab the kettle bell and move back up straight"
+                    if prevChatResponse != currentChatResponse {
+                        prevChatResponse = currentChatResponse
+                        self.chatResponse = currentChatResponse
+                        return
+                    }
+                } else if (hipHingeAngle > 90.0) {
+                    currentChatResponse = "Vertical back, keep bending your knees and lean forward "
+                    if prevChatResponse != currentChatResponse {
+                        prevChatResponse = currentChatResponse
+                        self.chatResponse = currentChatResponse
+                        return
+                    }
+                    
+                } else if (hipHingeAngle < 70.0) {
+                    currentChatResponse = "Excessive forward lean, lean backwards a bit"
+                    if prevChatResponse != currentChatResponse {
+                        prevChatResponse = currentChatResponse
+                        self.chatResponse = currentChatResponse
+                        return
+                    }
+                    
                 }
         }
+        self.chatResponse = ""
     }
     
     func postSamples(angles: Dictionary<String, String>) {

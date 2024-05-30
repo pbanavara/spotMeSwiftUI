@@ -9,8 +9,14 @@ import SwiftUI
 
 struct PhotoItem: Identifiable {
     let id = UUID()
-    let url: URL
+    var url: URL?
+    var workoutType: String
     //let annotationTextPath: String?
+    
+    init() {
+        workoutType = KBWorkoutConstants.KB_DEAD_LIFT
+        url = nil
+    }
 }
 
 extension PhotoItem: Equatable {

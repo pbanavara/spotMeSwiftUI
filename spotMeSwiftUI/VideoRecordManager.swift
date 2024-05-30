@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import Combine
 
 class VideoRecordManager: ObservableObject {
     private var _captureState: CaptureState?
@@ -20,6 +21,8 @@ class VideoRecordManager: ObservableObject {
     private var _adapter: AVAssetWriterInputPixelBufferAdaptor?
     
     //static let shared = VideoRecordManager()
+    
+    var photoModel = CoachViewModel.shared
     
     init() {
         startProcessing()
@@ -57,7 +60,8 @@ class VideoRecordManager: ObservableObject {
     private func setupRecorder(timestamp: Double) {
         //assetWriterQueue.async {
         print("Initiated recorder")
-        self._filename = UUID().uuidString
+        
+        self._filename = photoModel.selectedWorkout.replacingOccurrences(of: " ", with: "") + UUID().uuidString
         let videoPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
         let writer = try! AVAssetWriter(outputURL: videoPath, fileType: .mov)
         let settings = CameraManager.shared.getVideoOutputSettings()

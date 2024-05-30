@@ -26,17 +26,11 @@ struct GridItemView: View {
     
     var body: some View {
         ZStack (alignment: .topTrailing) {
-            if let image = videoPreviewImage(url: item.url) {
-                Image(uiImage: image).resizable().scaledToFill().frame(width:size, height: size)
+            if let url = item.url {
+                if let image = videoPreviewImage(url: url) {
+                    Image(uiImage: image).resizable().scaledToFill().frame(width:size, height: size)
+                }
             }
-        }
-    }
-}
-
-struct GridItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        if let url = Bundle.main.url(forResource: "IMG_8341", withExtension: "mov") {
-            GridItemView(size: 50, item: PhotoItem(url: url))
         }
     }
 }

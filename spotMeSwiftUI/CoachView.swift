@@ -20,7 +20,7 @@ struct CoachView: View {
                     ForEach(coachModel.workouts, id: \.self) { workout in
                         Text(workout)
                     }
-                }.onAppear() {
+                }.onChange(of: selectedWorkout) {
                     coachModel.selectedWorkout = selectedWorkout
                 }
                 if let descr = coachModel.workoutDescriptionDict[selectedWorkout] {

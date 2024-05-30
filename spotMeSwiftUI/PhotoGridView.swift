@@ -24,7 +24,6 @@ struct PhotoGridView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack {
                     ScrollView {
                         LazyVGrid(columns: gridColumns) {
                             ForEach(dataModel.items) { item in
@@ -48,12 +47,12 @@ struct PhotoGridView: View {
                                                     .foregroundStyle(.white, .red)
                                             }
                                         }
+                                    }.overlay(alignment:.bottom) {
+                                        Text(item.workoutType).fontWeight(.light).font(.caption)
                                     }
                             }
                         }.padding()
                     }
-                    PhotoGridChooseCapsuleView()
-                }
             }
             .navigationBarTitle("Past workout videos")
             .navigationBarTitleDisplayMode(.inline)
@@ -72,7 +71,7 @@ struct PhotoGridView: View {
 
 struct GridView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoGridView().environmentObject(PhotoDataModel())
+        PhotoGridView().environmentObject(PhotoDataModel.shared)
             .previewDevice("iPad (8th generation)")
     }
 }
