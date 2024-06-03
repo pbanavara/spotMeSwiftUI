@@ -10,6 +10,7 @@
 		0B5E46742BF2006E00E10F91 /* VideoRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */; };
 		0B5E46762BF3561700E10F91 /* CoachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E46752BF3561700E10F91 /* CoachView.swift */; };
 		0B8A6BC82C0727C400FD6785 /* PhotoGridChooseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8A6BC72C0727C400FD6785 /* PhotoGridChooseViewModel.swift */; };
+		0B96516F2C0A329900A0BDEA /* kettlebell.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0B96516E2C0A329900A0BDEA /* kettlebell.svg */; };
 		0BA43A4F2BF885290014EDFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A4E2BF885290014EDFA /* Constants.swift */; };
 		0BA43A532BFC85220014EDFA /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A522BFC85220014EDFA /* PhotoItem.swift */; };
 		0BA43A552BFC861C0014EDFA /* PhotoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A542BFC861C0014EDFA /* PhotoDataModel.swift */; };
@@ -20,6 +21,9 @@
 		0BA43A632C00C7C30014EDFA /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */; };
 		0BA43A652C034EDE0014EDFA /* CoachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */; };
 		0BA43A672C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A662C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift */; };
+		0BD77FEE2C08548D005BF7A9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD77FED2C08548D005BF7A9 /* OnboardingView.swift */; };
+		0BD77FF22C09A58F005BF7A9 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD77FF12C09A58F005BF7A9 /* OnboardingViewModel.swift */; };
+		0BD77FF42C09AA4C005BF7A9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD77FF32C09AA4C005BF7A9 /* MainView.swift */; };
 		0BDC75002BF3C612005A52E7 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC74FF2BF3C612005A52E7 /* Agent.swift */; };
 		0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */; };
 		0BF748F02BDA797F005273C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF748EF2BDA797F005273C7 /* ContentView.swift */; };
@@ -50,6 +54,7 @@
 		0B5E467B2BF3847300E10F91 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5E467D2BF3847300E10F91 /* Pods_spotMeSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_spotMeSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8A6BC72C0727C400FD6785 /* PhotoGridChooseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridChooseViewModel.swift; sourceTree = "<group>"; };
+		0B96516E2C0A329900A0BDEA /* kettlebell.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kettlebell.svg; sourceTree = "<group>"; };
 		0BA43A4E2BF885290014EDFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0BA43A522BFC85220014EDFA /* PhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
 		0BA43A542BFC861C0014EDFA /* PhotoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataModel.swift; sourceTree = "<group>"; };
@@ -60,6 +65,9 @@
 		0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachViewModel.swift; sourceTree = "<group>"; };
 		0BA43A662C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridChooseCapsuleView.swift; sourceTree = "<group>"; };
+		0BD77FED2C08548D005BF7A9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		0BD77FF12C09A58F005BF7A9 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		0BD77FF32C09AA4C005BF7A9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0BDC74FF2BF3C612005A52E7 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotMeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotMeSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */,
+				0BD77FED2C08548D005BF7A9 /* OnboardingView.swift */,
 				0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */,
 				0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */,
 				0BA43A522BFC85220014EDFA /* PhotoItem.swift */,
@@ -147,12 +156,14 @@
 				0BA43A5C2BFC9B970014EDFA /* PhotoDetailView.swift */,
 				0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */,
 				0BF748EF2BDA797F005273C7 /* ContentView.swift */,
+				0BD77FF32C09AA4C005BF7A9 /* MainView.swift */,
 				0BF7494E2BE50D15005273C7 /* Models */,
 				0BF7491B2BDA8060005273C7 /* CameraManager.swift */,
 				0BF749232BDA8514005273C7 /* FrameManager.swift */,
 				0BF749272BDAB3F4005273C7 /* CamViewModel.swift */,
 				0BF7491F2BDA8202005273C7 /* CameraError.swift */,
 				0BF748F12BDA797F005273C7 /* Assets.xcassets */,
+				0B96516E2C0A329900A0BDEA /* kettlebell.svg */,
 				0BF748F32BDA797F005273C7 /* Preview Content */,
 				0BF749172BDA7CDD005273C7 /* CamView.swift */,
 				0BF749302BDAD184005273C7 /* PoseModel.swift */,
@@ -163,6 +174,7 @@
 				0BA43A602C00AD5D0014EDFA /* AudioView.swift */,
 				0BA43A4E2BF885290014EDFA /* Constants.swift */,
 				0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */,
+				0BD77FF12C09A58F005BF7A9 /* OnboardingViewModel.swift */,
 			);
 			path = spotMeSwiftUI;
 			sourceTree = "<group>";
@@ -263,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B96516F2C0A329900A0BDEA /* kettlebell.svg in Resources */,
 				0BF748F52BDA797F005273C7 /* Preview Assets.xcassets in Resources */,
 				0BF749352BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */,
 				0BF748F22BDA797F005273C7 /* Assets.xcassets in Resources */,
@@ -314,8 +327,11 @@
 				0BA43A552BFC861C0014EDFA /* PhotoDataModel.swift in Sources */,
 				0BF749182BDA7CDD005273C7 /* CamView.swift in Sources */,
 				0BF7495E2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */,
+				0BD77FF42C09AA4C005BF7A9 /* MainView.swift in Sources */,
+				0BD77FEE2C08548D005BF7A9 /* OnboardingView.swift in Sources */,
 				0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */,
 				0B5E46762BF3561700E10F91 /* CoachView.swift in Sources */,
+				0BD77FF22C09A58F005BF7A9 /* OnboardingViewModel.swift in Sources */,
 				0BA43A652C034EDE0014EDFA /* CoachViewModel.swift in Sources */,
 				0BA43A532BFC85220014EDFA /* PhotoItem.swift in Sources */,
 				0BA43A5D2BFC9B970014EDFA /* PhotoDetailView.swift in Sources */,

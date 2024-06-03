@@ -11,6 +11,7 @@ struct PhotoItem: Identifiable {
     let id = UUID()
     var url: URL?
     var workoutType: String
+    var createdAt: Date?
     //let annotationTextPath: String?
     
     init() {

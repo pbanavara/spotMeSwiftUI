@@ -174,25 +174,26 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         drawSpecificLine(context: context, kp1_x: left_knee_x, kp1_y: left_knee_y, kp2_x: left_ankle_x, kp2_y: left_ankle_y, color: UIColor.white, lineWidth: 3.0)
         
         //Draw specific line - Right shoulder to right hip
+        /*
         let right_shoulder_x = keypoints[18]
         let right_shoulder_y = keypoints[19]
         let right_hip_x = keypoints[36]
         let right_hip_y = keypoints[37]
-        //drawSpecificLine(context: context, kp1_x: right_shoulder_x, kp1_y: right_shoulder_y, kp2_x: right_hip_x, kp2_y: right_hip_y, color: UIColor.black)
+        drawSpecificLine(context: context, kp1_x: right_shoulder_x, kp1_y: right_shoulder_y, kp2_x: right_hip_x, kp2_y: right_hip_y, color: UIColor.black)
         
-        //Draw specific line - Right hip to right knee and right knee to right ankle
+        Draw specific line - Right hip to right knee and right knee to right ankle
         let right_knee_x = keypoints[42]
         let right_knee_y = keypoints[43]
-        //drawSpecificLine(context: context, kp1_x: right_hip_x, kp1_y: right_hip_y, kp2_x: right_knee_x, kp2_y: right_knee_y, color: UIColor.blue)
+        drawSpecificLine(context: context, kp1_x: right_hip_x, kp1_y: right_hip_y, kp2_x: right_knee_x, kp2_y: right_knee_y, color: UIColor.blue)
         let right_ankle_x = keypoints[48]
         let right_ankle_y = keypoints[49]
-        //drawSpecificLine(context: context, kp1_x: right_knee_x, kp1_y: right_knee_y, kp2_x: right_ankle_x, kp2_y: right_ankle_y, color: UIColor.blue)
+        drawSpecificLine(context: context, kp1_x: right_knee_x, kp1_y: right_knee_y, kp2_x: right_ankle_x, kp2_y: right_ankle_y, color: UIColor.blue)
         let right_knee_hip_angle_x = right_knee_x - right_hip_x
         let right_knee_hip_angle_y = right_knee_y - right_hip_y
         
         let right_hip_shoulder_angle_x = right_hip_x - right_shoulder_x
         let right_hip_shoulder_angle_y = right_hip_y - right_shoulder_y
-        
+        */
         let left_knee_hip_angle_x = left_knee_x - left_hip_x
         let left_knee_hip_angle_y = left_knee_y - left_hip_y
         
@@ -211,15 +212,20 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         self.hingeAngles[BodyAngleContants.KNEE_HIP_ANGLE] = knee_hinge
         
         // Write the hip hinge into text
-        drawTextInImage(hip_hinge: Double(hip_hinge), correctPosition: "", image: image)
+        drawTextInImage(hip_hinge: Double(hip_hinge), correctPosition: "", image: image, textColor: UIColor.white)
         
         if (hip_hinge >= CorrectHipHingeConstants.CORRECT_HIP_L && hip_hinge <= CorrectHipHingeConstants.CORRECT_HIP_R) {
             drawSpecificLine(context: context, kp1_x: left_hip_x, kp1_y: left_hip_y, 
-                             kp2_x: left_knee_x, kp2_y: left_knee_y, color: UIColor.green, lineWidth: 4.0)
+                             kp2_x: left_knee_x, kp2_y: left_knee_y, color: UIColor.green, lineWidth: 5.0)
             drawSpecificLine(context: context, kp1_x: left_hip_x, kp1_y: left_hip_y,
-                             kp2_x: left_shoulder_x, kp2_y: left_shoulder_y, color: UIColor.green, lineWidth: 4.0)
+                             kp2_x: left_shoulder_x, kp2_y: left_shoulder_y, color: UIColor.green, lineWidth: 5.0)
+            drawSpecificLine(context: context, kp1_x: left_knee_x, kp1_y: left_knee_y,
+                             kp2_x: left_ankle_x, kp2_y: left_ankle_y, color: UIColor.green, lineWidth: 5.0)
             //textToSpeech(str: "Hip hinge/angle perfect, hold this position and bend your knees till you reach the kettlebell. Get up straight to finish.")
-            drawTextInImage(hip_hinge: Double(hip_hinge), correctPosition: "Hip hinge angle in correct position please lower your hip and grab the kettle bell", image: image)
+            drawTextInImage(hip_hinge: Double(hip_hinge), 
+                            correctPosition: "Perfect hip hinge.\nLower your body until you can reach the kettle bell, grab the kettle bell and move back up.\nSqueeze your glutes and maintain hip hinge", 
+                            image: image,
+                            textColor: UIColor.green)
         }
         
         image = UIGraphicsGetImageFromCurrentImageContext()!
@@ -239,8 +245,7 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         return UIImage(cgImage: thumbnailImage)
     }
     
-    private func drawTextInImage(hip_hinge: Double, correctPosition: String, image: UIImage) {
-        let textColor = UIColor.white
+    private func drawTextInImage(hip_hinge: Double, correctPosition: String, image: UIImage, textColor: UIColor) {
         let textFont = UIFont(name: "Helvetica", size: 50)!
         let textFontAttributes = [
             NSAttributedString.Key.font: textFont,

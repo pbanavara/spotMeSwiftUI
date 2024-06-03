@@ -39,6 +39,10 @@ struct CamView: View {
                         }.frame(width: 50.0, height: 50.0).padding(.bottom, 30)
                     }
                 AudioView().background(.gray)
+            }.onAppear() {
+                UIApplication.shared.isIdleTimerDisabled = false
+            }.onDisappear() {
+                UIApplication.shared.isIdleTimerDisabled = true
             }
             
             
@@ -57,7 +61,7 @@ struct CamView: View {
              }
              }
              */
-            Text("Model loading please wait")
+            Text("Model loading...")
             ProgressView()
         }
     }

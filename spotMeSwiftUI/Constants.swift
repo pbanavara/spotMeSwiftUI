@@ -22,6 +22,6 @@ enum BackendResponseConstants {
 }
 
 enum CorrectHipHingeConstants {
-    static let CORRECT_HIP_L = 80.0
-    static let CORRECT_HIP_R = 110.0
+    static let CORRECT_HIP_L = 70.0
+    static let CORRECT_HIP_R = 90.0
 }

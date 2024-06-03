@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import Combine
+import SwiftUI
 
 class VideoRecordManager: ObservableObject {
     private var _captureState: CaptureState?
@@ -19,6 +20,7 @@ class VideoRecordManager: ObservableObject {
     private var _assetWriter: AVAssetWriter?
     private var _assetWriterInput: AVAssetWriterInput?
     private var _adapter: AVAssetWriterInputPixelBufferAdaptor?
+    private var photoViewModel = PhotoDataModel.shared
     
     //static let shared = VideoRecordManager()
     
@@ -60,8 +62,7 @@ class VideoRecordManager: ObservableObject {
     private func setupRecorder(timestamp: Double) {
         //assetWriterQueue.async {
         print("Initiated recorder")
-        
-        self._filename = photoModel.selectedWorkout.replacingOccurrences(of: " ", with: "") + UUID().uuidString
+        self._filename = UUID().uuidString + photoModel.selectedWorkout.replacingOccurrences(of: " ", with: "")
         let videoPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
         let writer = try! AVAssetWriter(outputURL: videoPath, fileType: .mov)
         let settings = CameraManager.shared.getVideoOutputSettings()
@@ -111,36 +112,37 @@ class VideoRecordManager: ObservableObject {
     }
     
     func recordVideo(result: UIImage) {
-        let timestamp = CACurrentMediaTime()
-        switch self._captureState {
-        case .start:
-            self.setupRecorder(timestamp: timestamp)
-            self._captureState = .capturing
-        case .capturing:
-            if self._assetWriterInput?.isReadyForMoreMediaData == true {
-                let time = CMTime(seconds: timestamp - self._time, preferredTimescale: CMTimeScale(600))
-                let pixelBuffer = bufferFromImage(image: result)
-                self._adapter?.append(pixelBuffer!, withPresentationTime: time)
-                //print("Processing video")
+        
+            let timestamp = CACurrentMediaTime()
+            switch self._captureState {
+            case .start:
+                self.setupRecorder(timestamp: timestamp)
+                self._captureState = .capturing
+            case .capturing:
+                if self._assetWriterInput?.isReadyForMoreMediaData == true {
+                    let time = CMTime(seconds: timestamp - self._time, preferredTimescale: CMTimeScale(600))
+                    let pixelBuffer = self.bufferFromImage(image: result)
+                    self._adapter?.append(pixelBuffer!, withPresentationTime: time)
+                    //print("Processing video")
+                }
+                break
+                
+            case .end:
+                self._captureState = .idle
+                guard self._assetWriterInput?.isReadyForMoreMediaData == true, self._assetWriter!.status != .failed else { break }
+                let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
+                
+                self._assetWriterInput?.markAsFinished()
+                self._assetWriter?.finishWriting { [weak self] in
+                    print("Video successfully written at \(url.absoluteString)")
+                    self?._captureState = .idle
+                    self?._assetWriter = nil
+                    self?._assetWriterInput = nil
+                    self?.photoViewModel.loadUrls()
+                }
+            default:
+                break
             }
-            break
-            
-        case .end:
-            self._captureState = .idle
-            guard self._assetWriterInput?.isReadyForMoreMediaData == true, self._assetWriter!.status != .failed else { break }
-            let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
-            
-            self._assetWriterInput?.markAsFinished()
-            self._assetWriter?.finishWriting { [weak self] in
-                print("Video successfully written at \(url.absoluteString)")
-                self?._captureState = .idle
-                self?._assetWriter = nil
-                self?._assetWriterInput = nil
-            }
-        default:
-            break
-        }
     }
-    
     
 }

@@ -24,35 +24,35 @@ struct PhotoGridView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                    ScrollView {
-                        LazyVGrid(columns: gridColumns) {
-                            ForEach(dataModel.items) { item in
-                                GeometryReader { geo in
-                                    NavigationLink(destination:
-                                                    PhotoDetailView(item: item)) {
-                                        GridItemView(size: geo.size.width, item: item)
-                                    }
-                                }.cornerRadius(8.0)
-                                    .aspectRatio(1, contentMode: .fill)
-                                    .overlay(alignment: .topTrailing) {
-                                        if isEditing {
-                                            Button {
-                                                withAnimation {
-                                                    dataModel.removeItem(item)
-                                                }
-                                            } label: {
-                                                Image(systemName: "xmark.square.fill")
-                                                    .font(Font.title)
-                                                    .symbolRenderingMode(.palette)
-                                                    .foregroundStyle(.white, .red)
+                ScrollView {
+                    LazyVGrid(columns: gridColumns) {
+                        ForEach(dataModel.items) { item in
+                            GeometryReader { geo in
+                                NavigationLink(destination:
+                                                PhotoDetailView(item: item)) {
+                                    GridItemView(size: geo.size.width, item: item)
+                                }
+                            }.cornerRadius(8.0)
+                                .aspectRatio(1, contentMode: .fill)
+                                .overlay(alignment: .topTrailing) {
+                                    if isEditing {
+                                        Button {
+                                            withAnimation {
+                                                dataModel.removeItem(item)
                                             }
+                                        } label: {
+                                            Image(systemName: "xmark.square.fill")
+                                                .font(Font.title)
+                                                .symbolRenderingMode(.palette)
+                                                .foregroundStyle(.white, .red)
                                         }
-                                    }.overlay(alignment:.bottom) {
-                                        Text(item.workoutType).fontWeight(.light).font(.caption)
                                     }
-                            }
-                        }.padding()
-                    }
+                                }.overlay(alignment:.bottom) {
+                                    Text(item.workoutType).fontWeight(.light).font(.caption)
+                                }
+                        }
+                    }.padding()
+                }
             }
             .navigationBarTitle("Past workout videos")
             .navigationBarTitleDisplayMode(.inline)
@@ -64,6 +64,8 @@ struct PhotoGridView: View {
                 }
             }
             
+        }.onAppear() {
+            dataModel.loadUrls()
         }
         
     }

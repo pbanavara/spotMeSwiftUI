@@ -10,19 +10,18 @@ import AVKit
 
 struct PhotoDetailView: View {
     let item: PhotoItem
-
     var body: some View {
         VStack {
             if let url = item.url {
                 let player = AVPlayer(url: url)
-            
-            VideoPlayer(player: player)
-                .onAppear{
-                      if player.currentItem == nil {
-                          let item = AVPlayerItem(url: url)
+                Text(item.createdAt!.formatted())
+                VideoPlayer(player: player)
+                    .onAppear{
+                        if player.currentItem == nil {
+                            let item = AVPlayerItem(url: url)
                             player.replaceCurrentItem(with: item)
                         }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                             player.play()
                         })
                     }

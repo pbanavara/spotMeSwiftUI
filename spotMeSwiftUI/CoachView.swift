@@ -31,7 +31,7 @@ struct CoachView: View {
             }
             NavigationLink("Start camera") {
                 CamView()
-            }.navigationTitle("Kettlebell Workout").navigationBarTitleDisplayMode(.inline).padding()
+            }.navigationTitle("Choose your Kettlebell Workout ").navigationBarTitleDisplayMode(.inline).padding()
             
         }
     }

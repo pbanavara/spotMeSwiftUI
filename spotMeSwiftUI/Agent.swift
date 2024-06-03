@@ -28,7 +28,6 @@ class Agent: ObservableObject {
     func processVideoOutputText() {
         onnxPoseUtils.$hingeAngles.receive(on: DispatchQueue.main)
             .compactMap { angleDict in
-                let hipAngle = angleDict[BodyAngleContants.HIP_HINGE_ANGLE]
                 self.numSamples += 1
                 if (self.numSamples == self.samplesLimit) {
                     self.numSamples = 0.0
@@ -46,22 +45,22 @@ class Agent: ObservableObject {
     func calculateCorrectPosition(promptDict: Dictionary<String, Double>) {
         if let hipHingeAngle = promptDict[BodyAngleContants.HIP_HINGE_ANGLE] {
             if (hipHingeAngle > CorrectHipHingeConstants.CORRECT_HIP_L && hipHingeAngle <= CorrectHipHingeConstants.CORRECT_HIP_R) {
-                    currentChatResponse = "Perfect hip hinge. Lower your body until you can reach the kettle bell, grab the kettle bell and move back up straight"
+                    currentChatResponse = "Perfect hip hinge. Lower your body until you can reach the kettle bell, grab the kettle bell and move back up. Squeeze your glutes and maintain hip hinge"
                     if prevChatResponse != currentChatResponse {
                         prevChatResponse = currentChatResponse
                         self.chatResponse = currentChatResponse
                         return
                     }
-                } else if (hipHingeAngle > 90.0) {
-                    currentChatResponse = "Vertical back, keep bending your knees and lean forward "
+            } else if (hipHingeAngle > CorrectHipHingeConstants.CORRECT_HIP_R) {
+                    currentChatResponse = "You need more lean, keep bending your knees and lean forward, while keeping the back straight "
                     if prevChatResponse != currentChatResponse {
                         prevChatResponse = currentChatResponse
                         self.chatResponse = currentChatResponse
                         return
                     }
                     
-                } else if (hipHingeAngle < 70.0) {
-                    currentChatResponse = "Excessive forward lean, lean backwards a bit"
+            } else if (hipHingeAngle < CorrectHipHingeConstants.CORRECT_HIP_L) {
+                    currentChatResponse = "You have excessive forward lean, please lean backwards a bit"
                     if prevChatResponse != currentChatResponse {
                         prevChatResponse = currentChatResponse
                         self.chatResponse = currentChatResponse
