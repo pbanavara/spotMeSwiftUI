@@ -21,6 +21,7 @@
 		0BA43A632C00C7C30014EDFA /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */; };
 		0BA43A652C034EDE0014EDFA /* CoachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */; };
 		0BA43A672C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA43A662C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift */; };
+		0BD430532C0DDE8B009F7006 /* PoseToJoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD430522C0DDE8B009F7006 /* PoseToJoints.swift */; };
 		0BD77FEE2C08548D005BF7A9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD77FED2C08548D005BF7A9 /* OnboardingView.swift */; };
 		0BD77FF22C09A58F005BF7A9 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD77FF12C09A58F005BF7A9 /* OnboardingViewModel.swift */; };
 		0BD77FF42C09AA4C005BF7A9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD77FF32C09AA4C005BF7A9 /* MainView.swift */; };
@@ -65,11 +66,12 @@
 		0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		0BA43A642C034EDE0014EDFA /* CoachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachViewModel.swift; sourceTree = "<group>"; };
 		0BA43A662C04823B0014EDFA /* PhotoGridChooseCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridChooseCapsuleView.swift; sourceTree = "<group>"; };
+		0BD430522C0DDE8B009F7006 /* PoseToJoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseToJoints.swift; sourceTree = "<group>"; };
 		0BD77FED2C08548D005BF7A9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		0BD77FF12C09A58F005BF7A9 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		0BD77FF32C09AA4C005BF7A9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0BDC74FF2BF3C612005A52E7 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
-		0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotMeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BF748EA2BDA797F005273C7 /* CallindraFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallindraFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotMeSwiftUIApp.swift; sourceTree = "<group>"; };
 		0BF748EF2BDA797F005273C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0BF748F12BDA797F005273C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 		0BF748EB2BDA797F005273C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */,
+				0BF748EA2BDA797F005273C7 /* CallindraFitness.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +147,7 @@
 			children = (
 				0BA43A622C00C7C30014EDFA /* AudioViewModel.swift */,
 				0BD77FED2C08548D005BF7A9 /* OnboardingView.swift */,
+				0BD430522C0DDE8B009F7006 /* PoseToJoints.swift */,
 				0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */,
 				0BF748ED2BDA797F005273C7 /* spotMeSwiftUIApp.swift */,
 				0BA43A522BFC85220014EDFA /* PhotoItem.swift */,
@@ -212,9 +215,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0BF748E92BDA797F005273C7 /* spotMeSwiftUI */ = {
+		0BF748E92BDA797F005273C7 /* CallindraFitness */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0BF7490E2BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUI" */;
+			buildConfigurationList = 0BF7490E2BDA7980005273C7 /* Build configuration list for PBXNativeTarget "CallindraFitness" */;
 			buildPhases = (
 				229A61F4203BE0229130A6D2 /* [CP] Check Pods Manifest.lock */,
 				0BF748E62BDA797F005273C7 /* Sources */,
@@ -225,12 +228,12 @@
 			);
 			dependencies = (
 			);
-			name = spotMeSwiftUI;
+			name = CallindraFitness;
 			packageProductDependencies = (
 				0BF749572BE51DDC005273C7 /* llama */,
 			);
 			productName = spotMeSwiftUI;
-			productReference = 0BF748EA2BDA797F005273C7 /* spotMeSwiftUI.app */;
+			productReference = 0BF748EA2BDA797F005273C7 /* CallindraFitness.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -248,7 +251,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0BF748E52BDA797F005273C7 /* Build configuration list for PBXProject "spotMeSwiftUI" */;
+			buildConfigurationList = 0BF748E52BDA797F005273C7 /* Build configuration list for PBXProject "CallindraFitness" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -265,7 +268,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0BF748E92BDA797F005273C7 /* spotMeSwiftUI */,
+				0BF748E92BDA797F005273C7 /* CallindraFitness */,
 			);
 		};
 /* End PBXProject section */
@@ -337,6 +340,7 @@
 				0BA43A5D2BFC9B970014EDFA /* PhotoDetailView.swift in Sources */,
 				0BF749282BDAB3F4005273C7 /* CamViewModel.swift in Sources */,
 				0BF7491C2BDA8060005273C7 /* CameraManager.swift in Sources */,
+				0BD430532C0DDE8B009F7006 /* PoseToJoints.swift in Sources */,
 				0BF748EE2BDA797F005273C7 /* spotMeSwiftUIApp.swift in Sources */,
 				0BF749392BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */,
 				0B8A6BC82C0727C400FD6785 /* PhotoGridChooseViewModel.swift in Sources */,
@@ -540,7 +544,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0BF748E52BDA797F005273C7 /* Build configuration list for PBXProject "spotMeSwiftUI" */ = {
+		0BF748E52BDA797F005273C7 /* Build configuration list for PBXProject "CallindraFitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0BF7490C2BDA7980005273C7 /* Debug */,
@@ -549,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0BF7490E2BDA7980005273C7 /* Build configuration list for PBXNativeTarget "spotMeSwiftUI" */ = {
+		0BF7490E2BDA7980005273C7 /* Build configuration list for PBXNativeTarget "CallindraFitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0BF7490F2BDA7980005273C7 /* Debug */,

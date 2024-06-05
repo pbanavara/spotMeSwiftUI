@@ -12,7 +12,7 @@ struct ContentView: View {
     @ObservedObject var onboardingModel = OnboardingViewModel.shared
     //let audioManager = AudioFeedbackManager.shared
     var body: some View {
-        MainView()
+       MainView()
     }
 }
 

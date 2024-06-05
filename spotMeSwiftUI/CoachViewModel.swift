@@ -11,7 +11,7 @@ enum KBWorkoutConstants {
     static let KB_DEAD_LIFT = "Kettlebell Deadlift"
     static let KB_SWING = "Kettlebell Swing"
     static let KB_SQUAT = "Kettlebell Squat"
-    static let KB_HALO = "Kettlebell Halo"
+    static let KB_SHOULDER = "Kettlebell Shoulder Press"
     static let GEN_WORKOUT = "General workout"
 }
 

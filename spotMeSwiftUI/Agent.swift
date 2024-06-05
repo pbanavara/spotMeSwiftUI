@@ -32,7 +32,6 @@ class Agent: ObservableObject {
                 if (self.numSamples == self.samplesLimit) {
                     self.numSamples = 0.0
                     let prompt = "Hip hinge angle is " + String(angleDict[BodyAngleContants.HIP_HINGE_ANGLE]!)
-                    + "Knee hip angle is " + String(angleDict[BodyAngleContants.KNEE_HIP_ANGLE]!)
                     var promptDict = [BodyAngleContants.HIP_HINGE_ANGLE: prompt]
                     promptDict["user"] = "user1"
                     //self.postSamples(angles: promptDict)

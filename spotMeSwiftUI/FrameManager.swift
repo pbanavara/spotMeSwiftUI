@@ -10,6 +10,7 @@ import UIKit
 
 class FrameManager:NSObject {
     static let shared = FrameManager()
+    let coachViewModel = CoachViewModel.shared
     let poseUtil = OnnxPoseUtils.sharedOnnx
     var ortSession: ORTSession?
     @Published var current: CVPixelBuffer?
@@ -50,7 +51,7 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
                     let imageData = image.jpegData(compressionQuality: 0.5)
                     ///Following the pub-sub pattern, just invoke the plotPose method
                     ///poseUtil conforms to observable protocol any model/view can observe and take action on the image
-                    self.poseUtil.plotPose(inputData: imageData!, ortSession: self.ortSession!)
+                    self.poseUtil.plotPose(inputData: imageData!, ortSession: self.ortSession!, workoutType: coachViewModel.selectedWorkout)
                 
                 }
             }

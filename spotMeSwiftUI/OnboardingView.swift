@@ -8,181 +8,120 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @State var paths  = [Int]()
-    var body: some View {
-        NavigationStack {
-            Text("Are you new to Kettlebell workouts?").padding()
-            VStack {
-                
-            }
-            HStack {
-                NavigationLink("Yes", destination: StepDemographics()).padding()
-                NavigationLink("No", destination: StepDemographics())
-            }
-        }
-    }
-}
-
-struct StepDemographics: View {
     private var pronouns = ["He", "She", "Them/Their"]
     private var ageRanges = ["18-25", "25-35", "35-45", "45-55", "55+"]
     private var regions = ["North America", "South Asia", "Europe", "APAC"]
     @State private var selectedAgeRange = "18-25"
     @State private var selectedPronoun = "He"
     @State private var selectedRegion: String = "North America"
+    @State private var userEmail: String = ""
+    @State private var userPhone: Double?
+    @State private var strength = false
+    @State private var pushups = false
+    @State private var run5k = false
+    @State private var endurance = false
+    
+    private var countries = ["+1", "+91", "+44"]
+    @State private var selectedCountry: String = ""
+    
+    
     var body: some View {
         NavigationStack {
             VStack {
-                Text("We will collect basic demographics information to personalize your workouts").foregroundStyle(.primary).multilineTextAlignment(.center).padding()
+                Text("Onboarding").foregroundStyle(.primary).multilineTextAlignment(.center).padding()
+                Form {
+                    Section {
+                        TextField(
+                            "Email",
+                            text: $userEmail
+                        )
+                        TextField(
+                            "Phone",
+                            value: $userPhone,
+                            format: .number
+                        )
+                    }
+                    Section {
+                        Picker("Your pronouns", selection: $selectedPronoun) {
+                            ForEach(pronouns, id: \.self) { pronoun in
+                                Text(pronoun)
+                            }
+                        }
+                        Picker("Your age", selection: $selectedAgeRange) {
+                            ForEach(ageRanges, id: \.self) { age in
+                                Text(age)
+                            }
+                        }
+                        Picker("Your location", selection: $selectedRegion) {
+                            ForEach(regions, id: \.self) { region in
+                                Text(region)
+                            }
+                        }
+                    }
+                    Section {
+                        Text("Your goals").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        Toggle("Build Strength", isOn: $strength)
+                        Toggle("Build Endurance", isOn: $endurance)
+                    }
+                    Section {
+                        Text("Current fitness levels")
+                        Toggle("Can do 10 pushups or 3 pullpus", isOn: $pushups)
+                        Toggle("Can run 5k under 40 mins", isOn: $run5k)
+                    }
+                    
+                }
+                
+            }
+        }
+        NavigationLink("Next", destination: StepFinal())
+    }
+}
+
+struct StepFinal: View {
+    @State var onboardingVM = OnboardingViewModel.shared
+    var body: some View {
+        NavigationStack {
+            VStack {
+                List {
+                    HStack {
+                        Text("Starting Workout:")
+                        Text("Kettlebell Swings")
+                    }
+                    HStack {
+                        Text("Starting weight:")
+                        Text("35 lbs")
+                    }
+                    HStack {
+                        Text("Starting reps:")
+                        Text("4-6")
+                    }
+                    HStack {
+                        Text("Next progression:")
+                        Text("In 3-4 weeks")
+                    }
+                    HStack {
+                        Text("Next Weight")
+                        Text("+20%")
+                    }
+                }
+                List {
+                    Text("Why Kettlebells ?")
+                    Text("Because they are portable, simple and engage multiple muscle groups in any given workout. The best ROI in time. 15 to 20 minutes a day is more than enough to achieve your goals.").padding()
+                }
+                List {
+                    Text("Form and efficiency")
+                    Text("The form of every exercise directly drives results. The app will provide audio guidance for maintaining form throughout your workouts. The form is maintained in your recording as well. Serves as a visual progression log.").padding()
+                }
                 Spacer()
-                Text("Your Pronoun")
-                Picker("Please select", selection: $selectedPronoun) {
-                    ForEach(pronouns, id: \.self) { pronoun in
-                        Text(pronoun)
-                    }
-                }
-                .onChange(of: selectedPronoun) {
-                    Text(selectedPronoun)
-                }
-                Text("Your Age")
-                Picker("Please select", selection: $selectedAgeRange) {
-                    ForEach(ageRanges, id: \.self) { age in
-                        Text(age)
-                    }
-                }
-                .onChange(of: selectedAgeRange) {
-                    Text(selectedAgeRange)
-                }
-                Text("Your location")
-                Picker("Please select", selection: $selectedRegion) {
-                    ForEach(regions, id: \.self) { region in
-                        Text(region)
-                    }
-                }.onChange(of: selectedRegion) {
-                    Text(selectedRegion)
-                }
-                Spacer()
-            }
-        }
-        NavigationLink("Next", destination: StepGoal()).padding()
-        
-        
-    }
-}
-
-struct StepGoal: View {
-    var body: some View {
-        NavigationStack {
-            VStack {
-                Text("What is your goal?").padding()
-            }
-            VStack {
-                NavigationLink("Build strength", destination: StepCurrStrength()).padding()
-                NavigationLink("Improve endurance", destination: StepCurrEndurance()).padding()
-                NavigationLink("Both", destination: StepCurrBoth()).padding()
                 
-            }
-        }
-    }
-}
-
-struct StepCurrBoth: View {
-    var body: some View {
-        NavigationStack {
-            Text("What are your current strength and endurance levels?").padding()
-            VStack {
-                
-            }
-            VStack {
-                NavigationLink("Run a 5K under 40 mins", destination: StepGoal()).padding()
-                NavigationLink("Can walk for an hour", destination: CoachView())
-            }
-        }
-    }
-}
-
-struct StepCurrEndurance: View {
-    var body: some View {
-        NavigationStack {
-            Text("What is your current fitness level?").padding()
-            VStack {
-                
-            }
-            VStack {
-                NavigationLink("Can run a 5K under 40 mins", destination: StepGoal()).padding()
-                NavigationLink("Can walk for an hour", destination: CoachView())
-            }
-        }
-    }
-}
-
-struct StepCurrStrength: View {
-    var body: some View {
-        NavigationStack {
-            Text("What is your current fitness level?").padding()
-            VStack {
-                
-            }
-            VStack {
-                NavigationLink("Can do 3 pullups or 20 pushups", destination: StepFinalAdv()).padding()
-                NavigationLink("I am new to all this", destination: StepFinalBegineer())
+            }.navigationTitle("Summary and recommendation").navigationBarTitleDisplayMode(.inline)
+            NavigationLink("Start workout", destination: MainView()).onTapGesture {
+                onboardingVM.isComplete = true
             }
             
         }
     }
 }
-
-struct StepFinalBegineer: View {
-    var body: some View {
-        VStack {
-            Text("Thank you for providing all the details. Based on data you provided, we are recommending the following").padding()
-            HStack {
-                Label("Weight:", image: .KB_ICON)
-                Text("20 to 25 lbs")
-            }.frame(width: 250, alignment: .leading).padding()
-            HStack {
-                Label("Workout:", image: .KB_ICON)
-                Text("Deadlift")
-            }.frame(width: 250, alignment: .leading).padding()
-            HStack {
-                Label("3 sets", systemImage: "repeat")
-                Text("10-12 reps each set")
-            }.frame(width: 250, alignment: .leading).padding()
-            HStack {
-                Label("15 mins", systemImage: "clock")
-            }.frame(width: 250, alignment: .leading).padding()
-            
-            Text("Consistency is the key, perform workouts every day.").padding()
-        }
-        Spacer()
-        Button {
-            
-        } label: {
-            Text("Done")
-        }
-    }
-}
-
-struct StepFinalAdv: View {
-    @ObservedObject var onboardingModel = OnboardingViewModel.shared
-    var body: some View {
-        if onboardingModel.isComplete {
-            MainView()
-        } else {
-            Text("Your best bet is to start with a medium kettlebell 40 - 60 lbs.\nPerform any Kettlebell workout.\nAim for a 30 minute workout every day").padding()
-            Text("Your onboarding is now complete")
-            Button(action: {
-                onboardingModel.isComplete = true
-            }, label: {
-                Text("Done")
-            })
-        }
-        
-        
-    }
-}
-
-
 
 #Preview {
     OnboardingView()

@@ -8,7 +8,7 @@
 import Foundation
 
 class OnboardingViewModel: ObservableObject {
-    @Published var isComplete = true
+    @Published var isComplete = false
     static let shared = OnboardingViewModel()
     
     private init() {

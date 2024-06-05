@@ -40,9 +40,9 @@ struct CamView: View {
                     }
                 AudioView().background(.gray)
             }.onAppear() {
-                UIApplication.shared.isIdleTimerDisabled = false
-            }.onDisappear() {
                 UIApplication.shared.isIdleTimerDisabled = true
+            }.onDisappear() {
+                UIApplication.shared.isIdleTimerDisabled = false
             }
             
             
