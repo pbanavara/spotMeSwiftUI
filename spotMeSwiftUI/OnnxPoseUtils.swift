@@ -94,34 +94,23 @@ class OnnxPoseUtils : NSObject, ObservableObject {
          TODO: // Optimize on generating a new image instead paint the data on the same image. iOS experts to chime in.
          
          */
-        var image = image
-        let imageSize = image.size
-        let scale: CGFloat = 0
-        UIGraphicsBeginImageContextWithOptions(imageSize, false, scale)
-        image.draw(at: CGPoint.zero)
-        UIColor.red.setFill()
-        UIColor.red.setStroke()
-        UIRectFrame(rectangle)
-        guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
-        context.setLineWidth(2.0)
-        context.setStrokeColor(UIColor.blue.cgColor)
-        image = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
+        //Skipping the rectangle
         return drawPoseLines(image: image, keypoints: keypoints, workoutType: workoutType)
         
     }
     
     func drawBodyLines(bodyArray: Array<BodyPart>, 
                        context: CGContext,
-                       keyPoints: [Float32]) {
+                       keyPoints: [Float32],
+                       color: UIColor) {
         for i in 0...(bodyArray.count-2) {
                 drawSpecificLine(context: context,
                                  kp1_x: keyPoints[bodyArray[i].xIndex],
                                  kp1_y: keyPoints[bodyArray[i].yIndex],
                                  kp2_x: keyPoints[bodyArray[i+1].xIndex],
                                  kp2_y: keyPoints[bodyArray[i+1].yIndex],
-                                 color: UIColor.white,
-                                 lineWidth: 3.0)
+                                 color: color,
+                                 lineWidth: 8.0)
         }
         
     }
@@ -142,10 +131,10 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         drawTextInImage(hip_hinge: Double(hip_hinge), correctPosition: "", image: image, textColor: UIColor.white)
         
         if (hip_hinge >= CorrectHipHingeConstants.CORRECT_HIP_L && hip_hinge <= CorrectHipHingeConstants.CORRECT_HIP_R) {
-            drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints)
+            drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
             //textToSpeech(str: "Hip hinge/angle perfect, hold this position and bend your knees till you reach the kettlebell. Get up straight to finish.")
             drawTextInImage(hip_hinge: Double(hip_hinge),
-                            correctPosition: "Perfect hip hinge.\nLower your body until you can reach the kettle bell, grab the kettle bell and move back up.\nSqueeze your glutes and maintain hip hinge",
+                            correctPosition: "Perfect hip hinge",
                             image: image,
                             textColor: UIColor.green)
         }
@@ -162,17 +151,17 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         switch workoutType {
         case KBWorkoutConstants.KB_DEAD_LIFT:
             if let deadLiftArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] {
-                drawBodyLines(bodyArray: deadLiftArray, context: context, keyPoints: keypoints)
+                drawBodyLines(bodyArray: deadLiftArray, context: context, keyPoints: keypoints, color: UIColor.white)
                 calculateAndRenderHipHinge(keyPoints: keypoints, bodyArray: deadLiftArray, context: context, image: image)
             }
         case KBWorkoutConstants.KB_SWING:
             if let swingArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SWING] {
-                drawBodyLines(bodyArray: swingArray, context: context, keyPoints: keypoints)
+                drawBodyLines(bodyArray: swingArray, context: context, keyPoints: keypoints, color: UIColor.blue)
                 calculateAndRenderHipHinge(keyPoints: keypoints, bodyArray: swingArray, context: context, image: image)
             }
         case KBWorkoutConstants.KB_SHOULDER:
             if let shoulderArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SHOULDER] {
-                drawBodyLines(bodyArray: shoulderArray, context: context, keyPoints: keypoints)
+                drawBodyLines(bodyArray: shoulderArray, context: context, keyPoints: keypoints, color: UIColor.cyan)
             }
         default:
             return image

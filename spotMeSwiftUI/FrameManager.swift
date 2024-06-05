@@ -48,7 +48,7 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
                 if self.ortSession != nil {
                     let image = UIImage(cgImage: cgImage!)
                     //Fiddle around with jpegquality until you have a proper number using 0.5 for now
-                    let imageData = image.jpegData(compressionQuality: 0.5)
+                    let imageData = image.jpegData(compressionQuality: 0.7)
                     ///Following the pub-sub pattern, just invoke the plotPose method
                     ///poseUtil conforms to observable protocol any model/view can observe and take action on the image
                     self.poseUtil.plotPose(inputData: imageData!, ortSession: self.ortSession!, workoutType: coachViewModel.selectedWorkout)
