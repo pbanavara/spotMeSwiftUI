@@ -1,0 +1,33 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "name" : "post_process_51",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 1,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp10_restored_boxes,_ppp10_ratios",
+      "debug_info" : "post_process_51",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "_ppp10_scaled_boxes"
+    }
+  ]
+}

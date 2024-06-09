@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var selectedTab = "workoutNow"
+    @State private var selectedTab = "home"
     var body: some View {
         TabView (selection: $selectedTab) {
+            OnboardingView().tabItem {
+                Label("Home", systemImage: "house.circle.fill")
+            }.tag("home")
             CoachView().tabItem {
                 Label("Workout now", systemImage: "figure.strengthtraining.functional")
             }.tag("workoutNow")
@@ -19,6 +22,8 @@ struct MainView: View {
             if (value == "workoutNow") {
                 CameraManager.shared.configure()
             } else if (value == "history") {
+                CameraManager.shared.stopCamera()
+            } else if (value == "home") {
                 CameraManager.shared.stopCamera()
             }
         }

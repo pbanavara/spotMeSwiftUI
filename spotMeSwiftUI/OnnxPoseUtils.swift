@@ -115,7 +115,7 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         
     }
     
-    func calculateAndRenderHipHinge(keyPoints: [Float32], bodyArray: Array<BodyPart>, context: CGContext, image: UIImage) {
+    func calculateAndRenderHipHinge(keyPoints: [Float32], bodyArray: Array<BodyPart>, context: CGContext, image: UIImage, angleRange: [Double]) {
         let left_knee_hip_angle_x = keyPoints[bodyPoses.leftKnee.xIndex] - keyPoints[bodyPoses.leftHip.xIndex]
         let left_knee_hip_angle_y = keyPoints[bodyPoses.leftKnee.yIndex] - keyPoints[bodyPoses.leftHip.yIndex]
         
@@ -130,11 +130,36 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         // Write the hip hinge into text
         drawTextInImage(hip_hinge: Double(hip_hinge), correctPosition: "", image: image, textColor: UIColor.white)
         
-        if (hip_hinge >= CorrectHipHingeConstants.CORRECT_HIP_L && hip_hinge <= CorrectHipHingeConstants.CORRECT_HIP_R) {
+        if (hip_hinge >= angleRange.first! && hip_hinge <= angleRange.last!) {
             drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
             //textToSpeech(str: "Hip hinge/angle perfect, hold this position and bend your knees till you reach the kettlebell. Get up straight to finish.")
             drawTextInImage(hip_hinge: Double(hip_hinge),
                             correctPosition: "Perfect hip hinge",
+                            image: image,
+                            textColor: UIColor.green)
+        }
+    }
+    
+    func calculateAndRenderElbowHinge(keyPoints: [Float32], bodyArray: Array<BodyPart>, context: CGContext, image: UIImage) {
+        let leftElbowAngleX = keyPoints[bodyPoses.leftElbow.xIndex] - keyPoints[bodyPoses.leftShoulder.xIndex]
+        let leftElbowAngleY = keyPoints[bodyPoses.leftElbow.yIndex] - keyPoints[bodyPoses.leftShoulder.yIndex]
+        
+        let leftElbowWristAngleX =  keyPoints[bodyPoses.leftShoulder.xIndex] - keyPoints[bodyPoses.leftWrist.xIndex]
+        let leftElbowWristAngleY = keyPoints[bodyPoses.leftShoulder.yIndex] - keyPoints[bodyPoses.leftWrist.yIndex]
+        
+        // Calculate Hip Hinge
+        //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
+        let hinge = abs(Double((atan2(leftElbowAngleX, leftElbowAngleY) - atan2(leftElbowWristAngleX, leftElbowAngleY)) * 57.2958)).rounded()
+        self.hingeAngles[BodyAngleContants.ELBOW_ANGLE] = hinge
+        
+        // Write the hip hinge into text
+        drawTextInImage(hip_hinge: Double(hinge), correctPosition: "", image: image, textColor: UIColor.white)
+        
+        if (hinge >= CorrectElbowHingeConstants.CORRECT_ELBOW_L && hinge <= CorrectElbowHingeConstants.CORRECT_ELBOW_R) {
+            drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
+            //textToSpeech(str: "Hip hinge/angle perfect, hold this position and bend your knees till you reach the kettlebell. Get up straight to finish.")
+            drawTextInImage(hip_hinge: Double(hinge),
+                            correctPosition: "Perfect Elbow hinge",
                             image: image,
                             textColor: UIColor.green)
         }
@@ -152,16 +177,56 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         case KBWorkoutConstants.KB_DEAD_LIFT:
             if let deadLiftArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] {
                 drawBodyLines(bodyArray: deadLiftArray, context: context, keyPoints: keypoints, color: UIColor.white)
-                calculateAndRenderHipHinge(keyPoints: keypoints, bodyArray: deadLiftArray, context: context, image: image)
+                calculateAndRenderHipHinge(keyPoints: keypoints, 
+                                           bodyArray: deadLiftArray,
+                                           context: context,
+                                           image: image,
+                                           angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
+            }
+        case KBWorkoutConstants.KB_SQUAT:
+            if let squatArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SQUAT] {
+                drawBodyLines(bodyArray: squatArray, context: context, keyPoints: keypoints, color: UIColor.gray)
+                calculateAndRenderHipHinge(keyPoints: keypoints,
+                                           bodyArray: squatArray,
+                                           context: context,
+                                           image: image,
+                                           angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
             }
         case KBWorkoutConstants.KB_SWING:
             if let swingArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SWING] {
                 drawBodyLines(bodyArray: swingArray, context: context, keyPoints: keypoints, color: UIColor.blue)
-                calculateAndRenderHipHinge(keyPoints: keypoints, bodyArray: swingArray, context: context, image: image)
+                calculateAndRenderHipHinge(keyPoints: keypoints, 
+                                           bodyArray: swingArray,
+                                           context: context,
+                                           image: image,
+                                           angleRange: [CorrectSwingHipHingeConstants.CORRECT_HIP_L, CorrectSwingHipHingeConstants.CORRECT_HIP_R])
             }
         case KBWorkoutConstants.KB_SHOULDER:
             if let shoulderArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SHOULDER] {
-                drawBodyLines(bodyArray: shoulderArray, context: context, keyPoints: keypoints, color: UIColor.cyan)
+                drawBodyLines(bodyArray: shoulderArray, context: context, keyPoints: keypoints, color: UIColor.orange)
+            }
+        case KBWorkoutConstants.BAR_DEAD_LIFT:
+            if let barDlArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] {
+                drawBodyLines(bodyArray: barDlArray, context: context, keyPoints: keypoints, color: UIColor.brown)
+                calculateAndRenderHipHinge(keyPoints: keypoints,
+                                           bodyArray: barDlArray,
+                                           context: context,
+                                           image: image,
+                                           angleRange: [CorrectBarDlHipHingeConstants.CORRECT_HIP_L, CorrectBarDlHipHingeConstants.CORRECT_HIP_R])
+            }
+        case KBWorkoutConstants.BAR_SQUAT:
+            if let barDlArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.BAR_SQUAT] {
+                drawBodyLines(bodyArray: barDlArray, context: context, keyPoints: keypoints, color: UIColor.magenta)
+                calculateAndRenderHipHinge(keyPoints: keypoints,
+                                           bodyArray: barDlArray,
+                                           context: context,
+                                           image: image,
+                                           angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
+            }
+        case KBWorkoutConstants.GEN_WORKOUT:
+            if let bodyArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.GEN_WORKOUT] {
+                drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keypoints, color: UIColor.cyan)
+                calculateAndRenderElbowHinge(keyPoints: keypoints, bodyArray: bodyArray, context: context, image: image)
             }
         default:
             return image

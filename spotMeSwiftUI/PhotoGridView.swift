@@ -48,16 +48,20 @@ struct PhotoGridView: View {
                                         }
                                     }
                                 }.overlay(alignment:.bottom) {
-                                    Text(item.workoutType).fontWeight(.light).font(.caption)
+                                    Text(item.workoutType)
+                                        .font(.caption)
+                                        .foregroundStyle(LinearGradient(colors: [.gray, .white], 
+                                                                        startPoint: .top,
+                                                                        endPoint: .bottom))
                                 }
                         }
                     }.padding()
                 }
             }
-            .navigationBarTitle("Past workout videos")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("Previous workouts")
+            .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button(isEditing ? "Done" : "Edit") {
                         withAnimation { isEditing.toggle() }
                     }

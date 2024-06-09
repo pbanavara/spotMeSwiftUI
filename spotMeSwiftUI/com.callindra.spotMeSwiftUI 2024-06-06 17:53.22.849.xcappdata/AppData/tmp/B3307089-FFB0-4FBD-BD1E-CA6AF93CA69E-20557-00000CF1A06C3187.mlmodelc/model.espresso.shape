@@ -1,0 +1,25 @@
+{
+  "layer_shapes" : {
+    "_ppp10_restored_boxes" : {
+      "k" : 1,
+      "w" : 4,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "_ppp10_ratios" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "_ppp10_scaled_boxes" : {
+      "k" : 1,
+      "w" : 4,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    }
+  }
+}

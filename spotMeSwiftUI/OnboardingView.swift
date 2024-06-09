@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct OnboardingView: View {
     private var pronouns = ["He", "She", "Them/Their"]
@@ -24,100 +25,37 @@ struct OnboardingView: View {
     private var countries = ["+1", "+91", "+44"]
     @State private var selectedCountry: String = ""
     
-    
     var body: some View {
-        NavigationStack {
-            VStack {
-                Text("Onboarding").foregroundStyle(.primary).multilineTextAlignment(.center).padding()
-                Form {
-                    Section {
-                        TextField(
-                            "Email",
-                            text: $userEmail
-                        )
-                        TextField(
-                            "Phone",
-                            value: $userPhone,
-                            format: .number
-                        )
-                    }
-                    Section {
-                        Picker("Your pronouns", selection: $selectedPronoun) {
-                            ForEach(pronouns, id: \.self) { pronoun in
-                                Text(pronoun)
-                            }
+        VStack {
+            Text("Welcome to Callindra").foregroundStyle(
+                LinearGradient(
+                    colors: [.teal, .indigo],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            ).font(.title).padding()
+            Image(.main).resizable().frame(width: 80, height: 80).scaledToFit()
+            Text("Correct your workout form in realtime").foregroundStyle(.primary).multilineTextAlignment(.leading).padding()
+            if let url = Bundle.main.url(forResource: "main_view_video", withExtension: "mov") {
+                let player = AVPlayer(url: url)
+                VideoPlayer(player: player)
+                    .onAppear{
+                        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { _ in
+                                               player.seek(to: .zero)
+                                               player.play()
+                                           }
+                        /*
+                        if player.currentItem == nil {
+                            let item = AVPlayerItem(url: url)
+                            player.replaceCurrentItem(with: item)
                         }
-                        Picker("Your age", selection: $selectedAgeRange) {
-                            ForEach(ageRanges, id: \.self) { age in
-                                Text(age)
-                            }
-                        }
-                        Picker("Your location", selection: $selectedRegion) {
-                            ForEach(regions, id: \.self) { region in
-                                Text(region)
-                            }
-                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            player.play()
+                        })
+                         */
                     }
-                    Section {
-                        Text("Your goals").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        Toggle("Build Strength", isOn: $strength)
-                        Toggle("Build Endurance", isOn: $endurance)
-                    }
-                    Section {
-                        Text("Current fitness levels")
-                        Toggle("Can do 10 pushups or 3 pullpus", isOn: $pushups)
-                        Toggle("Can run 5k under 40 mins", isOn: $run5k)
-                    }
-                    
-                }
-                
             }
-        }
-        NavigationLink("Next", destination: StepFinal())
-    }
-}
-
-struct StepFinal: View {
-    @State var onboardingVM = OnboardingViewModel.shared
-    var body: some View {
-        NavigationStack {
-            VStack {
-                List {
-                    HStack {
-                        Text("Starting Workout:")
-                        Text("Kettlebell Swings")
-                    }
-                    HStack {
-                        Text("Starting weight:")
-                        Text("35 lbs")
-                    }
-                    HStack {
-                        Text("Starting reps:")
-                        Text("4-6")
-                    }
-                    HStack {
-                        Text("Next progression:")
-                        Text("In 3-4 weeks")
-                    }
-                    HStack {
-                        Text("Next Weight")
-                        Text("+20%")
-                    }
-                }
-                List {
-                    Text("Why Kettlebells ?")
-                    Text("Because they are portable, simple and engage multiple muscle groups in any given workout. The best ROI in time. 15 to 20 minutes a day is more than enough to achieve your goals.").padding()
-                }
-                List {
-                    Text("Form and efficiency")
-                    Text("The form of every exercise directly drives results. The app will provide audio guidance for maintaining form throughout your workouts. The form is maintained in your recording as well. Serves as a visual progression log.").padding()
-                }
-                Spacer()
-                
-            }.navigationTitle("Summary and recommendation").navigationBarTitleDisplayMode(.inline)
-            NavigationLink("Start workout", destination: MainView()).onTapGesture {
-                onboardingVM.isComplete = true
-            }
+            
             
         }
     }

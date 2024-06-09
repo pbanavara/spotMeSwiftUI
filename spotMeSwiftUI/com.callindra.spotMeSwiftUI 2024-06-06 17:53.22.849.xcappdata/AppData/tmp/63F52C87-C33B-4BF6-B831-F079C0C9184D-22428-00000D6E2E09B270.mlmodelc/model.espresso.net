@@ -1,0 +1,51 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "axis_seq" : 4,
+      "name" : "Transpose_token_2",
+      "axis_n" : 3,
+      "axis_h" : 0,
+      "type" : "transpose",
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "post_process_4_token_3",
+      "axis_w" : 1,
+      "axis_k" : 2,
+      "debug_info" : "Transpose_token_2",
+      "weights" : {
+
+      },
+      "top" : "_ppp8_Split_2"
+    },
+    {
+      "axis_seq" : 4,
+      "name" : "Transpose",
+      "axis_n" : 3,
+      "axis_h" : 0,
+      "type" : "transpose",
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "post_process_4",
+      "axis_w" : 1,
+      "axis_k" : 2,
+      "debug_info" : "Transpose",
+      "weights" : {
+
+      },
+      "top" : "_ppp8_Split_0"
+    }
+  ]
+}

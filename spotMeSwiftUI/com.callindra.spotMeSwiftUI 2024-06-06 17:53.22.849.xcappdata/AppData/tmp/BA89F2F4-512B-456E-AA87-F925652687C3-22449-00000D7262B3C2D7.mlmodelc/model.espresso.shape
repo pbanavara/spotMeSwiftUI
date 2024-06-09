@@ -1,0 +1,130 @@
+{
+  "layer_shapes" : {
+    "\/model.14\/Concat_output_0" : {
+      "k" : 192,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.12\/m.0\/cv1\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.15\/cv1\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.12\/Split_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.13\/Resize_output_0" : {
+      "k" : 128,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.12\/cv2\/conv\/Conv_output_0" : {
+      "k" : 128,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/m.0\/cv1\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/m.0\/cv2\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/m.0\/cv2\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/Split_output_1" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/m.0\/cv1\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.4\/cv2\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/cv1\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.12\/cv2\/act\/Mul_output_0" : {
+      "k" : 128,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/m.0\/cv2\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/Concat_output_0" : {
+      "k" : 192,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.12\/cv2\/act\/Sigmoid_output_0" : {
+      "k" : 128,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.15\/cv1\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    }
+  }
+}

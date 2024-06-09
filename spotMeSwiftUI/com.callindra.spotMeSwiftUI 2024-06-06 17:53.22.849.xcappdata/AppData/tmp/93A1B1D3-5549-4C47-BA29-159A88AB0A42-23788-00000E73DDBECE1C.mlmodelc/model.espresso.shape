@@ -1,0 +1,53 @@
+{
+  "layer_shapes" : {
+    "_ppp9_nms_boxes" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "_ppp9_nmsbox" : {
+      "k" : 1,
+      "w" : 3,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "_ppp9_class_box_idxs" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "ortshared_7_1_1_2_token_287" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "_ppp9_nms_classes" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "ortshared_7_1_2_6_token_286" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "ortshared_7_1_1_4_token_291" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    }
+  }
+}

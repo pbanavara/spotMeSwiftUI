@@ -1,0 +1,256 @@
+{
+  "layer_shapes" : {
+    "\/model.21\/cv2\/conv\/Conv_output_0" : {
+      "k" : 256,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv2.2\/cv2.2.1\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv3.2\/cv3.2.2\/Conv_output_0" : {
+      "k" : 1,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv4.2\/cv4.2.1\/conv\/Conv_output_0" : {
+      "k" : 51,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/Concat_output_0" : {
+      "k" : 384,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv2.2\/cv2.2.0\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv2.2\/cv2.2.1\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/Reshape_5_output_0" : {
+      "k" : 1,
+      "w" : 400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 65
+    },
+    "\/model.22\/cv4.2\/cv4.2.0\/conv\/Conv_output_0" : {
+      "k" : 51,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv3.2\/cv3.2.1\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/cv2\/act\/Mul_output_0" : {
+      "k" : 256,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv4.2\/cv4.2.1\/act\/Sigmoid_output_0" : {
+      "k" : 51,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv2.2\/cv2.2.2\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv4.2\/cv4.2.0\/act\/Mul_output_0" : {
+      "k" : 51,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv3.2\/cv3.2.0\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv2.2\/cv2.2.0\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv3.2\/cv3.2.1\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv3.2\/cv3.2.1\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv2.2\/cv2.2.0\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv3.2\/cv3.2.0\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv2.2\/cv2.2.1\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv4.2\/cv4.2.1\/act\/Mul_output_0" : {
+      "k" : 51,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/m.0\/cv2\/act\/Sigmoid_output_0" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv4.2\/cv4.2.0\/act\/Sigmoid_output_0" : {
+      "k" : 51,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/m.0\/cv1\/conv\/Conv_output_0" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/Split_output_1" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/m.0\/cv2\/act\/Mul_output_0" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv4.2\/cv4.2.2\/Conv_output_0" : {
+      "k" : 51,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/m.0\/cv2\/conv\/Conv_output_0" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/cv3.2\/cv3.2.0\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/m.0\/cv1\/act\/Sigmoid_output_0" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/Concat_3_output_0" : {
+      "k" : 65,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/Split_output_0" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.21\/cv2\/act\/Sigmoid_output_0" : {
+      "k" : 256,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    },
+    "\/model.22\/Reshape_2_output_0" : {
+      "k" : 1,
+      "w" : 400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 51
+    },
+    "\/model.21\/m.0\/cv1\/act\/Mul_output_0" : {
+      "k" : 128,
+      "w" : 20,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 20
+    }
+  }
+}

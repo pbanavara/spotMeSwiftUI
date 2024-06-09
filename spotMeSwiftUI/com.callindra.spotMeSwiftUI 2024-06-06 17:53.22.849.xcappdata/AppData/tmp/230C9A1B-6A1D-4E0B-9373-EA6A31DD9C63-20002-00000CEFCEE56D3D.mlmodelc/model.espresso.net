@@ -1,0 +1,117 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "top" : "ortshared_7_1_1_4_token_291",
+      "w" : 1,
+      "h" : 1,
+      "name" : "initializer_ortshared_7_1_1_4_token_291_token_0",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_ortshared_7_1_1_4_token_291_token_0",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 1
+    },
+    {
+      "top" : "ortshared_7_1_2_6_token_286",
+      "w" : 2,
+      "h" : 1,
+      "name" : "initializer_ortshared_7_1_2_6_token_286_token_1",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_ortshared_7_1_2_6_token_286_token_1",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 3
+    },
+    {
+      "top" : "ortshared_7_1_1_2_token_287",
+      "w" : 1,
+      "h" : 1,
+      "name" : "initializer_ortshared_7_1_1_2_token_287_token_2",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_ortshared_7_1_1_2_token_287_token_2",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 5
+    },
+    {
+      "top" : "_ppp9_nms_boxes",
+      "name" : "post_process_22",
+      "batch_dims" : 0,
+      "allow_negative_indices" : true,
+      "type" : "gather_nd",
+      "axis" : -1,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp9_nmsbox,ortshared_7_1_1_2_token_287",
+      "debug_info" : "post_process_22",
+      "validate_indices" : true,
+      "weights" : {
+
+      }
+    },
+    {
+      "top" : "_ppp9_class_box_idxs",
+      "name" : "post_process_25",
+      "batch_dims" : 0,
+      "allow_negative_indices" : true,
+      "type" : "gather_nd",
+      "axis" : -1,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp9_nmsbox,ortshared_7_1_2_6_token_286",
+      "debug_info" : "post_process_25",
+      "validate_indices" : true,
+      "weights" : {
+
+      }
+    },
+    {
+      "top" : "_ppp9_nms_classes",
+      "name" : "post_process_20",
+      "batch_dims" : 0,
+      "allow_negative_indices" : true,
+      "type" : "gather_nd",
+      "axis" : -1,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp9_nmsbox,ortshared_7_1_1_4_token_291",
+      "debug_info" : "post_process_20",
+      "validate_indices" : true,
+      "weights" : {
+
+      }
+    }
+  ]
+}

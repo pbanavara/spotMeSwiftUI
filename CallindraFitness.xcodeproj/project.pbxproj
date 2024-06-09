@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B237B0E2C1098A9008DACE7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B237B0D2C1098A9008DACE7 /* AuthViewModel.swift */; };
+		0B237B122C12D422008DACE7 /* main_view_video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0B237B112C12D422008DACE7 /* main_view_video.mov */; };
 		0B5E46742BF2006E00E10F91 /* VideoRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */; };
 		0B5E46762BF3561700E10F91 /* CoachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E46752BF3561700E10F91 /* CoachView.swift */; };
 		0B8A6BC82C0727C400FD6785 /* PhotoGridChooseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8A6BC72C0727C400FD6785 /* PhotoGridChooseViewModel.swift */; };
@@ -43,13 +45,16 @@
 		0BF749542BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
 		0BF749582BE51DDC005273C7 /* llama in Frameworks */ = {isa = PBXBuildFile; productRef = 0BF749572BE51DDC005273C7 /* llama */; };
 		0BF7495E2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */; };
-		EC07963C0BCFC752E3679A59 /* Pods_spotMeSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */; };
+		685A3FF90AE62EF336727811 /* Pods_CallindraFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B0F618C79D921F2FFCE7CB /* Pods_CallindraFitness.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		010235AE1F9B8C8F997308E8 /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI-spotMeSwiftUIUITests/Pods-spotMeSwiftUI-spotMeSwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		012A3AAD8AA61057C6F02337 /* Pods-spotMeSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUITests/Pods-spotMeSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		057CD60B90F62119E95D2F8D /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI-spotMeSwiftUIUITests/Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0B237B0C2C108274008DACE7 /* CallindraFitness-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CallindraFitness-Info.plist"; sourceTree = "<group>"; };
+		0B237B0D2C1098A9008DACE7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		0B237B112C12D422008DACE7 /* main_view_video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = main_view_video.mov; sourceTree = "<group>"; };
 		0B5E46732BF2006E00E10F91 /* VideoRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecordManager.swift; sourceTree = "<group>"; };
 		0B5E46752BF3561700E10F91 /* CoachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachView.swift; sourceTree = "<group>"; };
 		0B5E467B2BF3847300E10F91 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,11 +94,13 @@
 		0BF7494F2BE50D2E005273C7 /* LlamaState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamaState.swift; sourceTree = "<group>"; };
 		0BF749532BE51D2E005273C7 /* LibLlama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibLlama.swift; sourceTree = "<group>"; };
 		0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFeedbackUtils.swift; sourceTree = "<group>"; };
+		24765B5A11F47A273F318479 /* Pods-CallindraFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CallindraFitness.release.xcconfig"; path = "Target Support Files/Pods-CallindraFitness/Pods-CallindraFitness.release.xcconfig"; sourceTree = "<group>"; };
+		31B0F618C79D921F2FFCE7CB /* Pods_CallindraFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CallindraFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI/Pods-spotMeSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		841336AAD7EA432A8E760F3F /* Pods-CallindraFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CallindraFitness.debug.xcconfig"; path = "Target Support Files/Pods-CallindraFitness/Pods-CallindraFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		9032388F5A85089C6DB52757 /* Pods-spotMeSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUITests/Pods-spotMeSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE13954052C4DF49E3918EF4 /* Pods-spotMeSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotMeSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-spotMeSwiftUI/Pods-spotMeSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
-		DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7290961229B59CAEDBF35D7 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,8 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC07963C0BCFC752E3679A59 /* Pods_spotMeSwiftUI.framework in Frameworks */,
 				0BF749582BE51DDC005273C7 /* llama in Frameworks */,
+				685A3FF90AE62EF336727811 /* Pods_CallindraFitness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,9 +122,9 @@
 			children = (
 				0B5E467B2BF3847300E10F91 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */,
 				0B5E467D2BF3847300E10F91 /* Pods_spotMeSwiftUITests.framework */,
-				DBEC8374F01BC6448C41C0BA /* Pods_spotMeSwiftUI.framework */,
 				F7290961229B59CAEDBF35D7 /* Pods_spotMeSwiftUI_spotMeSwiftUIUITests.framework */,
 				A2A4A30B2D3E3489FF230B24 /* Pods_spotMeSwiftUITests.framework */,
+				31B0F618C79D921F2FFCE7CB /* Pods_CallindraFitness.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,7 +132,9 @@
 		0BF748E12BDA797F005273C7 = {
 			isa = PBXGroup;
 			children = (
+				0B237B0C2C108274008DACE7 /* CallindraFitness-Info.plist */,
 				0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */,
+				0B237B112C12D422008DACE7 /* main_view_video.mov */,
 				0BF7492F2BDAD12D005273C7 /* spotMeSwiftUI-Bridging-Header.h */,
 				0BF748EC2BDA797F005273C7 /* spotMeSwiftUI */,
 				0BF748EB2BDA797F005273C7 /* Products */,
@@ -159,6 +168,7 @@
 				0BA43A5C2BFC9B970014EDFA /* PhotoDetailView.swift */,
 				0BF7492B2BDACC7E005273C7 /* CGImageExtension.swift */,
 				0BF748EF2BDA797F005273C7 /* ContentView.swift */,
+				0B237B0D2C1098A9008DACE7 /* AuthViewModel.swift */,
 				0BD77FF32C09AA4C005BF7A9 /* MainView.swift */,
 				0BF7494E2BE50D15005273C7 /* Models */,
 				0BF7491B2BDA8060005273C7 /* CameraManager.swift */,
@@ -208,6 +218,8 @@
 				057CD60B90F62119E95D2F8D /* Pods-spotMeSwiftUI-spotMeSwiftUIUITests.release.xcconfig */,
 				9032388F5A85089C6DB52757 /* Pods-spotMeSwiftUITests.debug.xcconfig */,
 				012A3AAD8AA61057C6F02337 /* Pods-spotMeSwiftUITests.release.xcconfig */,
+				841336AAD7EA432A8E760F3F /* Pods-CallindraFitness.debug.xcconfig */,
+				24765B5A11F47A273F318479 /* Pods-CallindraFitness.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -223,6 +235,7 @@
 				0BF748E62BDA797F005273C7 /* Sources */,
 				0BF748E72BDA797F005273C7 /* Frameworks */,
 				0BF748E82BDA797F005273C7 /* Resources */,
+				29DA7704A923B22B06F22497 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -278,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B237B122C12D422008DACE7 /* main_view_video.mov in Resources */,
 				0B96516F2C0A329900A0BDEA /* kettlebell.svg in Resources */,
 				0BF748F52BDA797F005273C7 /* Preview Assets.xcassets in Resources */,
 				0BF749352BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */,
@@ -303,11 +317,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-spotMeSwiftUI-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CallindraFitness-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29DA7704A923B22B06F22497 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CallindraFitness/Pods-CallindraFitness-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CallindraFitness/Pods-CallindraFitness-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CallindraFitness/Pods-CallindraFitness-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -329,6 +360,7 @@
 				0BA43A612C00AD5D0014EDFA /* AudioView.swift in Sources */,
 				0BA43A552BFC861C0014EDFA /* PhotoDataModel.swift in Sources */,
 				0BF749182BDA7CDD005273C7 /* CamView.swift in Sources */,
+				0B237B0E2C1098A9008DACE7 /* AuthViewModel.swift in Sources */,
 				0BF7495E2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */,
 				0BD77FF42C09AA4C005BF7A9 /* MainView.swift in Sources */,
 				0BD77FEE2C08548D005BF7A9 /* OnboardingView.swift in Sources */,
@@ -391,7 +423,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -406,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -454,7 +486,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -463,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -475,16 +507,17 @@
 		};
 		0BF7490F2BDA7980005273C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE13954052C4DF49E3918EF4 /* Pods-spotMeSwiftUI.debug.xcconfig */;
+			baseConfigurationReference = 841336AAD7EA432A8E760F3F /* Pods-CallindraFitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"spotMeSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = CX634G49Y7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CallindraFitness-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Callindra;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera usage for pose detection\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -497,8 +530,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.fitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "spotMeSwiftUI-Bridging-Header.h";
@@ -509,16 +545,17 @@
 		};
 		0BF749102BDA7980005273C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BDA0B7779CA8EAE60999529 /* Pods-spotMeSwiftUI.release.xcconfig */;
+			baseConfigurationReference = 24765B5A11F47A273F318479 /* Pods-CallindraFitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"spotMeSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = CX634G49Y7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CallindraFitness-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Callindra;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera usage for pose detection\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -531,8 +568,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.spotMeSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.callindra.fitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "spotMeSwiftUI-Bridging-Header.h";

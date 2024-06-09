@@ -1,0 +1,67 @@
+{
+  "layer_shapes" : {
+    "_ppp10_f_half_pad_wh" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "_ppp10_offset_keypoints_xy" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 17
+    },
+    "_ppp10_offset_boxes_xy" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "_ppp10_boxes_xy" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "_ppp10_ratios" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "_ppp10_masks" : {
+      "k" : 1,
+      "w" : 51,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "_ppp10_scaled_keypoints_xy" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 17
+    },
+    "_ppp10_orig_shape" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "_ppp10_keypoints_xy" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 17
+    }
+  }
+}

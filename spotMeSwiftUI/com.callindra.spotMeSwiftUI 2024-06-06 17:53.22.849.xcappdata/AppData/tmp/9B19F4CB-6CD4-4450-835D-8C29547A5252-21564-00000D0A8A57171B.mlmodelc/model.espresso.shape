@@ -1,0 +1,312 @@
+{
+  "layer_shapes" : {
+    "\/model.22\/cv4.0\/cv4.0.2\/Conv_output_0" : {
+      "k" : 51,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/Reshape_3_output_0" : {
+      "k" : 1,
+      "w" : 6400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 65
+    },
+    "\/model.22\/cv2.0\/cv2.0.1\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/Concat_1_output_0" : {
+      "k" : 65,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv4.0\/cv4.0.0\/conv\/Conv_output_0" : {
+      "k" : 51,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv3.0\/cv3.0.1\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/Reshape_output_0" : {
+      "k" : 1,
+      "w" : 6400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 51
+    },
+    "\/model.22\/cv4.0\/cv4.0.1\/act\/Sigmoid_output_0" : {
+      "k" : 51,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv2.0\/cv2.0.0\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.18\/cv1\/act\/Mul_output_0" : {
+      "k" : 128,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.22\/cv2.0\/cv2.0.0\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.18\/cv1\/conv\/Conv_output_0" : {
+      "k" : 128,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.22\/cv3.0\/cv3.0.0\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.16\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.15\/Split_output_1" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv3.0\/cv3.0.2\/Conv_output_0" : {
+      "k" : 1,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/m.0\/cv2\/act\/Sigmoid_output_0" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv4.0\/cv4.0.0\/act\/Sigmoid_output_0" : {
+      "k" : 51,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/m.0\/cv2\/act\/Mul_output_0" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.12\/cv2\/act\/Mul_output_0" : {
+      "k" : 128,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.15\/Concat_output_0" : {
+      "k" : 96,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv3.0\/cv3.0.1\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/Split_output_0" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.18\/cv1\/act\/Sigmoid_output_0" : {
+      "k" : 128,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.15\/cv2\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv2.0\/cv2.0.2\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/cv2\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv3.0\/cv3.0.0\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/m.0\/cv1\/conv\/Conv_output_0" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/m.0\/cv1\/act\/Sigmoid_output_0" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv3.0\/cv3.0.0\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/m.0\/cv1\/act\/Mul_output_0" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.16\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.16\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.22\/cv4.0\/cv4.0.0\/act\/Mul_output_0" : {
+      "k" : 51,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv3.0\/cv3.0.1\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv2.0\/cv2.0.0\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.17\/Concat_output_0" : {
+      "k" : 192,
+      "w" : 40,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 40
+    },
+    "\/model.22\/cv4.0\/cv4.0.1\/act\/Mul_output_0" : {
+      "k" : 51,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/m.0\/cv2\/conv\/Conv_output_0" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv2.0\/cv2.0.1\/act\/Sigmoid_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv2.0\/cv2.0.1\/act\/Mul_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.22\/cv4.0\/cv4.0.1\/conv\/Conv_output_0" : {
+      "k" : 51,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    },
+    "\/model.15\/cv2\/conv\/Conv_output_0" : {
+      "k" : 64,
+      "w" : 80,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 80
+    }
+  }
+}

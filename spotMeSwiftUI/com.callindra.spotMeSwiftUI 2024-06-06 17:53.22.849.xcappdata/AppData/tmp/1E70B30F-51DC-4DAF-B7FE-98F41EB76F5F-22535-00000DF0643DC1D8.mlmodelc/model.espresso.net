@@ -1,0 +1,32 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "bottom" : "output0",
+      "size_of_axes" : 1,
+      "axes_0" : 0,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "post_process_1",
+      "version" : 1,
+      "top" : "_ppp6_squeezed",
+      "type" : "squeeze",
+      "name" : "post_process_1",
+      "attributes" : {
+        "is_output" : 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "top" : "\/model.22\/Constant_16_output_0",
+      "w" : 8400,
+      "h" : 1,
+      "name" : "initializer_\/model.22\/Constant_16_output_0_token_0",
+      "nd_rank" : 2,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_\/model.22\/Constant_16_output_0_token_0",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 1
+    },
+    {
+      "name" : "\/model.22\/Reshape_7",
+      "weights" : {
+
+      },
+      "dst_w" : 8400,
+      "version" : 1,
+      "dst_n" : 1,
+      "dst_nd_rank" : 3,
+      "type" : "reshape",
+      "dst_h" : 51,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "dynamic_shape" : false,
+      "bottom" : "\/model.22\/Concat_6_output_0",
+      "debug_info" : "\/model.22\/Reshape_7",
+      "dst_k" : 1,
+      "dst_seq" : 1,
+      "top" : "\/model.22\/Reshape_7_output_0"
+    },
+    {
+      "name" : "\/model.22\/Mul_2",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 1,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "\/model.22\/Concat_5_output_0,\/model.22\/Constant_16_output_0",
+      "debug_info" : "\/model.22\/Mul_2",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "\/model.22\/Mul_2_output_0"
+    }
+  ]
+}

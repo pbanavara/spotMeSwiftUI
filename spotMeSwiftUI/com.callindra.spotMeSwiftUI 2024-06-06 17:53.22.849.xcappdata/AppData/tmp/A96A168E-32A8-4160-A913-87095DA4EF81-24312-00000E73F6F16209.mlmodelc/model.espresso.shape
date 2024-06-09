@@ -1,0 +1,25 @@
+{
+  "layer_shapes" : {
+    "_ppp2_f_hw" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "_ppp2_ratio_resize" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "_ppp2_f_hw2_exact" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    }
+  }
+}

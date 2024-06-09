@@ -1,0 +1,51 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "top" : "_ppp9_mask_select",
+      "name" : "post_process_28",
+      "batch_dims" : 0,
+      "allow_negative_indices" : true,
+      "type" : "gather_nd",
+      "axis" : 0,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp8_Split_2,_ppp9_box_idxs",
+      "debug_info" : "post_process_28",
+      "validate_indices" : true,
+      "weights" : {
+
+      }
+    },
+    {
+      "top" : "_ppp9_boxes_select",
+      "name" : "post_process_24",
+      "batch_dims" : 0,
+      "allow_negative_indices" : true,
+      "type" : "gather_nd",
+      "axis" : 0,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp8_Split_0,_ppp9_box_idxs",
+      "debug_info" : "post_process_24",
+      "validate_indices" : true,
+      "weights" : {
+
+      }
+    }
+  ]
+}

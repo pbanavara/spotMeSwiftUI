@@ -8,30 +8,31 @@
 import SwiftUI
 
 struct CoachView: View {
-    //@StateObject var agent = Agent()
-    //@StateObject var model = CamViewModel()
     @State var selectedWorkout = KBWorkoutConstants.KB_DEAD_LIFT
+    
     var body: some View {
         @ObservedObject var coachModel = CoachViewModel.shared
         NavigationStack {
-            //Text(agent.chatResponse).frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding()
             VStack {
-                Picker("Please select a workout", selection: $selectedWorkout) {
-                    ForEach(coachModel.workouts, id: \.self) { workout in
-                        Text(workout)
+                Section {
+                    Picker("", selection: $selectedWorkout) {
+                        ForEach(coachModel.Workouts, id: \.self) { workout in
+                            Text(workout)
+                        }
+                    }.onChange(of: selectedWorkout) {
+                        coachModel.selectedWorkout = selectedWorkout
+                    }.pickerStyle(.inline)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 50.0, trailing: 0))
+                    if let workoutDesc = coachModel.workoutSetupDict[selectedWorkout] {
+                        Text(workoutDesc)
                     }
-                }.onChange(of: selectedWorkout) {
-                    coachModel.selectedWorkout = selectedWorkout
+                    Spacer()
                 }
-                if let descr = coachModel.workoutDescriptionDict[selectedWorkout] {
-                    Text(descr).frame(alignment: .center).padding()
-                }
-                Image(.KB).resizable().scaledToFit()
+                
                 
             }
-            NavigationLink("Start camera") {
-                CamView()
-            }.navigationTitle("Choose your Kettlebell Workout ").navigationBarTitleDisplayMode(.inline).padding()
+            NavigationLink("Start camera", destination: CamView()).padding(50)
+                .navigationTitle("Choose your workout")
             
         }
     }

@@ -52,12 +52,13 @@ struct BodyPoses {
     var leftEar: BodyPart = BodyPart(xIndex: 9, yIndex: 10, confIndex: 11)
 
     init() {
-        let deadLiftPose = initDeadLiftPose()
-        let swingPose = initSwingPose()
-        let shoulderPose = initShoulderPressPose()
-        bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] = deadLiftPose
-        bodyPosesMap[KBWorkoutConstants.KB_SWING] = swingPose
-        bodyPosesMap[KBWorkoutConstants.KB_SHOULDER] = shoulderPose
+        bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] = initDeadLiftPose()
+        bodyPosesMap[KBWorkoutConstants.KB_SQUAT] = initDeadLiftPose()
+        bodyPosesMap[KBWorkoutConstants.KB_SWING] = initSwingPose()
+        bodyPosesMap[KBWorkoutConstants.KB_SHOULDER] = initShoulderPressPose()
+        bodyPosesMap[KBWorkoutConstants.GEN_WORKOUT] = initGenWorkoutPose()
+        bodyPosesMap[KBWorkoutConstants.BAR_DEAD_LIFT] = initBarDlPose()
+        bodyPosesMap[KBWorkoutConstants.BAR_SQUAT] = initBarSquatPose()
     }
     
     func initDeadLiftPose() -> Array<BodyPart> {
@@ -87,4 +88,52 @@ struct BodyPoses {
         shoulderPressPose.append(leftEar)
         return shoulderPressPose
     }
+    
+    func initGenWorkoutPose() -> Array<BodyPart> {
+        var genBodyPose: Array<BodyPart> = []
+        genBodyPose.append(leftWrist)
+        genBodyPose.append(leftElbow)
+        genBodyPose.append(leftShoulder)
+        genBodyPose.append(leftHip)
+        genBodyPose.append(leftKnee)
+        return genBodyPose
+    }
+    
+    func initBarDlPose() -> Array<BodyPart> {
+        var genBodyPose: Array<BodyPart> = []
+        genBodyPose.append(leftShoulder)
+        genBodyPose.append(leftHip)
+        genBodyPose.append(leftKnee)
+        genBodyPose.append(leftAnkle)
+        return genBodyPose
+    }
+    
+    func initBarSquatPose() -> Array<BodyPart> {
+        var genBodyPose: Array<BodyPart> = []
+        genBodyPose.append(leftShoulder)
+        genBodyPose.append(leftHip)
+        genBodyPose.append(leftKnee)
+        genBodyPose.append(leftAnkle)
+        return genBodyPose
+    }
+    
+    func initBWPushupPose() -> Array<BodyPart> {
+        var genBodyPose: Array<BodyPart> = []
+        genBodyPose.append(leftWrist)
+        genBodyPose.append(leftElbow)
+        genBodyPose.append(leftShoulder)
+        genBodyPose.append(leftHip)
+        return genBodyPose
+    }
+    
+    func initBWPullUpPose() -> Array<BodyPart> {
+        var genBodyPose: Array<BodyPart> = []
+        genBodyPose.append(leftWrist)
+        genBodyPose.append(leftElbow)
+        genBodyPose.append(leftShoulder)
+        genBodyPose.append(leftHip)
+        return genBodyPose
+    }
+    
+    
 }

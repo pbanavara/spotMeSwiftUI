@@ -10,6 +10,7 @@ import Foundation
 enum BodyAngleContants {
     static let HIP_HINGE_ANGLE = "hipHingeAngle"
     static let KNEE_HIP_ANGLE = "kneeHipAngle"
+    static let ELBOW_ANGLE = "elbowAngle"
     
 }
 
@@ -24,4 +25,19 @@ enum BackendResponseConstants {
 enum CorrectHipHingeConstants {
     static let CORRECT_HIP_L = 70.0
     static let CORRECT_HIP_R = 90.0
+}
+
+enum CorrectBarDlHipHingeConstants {
+    static let CORRECT_HIP_L = 60.0
+    static let CORRECT_HIP_R = 65.0
+}
+
+enum CorrectSwingHipHingeConstants {
+    static let CORRECT_HIP_L = 80.0
+    static let CORRECT_HIP_R = 90.0
+}
+
+enum CorrectElbowHingeConstants {
+    static let CORRECT_ELBOW_L = 40.0
+    static let CORRECT_ELBOW_R = 50.0
 }

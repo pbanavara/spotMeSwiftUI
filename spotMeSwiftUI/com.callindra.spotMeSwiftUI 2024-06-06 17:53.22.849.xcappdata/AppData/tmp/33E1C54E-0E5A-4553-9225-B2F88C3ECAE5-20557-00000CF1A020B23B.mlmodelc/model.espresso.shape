@@ -1,0 +1,200 @@
+{
+  "layer_shapes" : {
+    "\/model.22\/Sub_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Constant_23_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 2
+    },
+    "\/model.22\/Add_1_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Slice_3_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 1
+    },
+    "\/model.22\/Split_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 64
+    },
+    "\/model.22\/Sigmoid_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 1
+    },
+    "\/model.22\/dfl\/Transpose_output_0" : {
+      "k" : 16,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 4
+    },
+    "\/model.22\/Div_1_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Mul_3_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 2
+    },
+    "\/model.22\/dfl\/Softmax_output_0" : {
+      "k" : 16,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 4
+    },
+    "\/model.22\/Sigmoid_1_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 1
+    },
+    "\/model.22\/Slice_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Reshape_6_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 3
+    },
+    "\/model.22\/dfl\/Reshape_1_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 4
+    },
+    "\/model.22\/Constant_13_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "ortshared_1_0_1_0_token_272" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "\/model.22\/Split_output_1" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 1
+    },
+    "\/model.22\/Slice_1_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Add_2_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Add_3_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 2
+    },
+    "\/model.22\/Mul_4_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 2
+    },
+    "\/model.22\/dfl\/Reshape_output_0" : {
+      "k" : 4,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 16
+    },
+    "\/model.22\/Constant_14_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Slice_2_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 2
+    },
+    "\/model.22\/Concat_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 51
+    },
+    "\/model.22\/dfl\/conv\/Conv_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 4
+    },
+    "\/model.22\/Sub_1_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 2
+    },
+    "\/model.22\/Constant_24_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    }
+  }
+}

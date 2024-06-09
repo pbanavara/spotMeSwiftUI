@@ -1,0 +1,88 @@
+{
+  "layer_shapes" : {
+    "_ppp10_ratios" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "\/model.2\/cv1\/conv\/Conv_output_0" : {
+      "k" : 32,
+      "w" : 160,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 160
+    },
+    "\/model.0\/conv\/Conv_output_0" : {
+      "k" : 16,
+      "w" : 320,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 320
+    },
+    "\/model.0\/act\/Sigmoid_output_0" : {
+      "k" : 16,
+      "w" : 320,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 320
+    },
+    "\/model.1\/conv\/Conv_output_0" : {
+      "k" : 32,
+      "w" : 160,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 160
+    },
+    "_ppp10_f_oh" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "\/model.0\/act\/Mul_output_0" : {
+      "k" : 16,
+      "w" : 320,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 320
+    },
+    "\/model.1\/act\/Sigmoid_output_0" : {
+      "k" : 32,
+      "w" : 160,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 160
+    },
+    "\/model.2\/cv1\/act\/Mul_output_0" : {
+      "k" : 32,
+      "w" : 160,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 160
+    },
+    "\/model.2\/cv1\/act\/Sigmoid_output_0" : {
+      "k" : 32,
+      "w" : 160,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 160
+    },
+    "\/model.1\/act\/Mul_output_0" : {
+      "k" : 32,
+      "w" : 160,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 160
+    },
+    "_ppp10_f_sh" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    }
+  }
+}

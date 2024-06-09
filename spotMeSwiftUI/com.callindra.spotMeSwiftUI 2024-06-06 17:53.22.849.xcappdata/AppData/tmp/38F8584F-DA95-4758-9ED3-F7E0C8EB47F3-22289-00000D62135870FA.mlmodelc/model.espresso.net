@@ -1,0 +1,171 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "bottom" : "\/model.0\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.0\/act\/Sigmoid",
+      "top" : "\/model.0\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.0\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.0\/conv\/Conv_output_0,\/model.0\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.0\/act\/Mul",
+      "top" : "\/model.0\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.0\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 1,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.1\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 1,
+      "pad_l" : 1,
+      "top" : "\/model.1\/conv\/Conv_output_0",
+      "blob_weights" : 3,
+      "K" : 16,
+      "blob_biases" : 1,
+      "stride_x" : 2,
+      "name" : "\/model.1\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 1,
+      "stride_y" : 2,
+      "has_biases" : 1,
+      "C" : 32,
+      "bottom" : "\/model.0\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.1\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.1\/act\/Sigmoid",
+      "top" : "\/model.1\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.1\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.1\/conv\/Conv_output_0,\/model.1\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.1\/act\/Mul",
+      "top" : "\/model.1\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.1\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.2\/cv1\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.2\/cv1\/conv\/Conv_output_0",
+      "blob_weights" : 7,
+      "K" : 32,
+      "blob_biases" : 5,
+      "name" : "\/model.2\/cv1\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 32,
+      "bottom" : "\/model.1\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.2\/cv1\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.2\/cv1\/act\/Sigmoid",
+      "top" : "\/model.2\/cv1\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.2\/cv1\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.2\/cv1\/conv\/Conv_output_0,\/model.2\/cv1\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "beta" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.2\/cv1\/act\/Mul",
+      "top" : "\/model.2\/cv1\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.2\/cv1\/act\/Mul",
+      "attributes" : {
+        "is_output" : 1
+      }
+    },
+    {
+      "name" : "post_process_45",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 102,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp10_f_oh,_ppp10_f_sh",
+      "debug_info" : "post_process_45",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "_ppp10_ratios"
+    }
+  ]
+}

@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     @State private var selectedTab = "workoutNow"
     @ObservedObject var onboardingModel = OnboardingViewModel.shared
+    @State var authModel = AuthViewModel()
     //let audioManager = AudioFeedbackManager.shared
     var body: some View {
-       MainView()
+        MainView()
     }
 }
 

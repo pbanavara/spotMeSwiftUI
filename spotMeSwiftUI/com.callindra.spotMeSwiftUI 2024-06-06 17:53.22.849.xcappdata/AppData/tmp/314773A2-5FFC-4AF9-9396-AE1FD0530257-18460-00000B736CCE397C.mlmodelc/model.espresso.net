@@ -1,0 +1,81 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "bottom" : "_ppp10_masks",
+      "weights" : {
+
+      },
+      "nd_mode" : 1,
+      "debug_info" : "post_process_63",
+      "axis" : -1,
+      "top" : "_ppp10_orig_shape",
+      "type" : "get_shape",
+      "name" : "post_process_63",
+      "attributes" : {
+        "is_output" : 1
+      }
+    },
+    {
+      "bottom" : "_ppp10_keypoints_xy,_ppp10_f_half_pad_wh",
+      "alpha" : 1,
+      "operation" : 33,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "post_process_60",
+      "nd_mode" : true,
+      "top" : "_ppp10_offset_keypoints_xy",
+      "type" : "elementwise",
+      "name" : "post_process_60",
+      "beta" : 0
+    },
+    {
+      "name" : "post_process_61",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 1,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp10_offset_keypoints_xy,_ppp10_ratios",
+      "debug_info" : "post_process_61",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "_ppp10_scaled_keypoints_xy"
+    },
+    {
+      "name" : "post_process_49",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 33,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "_ppp10_boxes_xy,_ppp10_f_half_pad_wh",
+      "debug_info" : "post_process_49",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "_ppp10_offset_boxes_xy"
+    }
+  ]
+}

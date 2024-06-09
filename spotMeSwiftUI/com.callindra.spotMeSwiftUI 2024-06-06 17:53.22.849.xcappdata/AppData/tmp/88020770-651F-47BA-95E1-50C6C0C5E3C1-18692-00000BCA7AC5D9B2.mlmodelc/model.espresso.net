@@ -1,0 +1,775 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.18\/m.0\/cv1\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.18\/m.0\/cv1\/conv\/Conv_output_0",
+      "blob_weights" : 3,
+      "K" : 64,
+      "blob_biases" : 1,
+      "name" : "\/model.18\/m.0\/cv1\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "\/model.18\/Split_output_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.18\/m.0\/cv1\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.18\/m.0\/cv1\/act\/Sigmoid",
+      "top" : "\/model.18\/m.0\/cv1\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.18\/m.0\/cv1\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.18\/m.0\/cv1\/conv\/Conv_output_0,\/model.18\/m.0\/cv1\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.18\/m.0\/cv1\/act\/Mul",
+      "top" : "\/model.18\/m.0\/cv1\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.18\/m.0\/cv1\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.18\/m.0\/cv2\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.18\/m.0\/cv2\/conv\/Conv_output_0",
+      "blob_weights" : 7,
+      "K" : 64,
+      "blob_biases" : 5,
+      "name" : "\/model.18\/m.0\/cv2\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "\/model.18\/m.0\/cv1\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.18\/m.0\/cv2\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.18\/m.0\/cv2\/act\/Sigmoid",
+      "top" : "\/model.18\/m.0\/cv2\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.18\/m.0\/cv2\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.18\/m.0\/cv2\/conv\/Conv_output_0,\/model.18\/m.0\/cv2\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.18\/m.0\/cv2\/act\/Mul",
+      "top" : "\/model.18\/m.0\/cv2\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.18\/m.0\/cv2\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "\/model.18\/Concat",
+      "top" : "\/model.18\/Concat_output_0",
+      "type" : "concat",
+      "name" : "\/model.18\/Concat",
+      "bottom" : "\/model.18\/Split_output_0,\/model.18\/Split_output_1,\/model.18\/m.0\/cv2\/act\/Mul_output_0"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.18\/cv2\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.18\/cv2\/conv\/Conv_output_0",
+      "blob_weights" : 11,
+      "K" : 192,
+      "blob_biases" : 9,
+      "name" : "\/model.18\/cv2\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 128,
+      "bottom" : "\/model.18\/Concat_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.18\/cv2\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.18\/cv2\/act\/Sigmoid",
+      "top" : "\/model.18\/cv2\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.18\/cv2\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.18\/cv2\/conv\/Conv_output_0,\/model.18\/cv2\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.18\/cv2\/act\/Mul",
+      "top" : "\/model.18\/cv2\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.18\/cv2\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 1,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.19\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 1,
+      "pad_l" : 1,
+      "top" : "\/model.19\/conv\/Conv_output_0",
+      "blob_weights" : 15,
+      "K" : 128,
+      "blob_biases" : 13,
+      "stride_x" : 2,
+      "name" : "\/model.19\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 1,
+      "stride_y" : 2,
+      "has_biases" : 1,
+      "C" : 128,
+      "bottom" : "\/model.18\/cv2\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.19\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.19\/act\/Sigmoid",
+      "top" : "\/model.19\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.19\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.19\/conv\/Conv_output_0,\/model.19\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.19\/act\/Mul",
+      "top" : "\/model.19\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.19\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "\/model.20\/Concat",
+      "top" : "\/model.20\/Concat_output_0",
+      "type" : "concat",
+      "name" : "\/model.20\/Concat",
+      "bottom" : "\/model.19\/act\/Mul_output_0,\/model.9\/cv2\/act\/Mul_output_0"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.21\/cv1\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.21\/cv1\/conv\/Conv_output_0",
+      "blob_weights" : 19,
+      "K" : 384,
+      "blob_biases" : 17,
+      "name" : "\/model.21\/cv1\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 256,
+      "bottom" : "\/model.20\/Concat_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.21\/cv1\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.21\/cv1\/act\/Sigmoid",
+      "top" : "\/model.21\/cv1\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.21\/cv1\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.21\/cv1\/conv\/Conv_output_0,\/model.21\/cv1\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "beta" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.21\/cv1\/act\/Mul",
+      "top" : "\/model.21\/cv1\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.21\/cv1\/act\/Mul",
+      "attributes" : {
+        "is_output" : 1
+      }
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv4.1\/cv4.1.0\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv4.1\/cv4.1.0\/conv\/Conv_output_0",
+      "blob_weights" : 23,
+      "K" : 128,
+      "blob_biases" : 21,
+      "name" : "\/model.22\/cv4.1\/cv4.1.0\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 51,
+      "bottom" : "\/model.18\/cv2\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.22\/cv4.1\/cv4.1.0\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/cv4.1\/cv4.1.0\/act\/Sigmoid",
+      "top" : "\/model.22\/cv4.1\/cv4.1.0\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/cv4.1\/cv4.1.0\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.22\/cv4.1\/cv4.1.0\/conv\/Conv_output_0,\/model.22\/cv4.1\/cv4.1.0\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/cv4.1\/cv4.1.0\/act\/Mul",
+      "top" : "\/model.22\/cv4.1\/cv4.1.0\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/cv4.1\/cv4.1.0\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv4.1\/cv4.1.1\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv4.1\/cv4.1.1\/conv\/Conv_output_0",
+      "blob_weights" : 27,
+      "K" : 51,
+      "blob_biases" : 25,
+      "name" : "\/model.22\/cv4.1\/cv4.1.1\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 51,
+      "bottom" : "\/model.22\/cv4.1\/cv4.1.0\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.22\/cv4.1\/cv4.1.1\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/cv4.1\/cv4.1.1\/act\/Sigmoid",
+      "top" : "\/model.22\/cv4.1\/cv4.1.1\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/cv4.1\/cv4.1.1\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.22\/cv4.1\/cv4.1.1\/conv\/Conv_output_0,\/model.22\/cv4.1\/cv4.1.1\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/cv4.1\/cv4.1.1\/act\/Mul",
+      "top" : "\/model.22\/cv4.1\/cv4.1.1\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/cv4.1\/cv4.1.1\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv4.1\/cv4.1.2\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv4.1\/cv4.1.2\/Conv_output_0",
+      "blob_weights" : 31,
+      "K" : 51,
+      "blob_biases" : 29,
+      "name" : "\/model.22\/cv4.1\/cv4.1.2\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 51,
+      "bottom" : "\/model.22\/cv4.1\/cv4.1.1\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "\/model.22\/Reshape_1",
+      "weights" : {
+
+      },
+      "dst_w" : 1600,
+      "version" : 1,
+      "dst_n" : 1,
+      "dst_nd_rank" : 3,
+      "type" : "reshape",
+      "dst_h" : 51,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "dynamic_shape" : false,
+      "bottom" : "\/model.22\/cv4.1\/cv4.1.2\/Conv_output_0",
+      "debug_info" : "\/model.22\/Reshape_1",
+      "dst_k" : 1,
+      "dst_seq" : 1,
+      "top" : "\/model.22\/Reshape_1_output_0"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv3.1\/cv3.1.0\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv3.1\/cv3.1.0\/conv\/Conv_output_0",
+      "blob_weights" : 35,
+      "K" : 128,
+      "blob_biases" : 33,
+      "name" : "\/model.22\/cv3.1\/cv3.1.0\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "\/model.18\/cv2\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.22\/cv3.1\/cv3.1.0\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/cv3.1\/cv3.1.0\/act\/Sigmoid",
+      "top" : "\/model.22\/cv3.1\/cv3.1.0\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/cv3.1\/cv3.1.0\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.22\/cv3.1\/cv3.1.0\/conv\/Conv_output_0,\/model.22\/cv3.1\/cv3.1.0\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/cv3.1\/cv3.1.0\/act\/Mul",
+      "top" : "\/model.22\/cv3.1\/cv3.1.0\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/cv3.1\/cv3.1.0\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv3.1\/cv3.1.1\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv3.1\/cv3.1.1\/conv\/Conv_output_0",
+      "blob_weights" : 39,
+      "K" : 64,
+      "blob_biases" : 37,
+      "name" : "\/model.22\/cv3.1\/cv3.1.1\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "\/model.22\/cv3.1\/cv3.1.0\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.22\/cv3.1\/cv3.1.1\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/cv3.1\/cv3.1.1\/act\/Sigmoid",
+      "top" : "\/model.22\/cv3.1\/cv3.1.1\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/cv3.1\/cv3.1.1\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.22\/cv3.1\/cv3.1.1\/conv\/Conv_output_0,\/model.22\/cv3.1\/cv3.1.1\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/cv3.1\/cv3.1.1\/act\/Mul",
+      "top" : "\/model.22\/cv3.1\/cv3.1.1\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/cv3.1\/cv3.1.1\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv3.1\/cv3.1.2\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv3.1\/cv3.1.2\/Conv_output_0",
+      "blob_weights" : 43,
+      "K" : 64,
+      "blob_biases" : 41,
+      "name" : "\/model.22\/cv3.1\/cv3.1.2\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 1,
+      "bottom" : "\/model.22\/cv3.1\/cv3.1.1\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv2.1\/cv2.1.0\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv2.1\/cv2.1.0\/conv\/Conv_output_0",
+      "blob_weights" : 47,
+      "K" : 128,
+      "blob_biases" : 45,
+      "name" : "\/model.22\/cv2.1\/cv2.1.0\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "\/model.18\/cv2\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.22\/cv2.1\/cv2.1.0\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/cv2.1\/cv2.1.0\/act\/Sigmoid",
+      "top" : "\/model.22\/cv2.1\/cv2.1.0\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/cv2.1\/cv2.1.0\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.22\/cv2.1\/cv2.1.0\/conv\/Conv_output_0,\/model.22\/cv2.1\/cv2.1.0\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/cv2.1\/cv2.1.0\/act\/Mul",
+      "top" : "\/model.22\/cv2.1\/cv2.1.0\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/cv2.1\/cv2.1.0\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv2.1\/cv2.1.1\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv2.1\/cv2.1.1\/conv\/Conv_output_0",
+      "blob_weights" : 51,
+      "K" : 64,
+      "blob_biases" : 49,
+      "name" : "\/model.22\/cv2.1\/cv2.1.1\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "\/model.22\/cv2.1\/cv2.1.0\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "bottom" : "\/model.22\/cv2.1\/cv2.1.1\/conv\/Conv_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/cv2.1\/cv2.1.1\/act\/Sigmoid",
+      "top" : "\/model.22\/cv2.1\/cv2.1.1\/act\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/cv2.1\/cv2.1.1\/act\/Sigmoid"
+    },
+    {
+      "bottom" : "\/model.22\/cv2.1\/cv2.1.1\/conv\/Conv_output_0,\/model.22\/cv2.1\/cv2.1.1\/act\/Sigmoid_output_0",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/cv2.1\/cv2.1.1\/act\/Mul",
+      "top" : "\/model.22\/cv2.1\/cv2.1.1\/act\/Mul_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/cv2.1\/cv2.1.1\/act\/Mul",
+      "beta" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/cv2.1\/cv2.1.2\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/cv2.1\/cv2.1.2\/Conv_output_0",
+      "blob_weights" : 55,
+      "K" : 64,
+      "blob_biases" : 53,
+      "name" : "\/model.22\/cv2.1\/cv2.1.2\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "\/model.22\/cv2.1\/cv2.1.1\/act\/Mul_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "\/model.22\/Concat_2",
+      "top" : "\/model.22\/Concat_2_output_0",
+      "type" : "concat",
+      "name" : "\/model.22\/Concat_2",
+      "bottom" : "\/model.22\/cv2.1\/cv2.1.2\/Conv_output_0,\/model.22\/cv3.1\/cv3.1.2\/Conv_output_0"
+    },
+    {
+      "name" : "\/model.22\/Reshape_4",
+      "weights" : {
+
+      },
+      "dst_w" : 1600,
+      "version" : 1,
+      "dst_n" : 1,
+      "dst_nd_rank" : 3,
+      "type" : "reshape",
+      "dst_h" : 65,
+      "mode" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "dynamic_shape" : false,
+      "bottom" : "\/model.22\/Concat_2_output_0",
+      "debug_info" : "\/model.22\/Reshape_4",
+      "dst_k" : 1,
+      "dst_seq" : 1,
+      "top" : "\/model.22\/Reshape_4_output_0"
+    }
+  ]
+}

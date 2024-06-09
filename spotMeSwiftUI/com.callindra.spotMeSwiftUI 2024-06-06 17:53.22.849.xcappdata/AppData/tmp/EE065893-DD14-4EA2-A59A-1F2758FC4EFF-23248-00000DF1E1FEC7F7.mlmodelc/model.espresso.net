@@ -1,0 +1,545 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "top" : "\/model.22\/Constant_23_output_0",
+      "w" : 8400,
+      "h" : 2,
+      "name" : "initializer_\/model.22\/Constant_23_output_0_token_0",
+      "nd_rank" : 2,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_\/model.22\/Constant_23_output_0_token_0",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 1
+    },
+    {
+      "top" : "\/model.22\/Constant_14_output_0",
+      "w" : 8400,
+      "h" : 2,
+      "name" : "initializer_\/model.22\/Constant_14_output_0_token_1",
+      "nd_rank" : 3,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_\/model.22\/Constant_14_output_0_token_1",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 3
+    },
+    {
+      "top" : "\/model.22\/Constant_24_output_0",
+      "w" : 8400,
+      "h" : 1,
+      "name" : "initializer_\/model.22\/Constant_24_output_0_token_2",
+      "nd_rank" : 2,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_\/model.22\/Constant_24_output_0_token_2",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 5
+    },
+    {
+      "top" : "ortshared_1_0_1_0_token_272",
+      "w" : 1,
+      "h" : 1,
+      "name" : "initializer_ortshared_1_0_1_0_token_272_token_3",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_ortshared_1_0_1_0_token_272_token_3",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 7
+    },
+    {
+      "top" : "\/model.22\/Constant_13_output_0",
+      "w" : 8400,
+      "h" : 2,
+      "name" : "initializer_\/model.22\/Constant_13_output_0_token_4",
+      "nd_rank" : 3,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_\/model.22\/Constant_13_output_0_token_4",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 9
+    },
+    {
+      "name" : "\/model.22\/Reshape_6",
+      "weights" : {
+
+      },
+      "dst_w" : 8400,
+      "version" : 1,
+      "dst_n" : 1,
+      "dst_nd_rank" : 4,
+      "type" : "reshape",
+      "dst_h" : 3,
+      "mode" : 0,
+      "dynamic_shape" : false,
+      "bottom" : "\/model.22\/Concat_output_0",
+      "debug_info" : "\/model.22\/Reshape_6",
+      "dst_seq" : 1,
+      "dst_k" : 17,
+      "top" : "\/model.22\/Reshape_6_output_0"
+    },
+    {
+      "begin_n" : 0,
+      "static_sizes_k" : 0,
+      "end_mask_h" : false,
+      "end_w" : 1,
+      "end_h" : 17,
+      "begin_h" : 0,
+      "stride_n" : 1,
+      "end_seq" : 1,
+      "begin_mask_seq" : false,
+      "begin_mask_h" : false,
+      "squeeze_mask_h" : false,
+      "stride_k" : 1,
+      "type" : "general_slice",
+      "begin_mask_k" : false,
+      "static_sizes_w" : 0,
+      "begin_w" : 0,
+      "end_mask_k" : false,
+      "use_static_sizes" : false,
+      "stride_h" : 1,
+      "static_sizes_n" : 0,
+      "begin_mask_n" : false,
+      "weights" : {
+
+      },
+      "name" : "\/model.22\/Slice_3",
+      "stride_seq" : 1,
+      "end_k" : 3,
+      "static_sizes_seq" : 0,
+      "top" : "\/model.22\/Slice_3_output_0",
+      "begin_seq" : 0,
+      "squeeze_mask_k" : false,
+      "begin_k" : 2,
+      "end_mask_w" : false,
+      "end_mask_seq" : false,
+      "end_mask_n" : false,
+      "debug_info" : "\/model.22\/Slice_3",
+      "stride_w" : 1,
+      "squeeze_mask_seq" : false,
+      "static_sizes_h" : 0,
+      "begin_mask_w" : false,
+      "bottom" : "\/model.22\/Reshape_6_output_0",
+      "end_n" : 8400,
+      "squeeze_mask_w" : false,
+      "squeeze_mask_n" : false
+    },
+    {
+      "bottom" : "\/model.22\/Slice_3_output_0",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/Sigmoid_1",
+      "top" : "\/model.22\/Sigmoid_1_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/Sigmoid_1",
+      "attributes" : {
+        "is_output" : 1
+      }
+    },
+    {
+      "begin_n" : 0,
+      "static_sizes_k" : 0,
+      "end_mask_h" : false,
+      "end_w" : 1,
+      "end_h" : 17,
+      "begin_h" : 0,
+      "stride_n" : 1,
+      "end_seq" : 1,
+      "begin_mask_seq" : false,
+      "begin_mask_h" : false,
+      "squeeze_mask_h" : false,
+      "stride_k" : 1,
+      "type" : "general_slice",
+      "begin_mask_k" : false,
+      "static_sizes_w" : 0,
+      "begin_w" : 0,
+      "end_mask_k" : false,
+      "use_static_sizes" : false,
+      "stride_h" : 1,
+      "static_sizes_n" : 0,
+      "begin_mask_n" : false,
+      "weights" : {
+
+      },
+      "name" : "\/model.22\/Slice_2",
+      "stride_seq" : 1,
+      "end_k" : 2,
+      "static_sizes_seq" : 0,
+      "top" : "\/model.22\/Slice_2_output_0",
+      "begin_seq" : 0,
+      "squeeze_mask_k" : false,
+      "begin_k" : 0,
+      "end_mask_w" : false,
+      "end_mask_seq" : false,
+      "end_mask_n" : false,
+      "debug_info" : "\/model.22\/Slice_2",
+      "stride_w" : 1,
+      "squeeze_mask_seq" : false,
+      "static_sizes_h" : 0,
+      "begin_mask_w" : false,
+      "bottom" : "\/model.22\/Reshape_6_output_0",
+      "end_n" : 8400,
+      "squeeze_mask_w" : false,
+      "squeeze_mask_n" : false
+    },
+    {
+      "bottom" : "\/model.22\/Slice_2_output_0,ortshared_1_0_1_0_token_272",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/Mul_3",
+      "nd_mode" : true,
+      "top" : "\/model.22\/Mul_3_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/Mul_3",
+      "beta" : 0
+    },
+    {
+      "bottom" : "\/model.22\/Mul_3_output_0,\/model.22\/Constant_23_output_0",
+      "alpha" : 1,
+      "operation" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/Add_3",
+      "nd_mode" : true,
+      "top" : "\/model.22\/Add_3_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/Add_3",
+      "beta" : 0
+    },
+    {
+      "name" : "\/model.22\/Mul_4",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 1,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "\/model.22\/Add_3_output_0,\/model.22\/Constant_24_output_0",
+      "debug_info" : "\/model.22\/Mul_4",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "\/model.22\/Mul_4_output_0"
+    },
+    {
+      "bottom" : "\/model.22\/Split_output_1",
+      "weights" : {
+
+      },
+      "mode" : 3,
+      "debug_info" : "\/model.22\/Sigmoid",
+      "top" : "\/model.22\/Sigmoid_output_0",
+      "type" : "activation",
+      "name" : "\/model.22\/Sigmoid",
+      "attributes" : {
+        "is_output" : 1
+      }
+    },
+    {
+      "name" : "\/model.22\/dfl\/Reshape",
+      "weights" : {
+
+      },
+      "dst_w" : 8400,
+      "version" : 1,
+      "dst_n" : 1,
+      "dst_nd_rank" : 4,
+      "type" : "reshape",
+      "dst_h" : 16,
+      "mode" : 0,
+      "dynamic_shape" : false,
+      "bottom" : "\/model.22\/Split_output_0",
+      "debug_info" : "\/model.22\/dfl\/Reshape",
+      "dst_seq" : 1,
+      "dst_k" : 4,
+      "top" : "\/model.22\/dfl\/Reshape_output_0"
+    },
+    {
+      "axis_h" : 2,
+      "axis_w" : 0,
+      "bottom" : "\/model.22\/dfl\/Reshape_output_0",
+      "axis_k" : 1,
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "debug_info" : "\/model.22\/dfl\/Transpose",
+      "top" : "\/model.22\/dfl\/Transpose_output_0",
+      "type" : "transpose",
+      "name" : "\/model.22\/dfl\/Transpose"
+    },
+    {
+      "bottom" : "\/model.22\/dfl\/Transpose_output_0",
+      "weights" : {
+
+      },
+      "nd_axis" : 1,
+      "debug_info" : "\/model.22\/dfl\/Softmax",
+      "top" : "\/model.22\/dfl\/Softmax_output_0",
+      "type" : "softmax_nd",
+      "name" : "\/model.22\/dfl\/Softmax"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "\/model.22\/dfl\/conv\/Conv",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "\/model.22\/dfl\/conv\/Conv_output_0",
+      "blob_weights" : 11,
+      "K" : 16,
+      "name" : "\/model.22\/dfl\/conv\/Conv",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 1,
+      "bottom" : "\/model.22\/dfl\/Softmax_output_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "\/model.22\/dfl\/Reshape_1",
+      "weights" : {
+
+      },
+      "dst_w" : 8400,
+      "version" : 1,
+      "dst_n" : 1,
+      "dst_nd_rank" : 3,
+      "type" : "reshape",
+      "dst_h" : 4,
+      "mode" : 0,
+      "dynamic_shape" : false,
+      "bottom" : "\/model.22\/dfl\/conv\/Conv_output_0",
+      "debug_info" : "\/model.22\/dfl\/Reshape_1",
+      "dst_seq" : 1,
+      "dst_k" : 1,
+      "top" : "\/model.22\/dfl\/Reshape_1_output_0"
+    },
+    {
+      "begin_n" : 0,
+      "static_sizes_k" : 0,
+      "end_mask_h" : false,
+      "end_w" : 1,
+      "end_h" : 4,
+      "begin_h" : 2,
+      "stride_n" : 1,
+      "end_seq" : 1,
+      "begin_mask_seq" : false,
+      "begin_mask_h" : false,
+      "squeeze_mask_h" : false,
+      "stride_k" : 1,
+      "type" : "general_slice",
+      "begin_mask_k" : false,
+      "static_sizes_w" : 0,
+      "begin_w" : 0,
+      "end_mask_k" : false,
+      "use_static_sizes" : false,
+      "stride_h" : 1,
+      "static_sizes_n" : 0,
+      "begin_mask_n" : false,
+      "weights" : {
+
+      },
+      "name" : "\/model.22\/Slice_1",
+      "stride_seq" : 1,
+      "end_k" : 8400,
+      "static_sizes_seq" : 0,
+      "top" : "\/model.22\/Slice_1_output_0",
+      "begin_seq" : 0,
+      "squeeze_mask_k" : false,
+      "begin_k" : 0,
+      "end_mask_w" : false,
+      "end_mask_seq" : false,
+      "end_mask_n" : false,
+      "debug_info" : "\/model.22\/Slice_1",
+      "stride_w" : 1,
+      "squeeze_mask_seq" : false,
+      "static_sizes_h" : 0,
+      "begin_mask_w" : false,
+      "bottom" : "\/model.22\/dfl\/Reshape_1_output_0",
+      "end_n" : 1,
+      "squeeze_mask_w" : false,
+      "squeeze_mask_n" : false
+    },
+    {
+      "bottom" : "\/model.22\/Constant_14_output_0,\/model.22\/Slice_1_output_0",
+      "alpha" : 1,
+      "operation" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/Add_1",
+      "top" : "\/model.22\/Add_1_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/Add_1",
+      "beta" : 0
+    },
+    {
+      "begin_n" : 0,
+      "static_sizes_k" : 0,
+      "end_mask_h" : false,
+      "end_w" : 1,
+      "end_h" : 2,
+      "begin_h" : 0,
+      "stride_n" : 1,
+      "end_seq" : 1,
+      "begin_mask_seq" : false,
+      "begin_mask_h" : false,
+      "squeeze_mask_h" : false,
+      "stride_k" : 1,
+      "type" : "general_slice",
+      "begin_mask_k" : false,
+      "static_sizes_w" : 0,
+      "begin_w" : 0,
+      "end_mask_k" : false,
+      "use_static_sizes" : false,
+      "stride_h" : 1,
+      "static_sizes_n" : 0,
+      "begin_mask_n" : false,
+      "weights" : {
+
+      },
+      "name" : "\/model.22\/Slice",
+      "stride_seq" : 1,
+      "end_k" : 8400,
+      "static_sizes_seq" : 0,
+      "top" : "\/model.22\/Slice_output_0",
+      "begin_seq" : 0,
+      "squeeze_mask_k" : false,
+      "begin_k" : 0,
+      "end_mask_w" : false,
+      "end_mask_seq" : false,
+      "end_mask_n" : false,
+      "debug_info" : "\/model.22\/Slice",
+      "stride_w" : 1,
+      "squeeze_mask_seq" : false,
+      "static_sizes_h" : 0,
+      "begin_mask_w" : false,
+      "bottom" : "\/model.22\/dfl\/Reshape_1_output_0",
+      "end_n" : 1,
+      "squeeze_mask_w" : false,
+      "squeeze_mask_n" : false
+    },
+    {
+      "bottom" : "\/model.22\/Constant_13_output_0,\/model.22\/Slice_output_0",
+      "alpha" : 1,
+      "operation" : 33,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/Sub",
+      "nd_mode" : true,
+      "top" : "\/model.22\/Sub_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/Sub",
+      "beta" : 0
+    },
+    {
+      "name" : "\/model.22\/Sub_1",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 33,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "\/model.22\/Add_1_output_0,\/model.22\/Sub_output_0",
+      "debug_info" : "\/model.22\/Sub_1",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "\/model.22\/Sub_1_output_0"
+    },
+    {
+      "bottom" : "\/model.22\/Sub_output_0,\/model.22\/Add_1_output_0",
+      "alpha" : 1,
+      "operation" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "\/model.22\/Add_2",
+      "top" : "\/model.22\/Add_2_output_0",
+      "type" : "elementwise",
+      "name" : "\/model.22\/Add_2",
+      "beta" : 0
+    },
+    {
+      "name" : "\/model.22\/Div_1",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 102,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "\/model.22\/Add_2_output_0,ortshared_1_0_1_0_token_272",
+      "debug_info" : "\/model.22\/Div_1",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "\/model.22\/Div_1_output_0"
+    }
+  ]
+}

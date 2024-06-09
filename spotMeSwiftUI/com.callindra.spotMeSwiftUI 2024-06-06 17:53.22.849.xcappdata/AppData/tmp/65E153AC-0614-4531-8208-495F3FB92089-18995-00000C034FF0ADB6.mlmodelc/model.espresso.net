@@ -1,0 +1,49 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "top" : "ortshared_1_1_2_0_token_294",
+      "w" : 2,
+      "h" : 1,
+      "name" : "initializer_ortshared_1_1_2_0_token_294_token_0",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "initializer_ortshared_1_1_2_0_token_294_token_0",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 1
+    },
+    {
+      "name" : "pre_process_7",
+      "fused_relu" : 0,
+      "beta" : 0,
+      "operation" : 102,
+      "type" : "elementwise",
+      "alpha" : 1,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "ortshared_1_1_2_0_token_294,_ppp2_f_hw",
+      "debug_info" : "pre_process_7",
+      "nd_mode" : true,
+      "weights" : {
+
+      },
+      "top" : "_ppp2_ratios"
+    }
+  ]
+}

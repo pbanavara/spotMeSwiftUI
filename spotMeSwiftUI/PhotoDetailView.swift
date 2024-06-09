@@ -11,7 +11,7 @@ import AVKit
 struct PhotoDetailView: View {
     let item: PhotoItem
     var body: some View {
-        VStack {
+        NavigationStack {
             if let url = item.url {
                 let player = AVPlayer(url: url)
                 Text(item.createdAt!.formatted())
@@ -25,6 +25,15 @@ struct PhotoDetailView: View {
                             player.play()
                         })
                     }
+                
+            }
+            
+        }
+        .navigationBarTitle(item.workoutType)
+        .navigationBarTitleDisplayMode(.automatic)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ShareLink(item: item.url!)
             }
         }
     }

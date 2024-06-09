@@ -1,4 +1,20 @@
 PODS:
+  - AppAuth (1.7.5):
+    - AppAuth/Core (= 1.7.5)
+    - AppAuth/ExternalUserAgent (= 1.7.5)
+  - AppAuth/Core (1.7.5)
+  - AppAuth/ExternalUserAgent (1.7.5):
+    - AppAuth/Core
+  - GoogleSignIn (7.1.0):
+    - AppAuth (< 2.0, >= 1.7.3)
+    - GTMAppAuth (< 5.0, >= 4.1.1)
+    - GTMSessionFetcher/Core (~> 3.3)
+  - GoogleSignInSwiftSupport (7.1.0):
+    - GoogleSignIn (~> 7.1)
+  - GTMAppAuth (4.1.1):
+    - AppAuth/Core (~> 1.7)
+    - GTMSessionFetcher/Core (< 4.0, >= 3.3)
+  - GTMSessionFetcher/Core (3.3.2)
   - onnxruntime-c (1.17.1)
   - onnxruntime-extensions-c (0.10.0)
   - onnxruntime-objc (1.17.1):
@@ -7,20 +23,32 @@ PODS:
     - onnxruntime-c (= 1.17.1)
 
 DEPENDENCIES:
+  - GoogleSignIn
+  - GoogleSignInSwiftSupport
   - onnxruntime-extensions-c
   - onnxruntime-objc
 
 SPEC REPOS:
   trunk:
+    - AppAuth
+    - GoogleSignIn
+    - GoogleSignInSwiftSupport
+    - GTMAppAuth
+    - GTMSessionFetcher
     - onnxruntime-c
     - onnxruntime-extensions-c
     - onnxruntime-objc
 
 SPEC CHECKSUMS:
+  AppAuth: 501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa
+  GoogleSignIn: d4281ab6cf21542b1cfaff85c191f230b399d2db
+  GoogleSignInSwiftSupport: bbbd5afe90c9e22e91d2fa5a55498e00e3227cef
+  GTMAppAuth: f69bd07d68cd3b766125f7e072c45d7340dea0de
+  GTMSessionFetcher: 0e876eea9782ec6462e91ab872711c357322c94f
   onnxruntime-c: 58803cb3fcc1fb0a7baa9b16b2bad119d6e3eb78
   onnxruntime-extensions-c: d4fd904f70e26d385033a1634ebf7388e459dee6
   onnxruntime-objc: 089530244113a131305642b7e03fa6f8a9ee9ae6
 
-PODFILE CHECKSUM: 8005b85ac2c1f62c11efc2a1abdb443293adcd4a
+PODFILE CHECKSUM: a71f6f6c6d066375a14640c98ad21922579a1de6
 
 COCOAPODS: 1.15.2

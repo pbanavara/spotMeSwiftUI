@@ -1,0 +1,39 @@
+{
+  "layer_shapes" : {
+    "\/model.22\/Reshape_7_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 51
+    },
+    "\/model.22\/Concat_6_output_0" : {
+      "k" : 17,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 3
+    },
+    "\/model.22\/Mul_2_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 4
+    },
+    "\/model.22\/Constant_16_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "\/model.22\/Concat_5_output_0" : {
+      "k" : 1,
+      "w" : 8400,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 4
+    }
+  }
+}

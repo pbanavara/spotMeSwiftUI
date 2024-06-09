@@ -11,7 +11,6 @@ import Combine
 struct CamView: View {
     @StateObject var model = CamViewModel()
     let videoRecorder = VideoRecordManager()
-    //@StateObject var audioManager = AudioFeedbackManager.shared
     @StateObject var agent = Agent.shared
     @State var isPlaying = false
     @State var animationHeight:Double?
@@ -49,18 +48,6 @@ struct CamView: View {
         }
         
         else {
-            /*
-             VStack {
-             Text(agent.chatResponse).frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding()
-             Button(action: {
-             model.getPoseImage()
-             agent.processVideoOutputText()
-             
-             }) {
-             Image(systemName: "record.circle").imageScale(.large)
-             }
-             }
-             */
             Text("Model loading...")
             ProgressView()
         }
