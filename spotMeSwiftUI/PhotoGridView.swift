@@ -50,9 +50,7 @@ struct PhotoGridView: View {
                                 }.overlay(alignment:.bottom) {
                                     Text(item.workoutType)
                                         .font(.caption)
-                                        .foregroundStyle(LinearGradient(colors: [.gray, .white], 
-                                                                        startPoint: .top,
-                                                                        endPoint: .bottom))
+                                        .foregroundStyle(.white).bold()
                                 }
                         }
                     }.padding()

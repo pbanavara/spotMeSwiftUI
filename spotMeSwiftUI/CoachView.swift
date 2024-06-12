@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct CoachView: View {
-    @State var selectedWorkout = KBWorkoutConstants.KB_DEAD_LIFT
     
+    @State var coachModel = CoachViewModel.shared
+    @State var selectedWorkout = CoachViewModel.shared.selectedWorkout
     var body: some View {
-        @ObservedObject var coachModel = CoachViewModel.shared
         NavigationStack {
             VStack {
                 Section {
                     Picker("", selection: $selectedWorkout) {
-                        ForEach(coachModel.Workouts, id: \.self) { workout in
+                        ForEach(coachModel.workouts, id: \.self) { workout in
                             Text(workout)
                         }
                     }.onChange(of: selectedWorkout) {
@@ -24,14 +24,15 @@ struct CoachView: View {
                     }.pickerStyle(.inline)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 50.0, trailing: 0))
                     if let workoutDesc = coachModel.workoutSetupDict[selectedWorkout] {
-                        Text(workoutDesc)
+                        Text(workoutDesc).padding()
                     }
                     Spacer()
                 }
                 
                 
             }
-            NavigationLink("Start camera", destination: CamView()).padding(50)
+            NavigationLink("Start camera", destination: CamView())
+                .padding(50)
                 .navigationTitle("Choose your workout")
             
         }

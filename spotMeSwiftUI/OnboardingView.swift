@@ -35,7 +35,7 @@ struct OnboardingView: View {
                 )
             ).font(.title).padding()
             Image(.main).resizable().frame(width: 80, height: 80).scaledToFit()
-            Text("Correct your workout form in realtime").foregroundStyle(.primary).multilineTextAlignment(.leading).padding()
+            Text("Correct your workout form in realtime.\nFace your left side to the camera and start working out.").foregroundStyle(.primary).multilineTextAlignment(.leading).padding()
             if let url = Bundle.main.url(forResource: "main_view_video", withExtension: "mov") {
                 let player = AVPlayer(url: url)
                 VideoPlayer(player: player)
@@ -44,15 +44,6 @@ struct OnboardingView: View {
                                                player.seek(to: .zero)
                                                player.play()
                                            }
-                        /*
-                        if player.currentItem == nil {
-                            let item = AVPlayerItem(url: url)
-                            player.replaceCurrentItem(with: item)
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                            player.play()
-                        })
-                         */
                     }
             }
             

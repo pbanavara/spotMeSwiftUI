@@ -14,42 +14,76 @@ struct CamView: View {
     @StateObject var agent = Agent.shared
     @State var isPlaying = false
     @State var animationHeight:Double?
+    
+    init() {
+        CameraManager.shared.configure()
+    }
     var body: some View {
-        if let image = model.poseImage {
-            ZStack {
-                Image(image, scale:1.0, orientation: .up, label:Text(""))
-                    .resizable()
-                    .scaledToFit()
-                    .overlay(alignment: .bottom) {
-                        Button(action: {
-                            isPlaying.toggle()
-                            if isPlaying {
-                                videoRecorder.setActionState(state: false)
-                            } else {
-                                videoRecorder.setActionState(state: true)
+        NavigationStack {
+            if let image = model.poseImage {
+                ZStack {
+                    GeometryReader { geometry in
+                        Image(image, scale:1.0, orientation: .up, label:Text(""))
+                            .resizable()
+                            .scaledToFill()
+                            .overlay(alignment: .top) {
+                                if let position = model.bodyInPosition {
+                                    if position == true {
+                                        Text("Body in frame")
+                                        Rectangle()
+                                            .fill(.clear)
+                                            .frame(width: geometry.size.width, height: geometry.size.height)
+                                            .border(Color.green, width: 2)
+                                            .clipShape(RoundedRectangle(cornerRadius: 5.0))
+                                        
+                                    } else {
+                                        Text("Body not in frame, Please align")
+                                        Rectangle()
+                                            .fill(.clear)
+                                            .frame(width: geometry.size.width, height: geometry.size.height)
+                                            .border(Color.red, width: 4)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                    }
+                                }
+                                
                             }
-                        }) {
-                            switch isPlaying {
-                            case true:
-                                Rectangle().cornerRadius(5.0).foregroundColor(.red).padding(.all, 15).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
-                            case false:
-                                Circle().foregroundColor(.red).padding(.all, 5).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
+                            .overlay(alignment: .bottom) {
+                                Button(action: {
+                                    isPlaying.toggle()
+                                    if isPlaying {
+                                        videoRecorder.setActionState(state: false)
+                                    } else {
+                                        videoRecorder.setActionState(state: true)
+                                    }
+                                }) {
+                                    switch isPlaying {
+                                    case true:
+                                        Rectangle().cornerRadius(5.0).foregroundColor(.red).padding(.all, 15).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
+                                    case false:
+                                        Circle().foregroundColor(.red).padding(.all, 5).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
+                                    }
+                                }.frame(width: 50.0, height: 50.0).padding(.bottom, 100)
                             }
-                        }.frame(width: 50.0, height: 50.0).padding(.bottom, 30)
+                        
                     }
-                AudioView().background(.gray)
-            }.onAppear() {
-                UIApplication.shared.isIdleTimerDisabled = true
-            }.onDisappear() {
-                UIApplication.shared.isIdleTimerDisabled = false
+                }.onAppear() {
+                    UIApplication.shared.isIdleTimerDisabled = true
+                }.onDisappear() {
+                    UIApplication.shared.isIdleTimerDisabled = false
+                }.navigationTitle(CoachViewModel.shared.selectedWorkout).navigationBarTitleDisplayMode(.inline)
+                
+                
             }
             
-            
+            else {
+                Text("Model loading...")
+                ProgressView()
+            }
+        }.onAppear() {
+            CameraManager.shared.configure()
         }
-        
-        else {
-            Text("Model loading...")
-            ProgressView()
+        .onDisappear() {
+            CameraManager.shared.stopCamera()
         }
     }
 }

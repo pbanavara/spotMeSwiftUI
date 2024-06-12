@@ -59,6 +59,8 @@ struct BodyPoses {
         bodyPosesMap[KBWorkoutConstants.GEN_WORKOUT] = initGenWorkoutPose()
         bodyPosesMap[KBWorkoutConstants.BAR_DEAD_LIFT] = initBarDlPose()
         bodyPosesMap[KBWorkoutConstants.BAR_SQUAT] = initBarSquatPose()
+        bodyPosesMap[KBWorkoutConstants.BODYWEIGHT_PUSHUP] = initBWPushupPose()
+        
     }
     
     func initDeadLiftPose() -> Array<BodyPart> {

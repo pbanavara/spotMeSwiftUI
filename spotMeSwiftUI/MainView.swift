@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedTab = "home"
+    @State private var mainModel = MainViewModel.shared
+    init() {
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.init(name: "Avenir-Heavy", size: 13)! ], for: .normal)
+    }
     var body: some View {
         TabView (selection: $selectedTab) {
             OnboardingView().tabItem {
@@ -20,7 +24,7 @@ struct MainView: View {
             PhotoGridView().environmentObject(PhotoDataModel.shared).tabItem { Label("Past workouts", systemImage: "photo.stack.fill") }.tag("history")
         }.onChange(of: selectedTab){ value in
             if (value == "workoutNow") {
-                CameraManager.shared.configure()
+                //CameraManager.shared.configure()
             } else if (value == "history") {
                 CameraManager.shared.stopCamera()
             } else if (value == "home") {

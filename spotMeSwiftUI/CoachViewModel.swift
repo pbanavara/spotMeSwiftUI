@@ -26,16 +26,15 @@ enum KBWorkoutConstants {
 
 class CoachViewModel: NSObject, ObservableObject {
     var workoutSetupDict: Dictionary<String, String> = Dictionary()
-    
-    
+    let alignString = "Align yourself until you see a green rectangle in the camera view.\n"
     let instruction = "Mount the phone on a tipod/magnetic holder.\nPosition yourself so that the left side of your body faces the camera.\nEnsure that your full body is in the frame.\n\nWhen ready click start camera.\nAdjust your position in the camera view before recording."
-    let Workouts = [KBWorkoutConstants.KB_DEAD_LIFT, 
-                    KBWorkoutConstants.KB_SQUAT,
-                    KBWorkoutConstants.KB_SWING,
+    let workouts = [KBWorkoutConstants.KB_SWING,
+                    KBWorkoutConstants.KB_DEAD_LIFT,
                     KBWorkoutConstants.KB_SHOULDER,
                     KBWorkoutConstants.BAR_DEAD_LIFT,
                     KBWorkoutConstants.BAR_SQUAT,
-                    KBWorkoutConstants.GEN_WORKOUT]
+                    KBWorkoutConstants.BAR_BENCH_PRESS,
+                    KBWorkoutConstants.BODYWEIGHT_PUSHUP]
     let kbWorkouts = [KBWorkoutConstants.KB_DEAD_LIFT, KBWorkoutConstants.KB_SQUAT, KBWorkoutConstants.KB_SWING]
     let barbellWorkouts = [KBWorkoutConstants.BAR_SQUAT, KBWorkoutConstants.BAR_DEAD_LIFT, KBWorkoutConstants.BAR_BENCH_PRESS, 
                            KBWorkoutConstants.BAR_SHOULDER_PRESS,
@@ -47,12 +46,14 @@ class CoachViewModel: NSObject, ObservableObject {
     @Published var selectedWorkout: String = KBWorkoutConstants.KB_DEAD_LIFT
     
     private override init() {
-        let kbDlDesString = "Key joints to focus on: Hip, Knee\nKey muscle groups activated: Hamstrings, back, core.\nImportant angles: Hip hinge"
+        let kbDlDesString =  alignString + "Focus on the hip hinge while lifting the Kettlebell"
         workoutSetupDict[KBWorkoutConstants.KB_DEAD_LIFT] = kbDlDesString
-        workoutSetupDict[KBWorkoutConstants.KB_SQUAT] = kbDlDesString
-        workoutSetupDict[KBWorkoutConstants.BAR_SQUAT] = "Key joints to focus on: Hip, Knee\nKey muscle groups activated: Glutes, hamstrings, quadriceps, erectors, trapezius, rhomboids, deltoids, and abdominals.\nImportant angles: Hip hinge"
-        workoutSetupDict[KBWorkoutConstants.BAR_DEAD_LIFT] = "Key joints to focus on: Hip, Knee\nKey muscle groups activated: Hamstrings, glutes, back.\nImportant angles: Hip hinge"
-        workoutSetupDict[KBWorkoutConstants.KB_SWING] = "Key joints to focus on: Hip, Knee\nKey muscle groups activated: Core, glutes, .\nImportant angles: Hip hinge"
+        workoutSetupDict[KBWorkoutConstants.BAR_SQUAT] = alignString + "Focus on the correct back angle."
+        workoutSetupDict[KBWorkoutConstants.BAR_DEAD_LIFT] = alignString + "Focus on hip angle."
+        workoutSetupDict[KBWorkoutConstants.KB_SWING] =  alignString + "Focus on hip hinge correctness."
+        workoutSetupDict[KBWorkoutConstants.BAR_SQUAT] = alignString + "Focus on hip hinge and back angle."
+        workoutSetupDict[KBWorkoutConstants.BODYWEIGHT_PUSHUP] = alignString + "Focus on the elbow angle."
+        workoutSetupDict[KBWorkoutConstants.BODYWEIGHT_PUSHUP] = alignString + "Focus on the elbow angle."
         
     }
     

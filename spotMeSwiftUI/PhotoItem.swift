@@ -15,7 +15,7 @@ struct PhotoItem: Identifiable {
     //let annotationTextPath: String?
     
     init() {
-        workoutType = KBWorkoutConstants.KB_DEAD_LIFT
+        workoutType = KBWorkoutConstants.KB_SWING
         url = nil
     }
 }

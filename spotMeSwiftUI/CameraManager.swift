@@ -86,7 +86,7 @@ class CameraManager: ObservableObject {
         defer {
             session.commitConfiguration()
         }
-        let device = AVCaptureDevice.default(.builtInWideAngleCamera,
+        let device = AVCaptureDevice.default(.builtInTrueDepthCamera,
                                              for: .video,
                                              position: .front)
         do {

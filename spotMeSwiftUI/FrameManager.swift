@@ -43,15 +43,35 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
         if let buffer = sampleBuffer.imageBuffer {
             
             self.current = buffer
-            let cgImage = CGImage.create(from: buffer)
-            if ( cgImage != nil) {
+            if let cgImage = CGImage.create(from: buffer) {
                 if self.ortSession != nil {
-                    let image = UIImage(cgImage: cgImage!)
+                    let imageOrientation: UIImage.Orientation
+                    switch UIDevice.current.orientation {
+                    case .portrait:
+                        imageOrientation = .up
+                    case .portraitUpsideDown:
+                        imageOrientation = .down
+                    case .landscapeLeft:
+                        imageOrientation = .leftMirrored
+                    case .landscapeRight:
+                        imageOrientation = .rightMirrored
+                    case .unknown:
+                        print("The device orientation is unknown, the predictions may be affected")
+                        fallthrough
+                    default:
+                        imageOrientation = .up
+                    }
+                    let image = UIImage(cgImage: cgImage, scale: 1.0, orientation: imageOrientation)
+                    
                     //Fiddle around with jpegquality until you have a proper number using 0.5 for now
-                    let imageData = image.jpegData(compressionQuality: 0.6)
+                    let imageData = image.jpegData(compressionQuality: 0.5)
                     ///Following the pub-sub pattern, just invoke the plotPose method
                     ///poseUtil conforms to observable protocol any model/view can observe and take action on the image
-                    self.poseUtil.plotPose(inputData: imageData!, ortSession: self.ortSession!, workoutType: coachViewModel.selectedWorkout)
+                    
+                    self.poseUtil.plotPose(inputData: imageData!,
+                                           ortSession: self.ortSession!,
+                                           workoutType: coachViewModel.selectedWorkout)
+                    
                 
                 }
             }
