@@ -60,7 +60,7 @@ struct BodyPoses {
         bodyPosesMap[KBWorkoutConstants.BAR_DEAD_LIFT] = initBarDlPose()
         bodyPosesMap[KBWorkoutConstants.BAR_SQUAT] = initBarSquatPose()
         bodyPosesMap[KBWorkoutConstants.BODYWEIGHT_PUSHUP] = initBWPushupPose()
-        
+        bodyPosesMap[KBWorkoutConstants.BAR_BENCH_PRESS] = initBenchPressPose()
     }
     
     func initDeadLiftPose() -> Array<BodyPart> {
@@ -125,6 +125,14 @@ struct BodyPoses {
         genBodyPose.append(leftElbow)
         genBodyPose.append(leftShoulder)
         genBodyPose.append(leftHip)
+        return genBodyPose
+    }
+    
+    func initBenchPressPose() -> Array<BodyPart> {
+        var genBodyPose: Array<BodyPart> = []
+        genBodyPose.append(leftWrist)
+        genBodyPose.append(leftElbow)
+        genBodyPose.append(leftShoulder)
         return genBodyPose
     }
     

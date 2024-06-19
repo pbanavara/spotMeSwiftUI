@@ -44,7 +44,7 @@ class OnnxPoseUtils : NSObject, ObservableObject {
             guard let outputTensor = outputs[outputNames[0]] else {
                 fatalError("Failed to get model keypoint output from inference.")
             }
-            self.poseImage =  try convertOutputTensorToImage(opTensor: outputTensor, 
+            self.poseImage =  try convertOutputTensorToImage(opTensor: outputTensor,
                                                              inputImageData: inputData,
                                                              workoutType: workoutType)
             
@@ -53,7 +53,7 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         }
     }
     
-    private func convertOutputTensorToImage(opTensor: ORTValue, 
+    private func convertOutputTensorToImage(opTensor: ORTValue,
                                             inputImageData: Data,
                                             workoutType: String) throws -> UIImage{
         /**
@@ -88,15 +88,15 @@ class OnnxPoseUtils : NSObject, ObservableObject {
             
             
             return drawKeyPointsOnImage(image: image, rectangle: rect,
-                                            keypoints: keypointsWithoutBoxes,
-                                            workoutType: workoutType)
+                                        keypoints: keypointsWithoutBoxes,
+                                        workoutType: workoutType)
         } else {
             return image
         }
     }
     
     
-    private func drawKeyPointsOnImage(image: UIImage, rectangle:CGRect, 
+    private func drawKeyPointsOnImage(image: UIImage, rectangle:CGRect,
                                       keypoints: [Float32],
                                       workoutType: String) -> UIImage {
         /**
@@ -109,18 +109,18 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         
     }
     
-    func drawBodyLines(bodyArray: Array<BodyPart>, 
+    func drawBodyLines(bodyArray: Array<BodyPart>,
                        context: CGContext,
                        keyPoints: [Float32],
                        color: UIColor) {
         for i in 0...(bodyArray.count-2) {
-                drawSpecificLine(context: context,
-                                 kp1_x: keyPoints[bodyArray[i].xIndex],
-                                 kp1_y: keyPoints[bodyArray[i].yIndex],
-                                 kp2_x: keyPoints[bodyArray[i+1].xIndex],
-                                 kp2_y: keyPoints[bodyArray[i+1].yIndex],
-                                 color: color,
-                                 lineWidth: 8.0)
+            drawSpecificLine(context: context,
+                             kp1_x: keyPoints[bodyArray[i].xIndex],
+                             kp1_y: keyPoints[bodyArray[i].yIndex],
+                             kp2_x: keyPoints[bodyArray[i+1].xIndex],
+                             kp2_y: keyPoints[bodyArray[i+1].yIndex],
+                             color: color,
+                             lineWidth: 8.0)
         }
         
     }
@@ -138,12 +138,17 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         self.hingeAngles[BodyAngleContants.HIP_HINGE_ANGLE] = hip_hinge
         
         // Write the hip hinge into text
-        drawTextInImage(hip_hinge: Double(hip_hinge), correctPosition: "", image: image, textColor: UIColor.white)
+        drawTextInImage(hinge: Double(hip_hinge),
+                        hingeDesc: "Hip hinge",
+                        correctPosition: "",
+                        image: image,
+                        textColor: UIColor.white)
         
         if (hip_hinge >= angleRange.first! && hip_hinge <= angleRange.last!) {
             drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
             //textToSpeech(str: "Hip hinge/angle perfect, hold this position and bend your knees till you reach the kettlebell. Get up straight to finish.")
-            drawTextInImage(hip_hinge: Double(hip_hinge),
+            drawTextInImage(hinge: Double(hip_hinge),
+                            hingeDesc: "Hip hinge",
                             correctPosition: "Perfect hip hinge",
                             image: image,
                             textColor: UIColor.green)
@@ -159,15 +164,18 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         
         // Calculate Hip Hinge
         //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
-        let hinge = abs(Double((atan2(leftElbowAngleX, leftElbowAngleY) - atan2(leftElbowWristAngleX, leftElbowAngleY)) * 57.2958)).rounded()
+        let hinge = abs(Double((atan2(leftElbowAngleX, leftElbowAngleY) - atan2(leftElbowWristAngleX, leftElbowWristAngleY)) * 57.2958)).rounded()
         self.hingeAngles[BodyAngleContants.ELBOW_ANGLE] = hinge
         
         // Write the hip hinge into text
-        drawTextInImage(hip_hinge: Double(hinge), correctPosition: "", image: image, textColor: UIColor.white)
+        drawTextInImage(hinge: Double(hinge),
+                        hingeDesc: "Elbow hinge",
+                        correctPosition: "", image: image, textColor: UIColor.white)
         
         if (hinge >= CorrectElbowHingeConstants.CORRECT_ELBOW_L && hinge <= CorrectElbowHingeConstants.CORRECT_ELBOW_R) {
             drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
-            drawTextInImage(hip_hinge: Double(hinge),
+            drawTextInImage(hinge: Double(hinge),
+                            hingeDesc: "Elbow hinge",
                             correctPosition: "Perfect Elbow hinge",
                             image: image,
                             textColor: UIColor.green)
@@ -326,13 +334,13 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         return UIImage(cgImage: thumbnailImage)
     }
     
-    func drawTextInImage(hip_hinge: Double, correctPosition: String, image: UIImage, textColor: UIColor) {
+    func drawTextInImage(hinge: Double, hingeDesc: String, correctPosition: String, image: UIImage, textColor: UIColor) {
         let textFont = UIFont(name: "Helvetica", size: 50)!
         let textFontAttributes = [
             NSAttributedString.Key.font: textFont,
             NSAttributedString.Key.foregroundColor: textColor,
         ] as [NSAttributedString.Key : Any]
-        let hip_text = "Hip Hinge Angle " + hip_hinge.description + "º"
+        let hip_text = hingeDesc + ":" + hinge.description + "º"
         let rect = CGRect(origin: CGPoint.zero, size: image.size)
         let addTextRect = rect.offsetBy(dx: 0.0, dy: 50.0)
         
@@ -341,7 +349,7 @@ class OnnxPoseUtils : NSObject, ObservableObject {
     }
     
     func drawSpecificLine(context: CGContext, kp1_x: Float32, kp1_y: Float32,
-                                  kp2_x: Float32, kp2_y: Float32, color: UIColor, lineWidth: Double) {
+                          kp2_x: Float32, kp2_y: Float32, color: UIColor, lineWidth: Double) {
         context.setLineWidth(lineWidth)
         context.setStrokeColor(color.cgColor)
         context.move(to: CGPoint(x: Double(kp1_x), y: Double(kp1_y)))
