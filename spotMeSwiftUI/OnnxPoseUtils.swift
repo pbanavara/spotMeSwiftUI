@@ -167,7 +167,6 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         
         if (hinge >= CorrectElbowHingeConstants.CORRECT_ELBOW_L && hinge <= CorrectElbowHingeConstants.CORRECT_ELBOW_R) {
             drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
-            //textToSpeech(str: "Hip hinge/angle perfect, hold this position and bend your knees till you reach the kettlebell. Get up straight to finish.")
             drawTextInImage(hip_hinge: Double(hinge),
                             correctPosition: "Perfect Elbow hinge",
                             image: image,
@@ -176,146 +175,143 @@ class OnnxPoseUtils : NSObject, ObservableObject {
     }
     
     func drawPoseLines(image: UIImage, keypoints: [Float32], workoutType: String) -> UIImage {
-        var image = image
         let imageSize = image.size
-        let scale: CGFloat = 0
-        UIGraphicsBeginImageContextWithOptions(imageSize, false, scale)
-        image.draw(at: CGPoint.zero)
-        guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
+        let renderer = UIGraphicsImageRenderer(size: imageSize)
+        let img = renderer.image(actions: { imgContext in
+            let context = imgContext.cgContext
+            image.draw(at: CGPoint.zero)
+            switch workoutType {
+            case KBWorkoutConstants.KB_DEAD_LIFT:
+                if let deadLiftArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] {
+                    let newArray = deadLiftArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == deadLiftArray.count {
+                        drawBodyLines(bodyArray: deadLiftArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        calculateAndRenderHipHinge(keyPoints: keypoints,
+                                                   bodyArray: deadLiftArray,
+                                                   context: context,
+                                                   image: image,
+                                                   angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                    
+                }
+            case KBWorkoutConstants.KB_SQUAT:
+                if let squatArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SQUAT] {
+                    let newArray = squatArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == squatArray.count {
+                        drawBodyLines(bodyArray: squatArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        calculateAndRenderHipHinge(keyPoints: keypoints,
+                                                   bodyArray: squatArray,
+                                                   context: context,
+                                                   image: image,
+                                                   angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                }
+            case KBWorkoutConstants.KB_SWING:
+                if let swingArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SWING] {
+                    let newArray = swingArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == swingArray.count {
+                        drawBodyLines(bodyArray: swingArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        calculateAndRenderHipHinge(keyPoints: keypoints,
+                                                   bodyArray: swingArray,
+                                                   context: context,
+                                                   image: image,
+                                                   angleRange: [CorrectSwingHipHingeConstants.CORRECT_HIP_L, CorrectSwingHipHingeConstants.CORRECT_HIP_R])
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                }
+            case KBWorkoutConstants.KB_SHOULDER:
+                if let shoulderArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SHOULDER] {
+                    let newArray = shoulderArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == shoulderArray.count {
+                        drawBodyLines(bodyArray: shoulderArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                }
+            case KBWorkoutConstants.BAR_DEAD_LIFT:
+                if let barDlArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] {
+                    let newArray = barDlArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == barDlArray.count {
+                        drawBodyLines(bodyArray: barDlArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        calculateAndRenderHipHinge(keyPoints: keypoints,
+                                                   bodyArray: barDlArray,
+                                                   context: context,
+                                                   image: image,
+                                                   angleRange: [CorrectBarDlHipHingeConstants.CORRECT_HIP_L, CorrectBarDlHipHingeConstants.CORRECT_HIP_R])
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                }
+            case KBWorkoutConstants.BAR_SQUAT:
+                if let barSquatArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.BAR_SQUAT] {
+                    let newArray = barSquatArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == barSquatArray.count {
+                        drawBodyLines(bodyArray: newArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        calculateAndRenderHipHinge(keyPoints: keypoints,
+                                                   bodyArray: barSquatArray,
+                                                   context: context,
+                                                   image: image,
+                                                   angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                }
+            case KBWorkoutConstants.BODYWEIGHT_PUSHUP:
+                if let bodyArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.BODYWEIGHT_PUSHUP] {
+                    let newArray = bodyArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == bodyArray.count {
+                        drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        calculateAndRenderElbowHinge(keyPoints: keypoints, bodyArray: bodyArray, context: context, image: image)
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                }
+            case KBWorkoutConstants.BAR_BENCH_PRESS:
+                if let bodyArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.BAR_BENCH_PRESS] {
+                    let newArray = bodyArray.filter({
+                        keypoints[$0.confIndex] > 0.8
+                    })
+                    if newArray.count == bodyArray.count {
+                        drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keypoints, color: UIColor.white)
+                        calculateAndRenderElbowHinge(keyPoints: keypoints, bodyArray: bodyArray, context: context, image: image)
+                        bodyInPosition = true
+                    } else {
+                        bodyInPosition = false
+                    }
+                }
+            default:
+                return
+            }
+            
+        })
         
-        switch workoutType {
-        case KBWorkoutConstants.KB_DEAD_LIFT:
-            if let deadLiftArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] {
-                let newArray = deadLiftArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == deadLiftArray.count {
-                    drawBodyLines(bodyArray: deadLiftArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    calculateAndRenderHipHinge(keyPoints: keypoints,
-                                               bodyArray: deadLiftArray,
-                                               context: context,
-                                               image: image,
-                                               angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
-                    bodyInPosition = true
-                } else {
-                    //drawTextInImage(hip_hinge: 0.0, correctPosition: "Please align yourself completely in the camera view", image: image, textColor: UIColor.red)
-                    bodyInPosition = false
-                }
-                
-            }
-        case KBWorkoutConstants.KB_SQUAT:
-            if let squatArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SQUAT] {
-                let newArray = squatArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == squatArray.count {
-                    drawBodyLines(bodyArray: squatArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    calculateAndRenderHipHinge(keyPoints: keypoints,
-                                               bodyArray: squatArray,
-                                               context: context,
-                                               image: image,
-                                               angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
-                    bodyInPosition = true
-                } else {
-                    bodyInPosition = false
-                }
-            }
-        case KBWorkoutConstants.KB_SWING:
-            if let swingArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SWING] {
-                let newArray = swingArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == swingArray.count {
-                    drawBodyLines(bodyArray: swingArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    calculateAndRenderHipHinge(keyPoints: keypoints,
-                                               bodyArray: swingArray,
-                                               context: context,
-                                               image: image,
-                                               angleRange: [CorrectSwingHipHingeConstants.CORRECT_HIP_L, CorrectSwingHipHingeConstants.CORRECT_HIP_R])
-                    bodyInPosition = true
-                } else {
-                    bodyInPosition = false
-                }
-            }
-        case KBWorkoutConstants.KB_SHOULDER:
-            if let shoulderArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_SHOULDER] {
-                let newArray = shoulderArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == shoulderArray.count {
-                    drawBodyLines(bodyArray: shoulderArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    bodyInPosition = true
-                } else {
-                    bodyInPosition = false
-                }
-            }
-        case KBWorkoutConstants.BAR_DEAD_LIFT:
-            if let barDlArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.KB_DEAD_LIFT] {
-                let newArray = barDlArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == barDlArray.count {
-                    drawBodyLines(bodyArray: barDlArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    calculateAndRenderHipHinge(keyPoints: keypoints,
-                                               bodyArray: barDlArray,
-                                               context: context,
-                                               image: image,
-                                               angleRange: [CorrectBarDlHipHingeConstants.CORRECT_HIP_L, CorrectBarDlHipHingeConstants.CORRECT_HIP_R])
-                    bodyInPosition = true
-                } else {
-                    bodyInPosition = false
-                }
-            }
-        case KBWorkoutConstants.BAR_SQUAT:
-            if let barSquatArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.BAR_SQUAT] {
-                let newArray = barSquatArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == barSquatArray.count {
-                    drawBodyLines(bodyArray: newArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    calculateAndRenderHipHinge(keyPoints: keypoints,
-                                               bodyArray: barSquatArray,
-                                               context: context,
-                                               image: image,
-                                               angleRange: [CorrectHipHingeConstants.CORRECT_HIP_L, CorrectHipHingeConstants.CORRECT_HIP_R])
-                    bodyInPosition = true
-                } else {
-                    bodyInPosition = false
-                }
-            }
-        case KBWorkoutConstants.BODYWEIGHT_PUSHUP:
-            if let bodyArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.BODYWEIGHT_PUSHUP] {
-                let newArray = bodyArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == bodyArray.count {
-                    drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    calculateAndRenderElbowHinge(keyPoints: keypoints, bodyArray: bodyArray, context: context, image: image)
-                    bodyInPosition = true
-                } else {
-                    bodyInPosition = false
-                }
-            }
-        case KBWorkoutConstants.BAR_BENCH_PRESS:
-            if let bodyArray = bodyPoses.bodyPosesMap[KBWorkoutConstants.BAR_BENCH_PRESS] {
-                let newArray = bodyArray.filter({
-                    keypoints[$0.confIndex] > 0.8
-                })
-                if newArray.count == bodyArray.count {
-                    drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keypoints, color: UIColor.red)
-                    calculateAndRenderElbowHinge(keyPoints: keypoints, bodyArray: bodyArray, context: context, image: image)
-                    bodyInPosition = true
-                } else {
-                    bodyInPosition = false
-                }
-            }
-        default:
-            return image
-        }
-        
-        image = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
+        return img
     }
     
     func imageFromVideo(url: URL, at time: TimeInterval) async throws -> UIImage {

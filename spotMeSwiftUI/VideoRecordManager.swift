@@ -62,29 +62,31 @@ class VideoRecordManager: ObservableObject {
     private func setupRecorder(timestamp: Double) {
         //assetWriterQueue.async {
         print("Initiated recorder")
-        self._filename = UUID().uuidString + photoModel.selectedWorkout.replacingOccurrences(of: " ", with: "")
-        let videoPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
-        let writer = try! AVAssetWriter(outputURL: videoPath, fileType: .mov)
-        let settings = CameraManager.shared.getVideoOutputSettings()
-        let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings) // [AVVideoCodecKey: AVVideoCodecType.h264, AVVideoWidthKey: 1920, AVVideoHeightKey: 1080])
-        input.mediaTimeScale = CMTimeScale(bitPattern: 600)
-        input.expectsMediaDataInRealTime = true
-        input.transform = CGAffineTransform(rotationAngle: 90.0)
-        let adapter = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: nil)
-        self._assetWriter = writer
-        if self._assetWriter!.canAdd(input) {
-            self._assetWriter?.add(input)
-            
-        }
-        self._assetWriter?.startWriting()
-        // Ballpark delay to accomodate initial black screen
-        let startTime = CMTimeAdd(CMTimeMake(value: Int64(timestamp), timescale: 1000000000), CMTimeMakeWithSeconds(3.0, preferredTimescale: 1000000000))
         
-        self._assetWriter?.startSession(atSourceTime: startTime)
-        self._assetWriterInput = input
-        self._adapter = adapter
-        self._captureState = .capturing
-        self._time = timestamp
+            self._filename = UUID().uuidString + self.photoModel.selectedWorkout.replacingOccurrences(of: " ", with: "")
+            let videoPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
+            let writer = try! AVAssetWriter(outputURL: videoPath, fileType: .mov)
+            let settings = CameraManager.shared.getVideoOutputSettings()
+            let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings) // [AVVideoCodecKey: AVVideoCodecType.h264, AVVideoWidthKey: 1920, AVVideoHeightKey: 1080])
+            input.mediaTimeScale = CMTimeScale(bitPattern: 600)
+            input.expectsMediaDataInRealTime = true
+            input.transform = CGAffineTransform(rotationAngle: 90.0)
+            let adapter = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: nil)
+            self._assetWriter = writer
+            if self._assetWriter!.canAdd(input) {
+                self._assetWriter?.add(input)
+                
+            }
+            self._assetWriter?.startWriting()
+            // Ballpark delay to accomodate initial black screen
+            let startTime = CMTimeAdd(CMTimeMake(value: Int64(timestamp), timescale: 1000000000), CMTimeMakeWithSeconds(3.0, preferredTimescale: 1000000000))
+            
+            self._assetWriter?.startSession(atSourceTime: startTime)
+            self._assetWriterInput = input
+            self._adapter = adapter
+            self._captureState = .capturing
+            self._time = timestamp
+        
         
     }
     
@@ -128,17 +130,19 @@ class VideoRecordManager: ObservableObject {
                 break
                 
             case .end:
-                self._captureState = .idle
-                guard self._assetWriterInput?.isReadyForMoreMediaData == true, self._assetWriter!.status != .failed else { break }
-                let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
-                
-                self._assetWriterInput?.markAsFinished()
-                self._assetWriter?.finishWriting { [weak self] in
-                    print("Video successfully written at \(url.absoluteString)")
-                    self?._captureState = .idle
-                    self?._assetWriter = nil
-                    self?._assetWriterInput = nil
-                    self?.photoViewModel.loadUrls()
+                DispatchQueue.global(qos: .background).async {
+                    self._captureState = .idle
+                    guard self._assetWriterInput?.isReadyForMoreMediaData == true, self._assetWriter!.status != .failed else { return }
+                    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self._filename).mov")
+                    
+                    self._assetWriterInput?.markAsFinished()
+                    self._assetWriter?.finishWriting { [weak self] in
+                        print("Video successfully written at \(url.absoluteString)")
+                        self?._captureState = .idle
+                        self?._assetWriter = nil
+                        self?._assetWriterInput = nil
+                        
+                    }
                 }
             default:
                 break

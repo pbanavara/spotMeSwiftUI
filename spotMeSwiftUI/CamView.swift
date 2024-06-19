@@ -29,20 +29,20 @@ struct CamView: View {
                             .overlay(alignment: .top) {
                                 if let position = model.bodyInPosition {
                                     if position == true {
-                                        Text("Body in frame")
+                                        Image(systemName: "hand.thumbsup.fill").foregroundStyle(.green).frame(width: 200, height: 200).imageScale(.large)
                                         Rectangle()
                                             .fill(.clear)
                                             .frame(width: geometry.size.width, height: geometry.size.height)
-                                            .border(Color.green, width: 2)
+                                            .border(Color.green, width: 6)
                                             .clipShape(RoundedRectangle(cornerRadius: 5.0))
                                         
                                     } else {
-                                        Text("Body not in frame, Please align")
+                                        Text("Body not in frame, Please align").foregroundStyle(.red).font(.largeTitle)
                                         Rectangle()
                                             .fill(.clear)
                                             .frame(width: geometry.size.width, height: geometry.size.height)
-                                            .border(Color.red, width: 4)
-                                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                            .border(Color.red, width: 6)
+                                            .clipShape(RoundedRectangle(cornerRadius: 5.0))
                                     }
                                 }
                                 
@@ -58,11 +58,11 @@ struct CamView: View {
                                 }) {
                                     switch isPlaying {
                                     case true:
-                                        Rectangle().cornerRadius(5.0).foregroundColor(.red).padding(.all, 15).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
+                                        Rectangle().cornerRadius(5.0).foregroundColor(.red).padding(.all, 15).overlay(Circle().stroke(lineWidth: 3.0).foregroundColor(.white))
                                     case false:
-                                        Circle().foregroundColor(.red).padding(.all, 5).overlay(Circle().stroke(lineWidth: 2.0).foregroundColor(.white))
+                                        Circle().foregroundColor(.red).padding(.all, 5).overlay(Circle().stroke(lineWidth: 3.0).foregroundColor(.white))
                                     }
-                                }.frame(width: 50.0, height: 50.0).padding(.bottom, 100)
+                                }.frame(width: 60.0, height: 60.0).padding(.bottom, 50)
                             }
                         
                     }
@@ -74,7 +74,6 @@ struct CamView: View {
                 
                 
             }
-            
             else {
                 Text("Model loading...")
                 ProgressView()

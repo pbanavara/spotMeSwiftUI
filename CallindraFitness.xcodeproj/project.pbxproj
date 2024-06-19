@@ -42,9 +42,6 @@
 		0BF749312BDAD184005273C7 /* PoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749302BDAD184005273C7 /* PoseModel.swift */; };
 		0BF749352BDAD422005273C7 /* yolov8n-pose-pre.onnx in Resources */ = {isa = PBXBuildFile; fileRef = 0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */; };
 		0BF749392BDBD142005273C7 /* OnnxPoseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */; };
-		0BF749502BE50D2E005273C7 /* LlamaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7494F2BE50D2E005273C7 /* LlamaState.swift */; };
-		0BF749542BE51D2E005273C7 /* LibLlama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF749532BE51D2E005273C7 /* LibLlama.swift */; };
-		0BF749582BE51DDC005273C7 /* llama in Frameworks */ = {isa = PBXBuildFile; productRef = 0BF749572BE51DDC005273C7 /* llama */; };
 		0BF7495E2BF1DC6C005273C7 /* AudioFeedbackUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */; };
 		685A3FF90AE62EF336727811 /* Pods_CallindraFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B0F618C79D921F2FFCE7CB /* Pods_CallindraFitness.framework */; };
 /* End PBXBuildFile section */
@@ -93,8 +90,6 @@
 		0BF749302BDAD184005273C7 /* PoseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseModel.swift; sourceTree = "<group>"; };
 		0BF749342BDAD422005273C7 /* yolov8n-pose-pre.onnx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "yolov8n-pose-pre.onnx"; sourceTree = "<group>"; };
 		0BF749382BDBD142005273C7 /* OnnxPoseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnnxPoseUtils.swift; sourceTree = "<group>"; };
-		0BF7494F2BE50D2E005273C7 /* LlamaState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamaState.swift; sourceTree = "<group>"; };
-		0BF749532BE51D2E005273C7 /* LibLlama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibLlama.swift; sourceTree = "<group>"; };
 		0BF7495D2BF1DC6C005273C7 /* AudioFeedbackUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFeedbackUtils.swift; sourceTree = "<group>"; };
 		24765B5A11F47A273F318479 /* Pods-CallindraFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CallindraFitness.release.xcconfig"; path = "Target Support Files/Pods-CallindraFitness/Pods-CallindraFitness.release.xcconfig"; sourceTree = "<group>"; };
 		31B0F618C79D921F2FFCE7CB /* Pods_CallindraFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CallindraFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BF749582BE51DDC005273C7 /* llama in Frameworks */,
 				685A3FF90AE62EF336727811 /* Pods_CallindraFitness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,7 +167,6 @@
 				0B237B0D2C1098A9008DACE7 /* AuthViewModel.swift */,
 				0BD77FF32C09AA4C005BF7A9 /* MainView.swift */,
 				0B237B132C196954008DACE7 /* MainViewModel.swift */,
-				0BF7494E2BE50D15005273C7 /* Models */,
 				0BF7491B2BDA8060005273C7 /* CameraManager.swift */,
 				0BF749232BDA8514005273C7 /* FrameManager.swift */,
 				0BF749272BDAB3F4005273C7 /* CamViewModel.swift */,
@@ -201,15 +194,6 @@
 				0BF748F42BDA797F005273C7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		0BF7494E2BE50D15005273C7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0BF7494F2BE50D2E005273C7 /* LlamaState.swift */,
-				0BF749532BE51D2E005273C7 /* LibLlama.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		7CA2540D77DB9DC16EE2C83E /* Pods */ = {
@@ -246,7 +230,6 @@
 			);
 			name = CallindraFitness;
 			packageProductDependencies = (
-				0BF749572BE51DDC005273C7 /* llama */,
 			);
 			productName = spotMeSwiftUI;
 			productReference = 0BF748EA2BDA797F005273C7 /* CallindraFitness.app */;
@@ -356,7 +339,6 @@
 				0BF749242BDA8514005273C7 /* FrameManager.swift in Sources */,
 				0BA43A632C00C7C30014EDFA /* AudioViewModel.swift in Sources */,
 				0BF749202BDA8202005273C7 /* CameraError.swift in Sources */,
-				0BF749502BE50D2E005273C7 /* LlamaState.swift in Sources */,
 				0BF7492C2BDACC7E005273C7 /* CGImageExtension.swift in Sources */,
 				0BA43A572BFC898D0014EDFA /* GridItemView.swift in Sources */,
 				0BDC75002BF3C612005A52E7 /* Agent.swift in Sources */,
@@ -381,7 +363,6 @@
 				0B8A6BC82C0727C400FD6785 /* PhotoGridChooseViewModel.swift in Sources */,
 				0B5E46742BF2006E00E10F91 /* VideoRecordManager.swift in Sources */,
 				0BA43A5B2BFC8E270014EDFA /* PhotoGridView.swift in Sources */,
-				0BF749542BE51D2E005273C7 /* LibLlama.swift in Sources */,
 				0BA43A4F2BF885290014EDFA /* Constants.swift in Sources */,
 				0B237B142C196954008DACE7 /* MainViewModel.swift in Sources */,
 			);
@@ -626,14 +607,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0BF749572BE51DDC005273C7 /* llama */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BF7494D2BE50B82005273C7 /* XCRemoteSwiftPackageReference "llama.cpp" */;
-			productName = llama;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0BF748E22BDA797F005273C7 /* Project object */;
 }
