@@ -23,8 +23,8 @@ enum BackendResponseConstants {
 }
 
 enum CorrectHipHingeConstants {
-    static let CORRECT_HIP_L = 70.0
-    static let CORRECT_HIP_R = 90.0
+    static let CORRECT_HIP_L = 80.0
+    static let CORRECT_HIP_R = 100.0
 }
 
 enum CorrectBarDlHipHingeConstants {
@@ -40,4 +40,9 @@ enum CorrectSwingHipHingeConstants {
 enum CorrectElbowHingeConstants {
     static let CORRECT_ELBOW_L = 40.0
     static let CORRECT_ELBOW_R = 50.0
+}
+
+enum CorrectKneeHingeConstants {
+    static let CORRECT_KNEE_L = 120.0
+    static let CORRECT_KNEE_R = 140.0
 }

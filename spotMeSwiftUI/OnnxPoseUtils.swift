@@ -138,29 +138,31 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         self.hingeAngles[BodyAngleContants.HIP_HINGE_ANGLE] = hip_hinge
         
         // Write the hip hinge into text
-        drawTextInImage(hinge: Double(hip_hinge),
-                        hingeDesc: "Hip hinge",
-                        correctPosition: "",
-                        image: image,
-                        textColor: UIColor.white)
         
-        if (hip_hinge >= angleRange.first! && hip_hinge <= angleRange.last!) {
+        
+        if (hip_hinge >= angleRange.first! && hip_hinge <= angleRange.last!) && calculateKneeHinge(keyPoints: keyPoints, bodyArray: bodyArray, context: context, image: image){
             drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
             //textToSpeech(str: "Hip hinge/angle perfect, hold this position and bend your knees till you reach the kettlebell. Get up straight to finish.")
             drawTextInImage(hinge: Double(hip_hinge),
-                            hingeDesc: "Hip hinge",
-                            correctPosition: "Perfect hip hinge",
+                            hingeDesc: "Perfect hip hinge",
                             image: image,
-                            textColor: UIColor.green)
+                            textColor: UIColor.green,
+                            yOffset: 0.0)
+        } else {
+            drawTextInImage(hinge: Double(hip_hinge),
+                            hingeDesc: "Hip hinge",
+                            image: image,
+                            textColor: UIColor.white,
+                            yOffset: 0.0)
         }
     }
     
     func calculateAndRenderElbowHinge(keyPoints: [Float32], bodyArray: Array<BodyPart>, context: CGContext, image: UIImage) {
-        let leftElbowAngleX = keyPoints[bodyPoses.leftElbow.xIndex] - keyPoints[bodyPoses.leftShoulder.xIndex]
-        let leftElbowAngleY = keyPoints[bodyPoses.leftElbow.yIndex] - keyPoints[bodyPoses.leftShoulder.yIndex]
+        let leftElbowAngleX = keyPoints[bodyPoses.leftWrist.xIndex] - keyPoints[bodyPoses.leftElbow.xIndex]
+        let leftElbowAngleY = keyPoints[bodyPoses.leftWrist.yIndex] - keyPoints[bodyPoses.leftElbow.yIndex]
         
-        let leftElbowWristAngleX =  keyPoints[bodyPoses.leftShoulder.xIndex] - keyPoints[bodyPoses.leftWrist.xIndex]
-        let leftElbowWristAngleY = keyPoints[bodyPoses.leftShoulder.yIndex] - keyPoints[bodyPoses.leftWrist.yIndex]
+        let leftElbowWristAngleX =  keyPoints[bodyPoses.leftShoulder.xIndex] - keyPoints[bodyPoses.leftElbow.xIndex]
+        let leftElbowWristAngleY = keyPoints[bodyPoses.leftShoulder.yIndex] - keyPoints[bodyPoses.leftElbow.yIndex]
         
         // Calculate Hip Hinge
         //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
@@ -168,17 +170,56 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         self.hingeAngles[BodyAngleContants.ELBOW_ANGLE] = hinge
         
         // Write the hip hinge into text
-        drawTextInImage(hinge: Double(hinge),
-                        hingeDesc: "Elbow hinge",
-                        correctPosition: "", image: image, textColor: UIColor.white)
+        
         
         if (hinge >= CorrectElbowHingeConstants.CORRECT_ELBOW_L && hinge <= CorrectElbowHingeConstants.CORRECT_ELBOW_R) {
             drawBodyLines(bodyArray: bodyArray, context: context, keyPoints: keyPoints, color: UIColor.green)
             drawTextInImage(hinge: Double(hinge),
-                            hingeDesc: "Elbow hinge",
-                            correctPosition: "Perfect Elbow hinge",
+                            hingeDesc: "Perfect elbow hinge",
                             image: image,
-                            textColor: UIColor.green)
+                            textColor: UIColor.green,
+                            yOffset: 0.0)
+        } else {
+            drawTextInImage(hinge: Double(hinge),
+                            hingeDesc: "Elbow hinge",
+                            image: image,
+                            textColor: UIColor.white,
+                            yOffset: 0.0)
+        }
+    }
+    
+    
+    ///
+    /// This method returns a boolean because it is used as an inner function for calculating hip hinge
+    private func calculateKneeHinge(keyPoints: [Float32], bodyArray: Array<BodyPart>, context: CGContext, image: UIImage) -> Bool {
+        let leftKneeX = keyPoints[bodyPoses.leftAnkle.xIndex] - keyPoints[bodyPoses.leftKnee.xIndex]
+        let leftKneeY = keyPoints[bodyPoses.leftAnkle.yIndex] - keyPoints[bodyPoses.leftKnee.yIndex]
+        
+        let leftAnkleX =  keyPoints[bodyPoses.leftHip.xIndex] - keyPoints[bodyPoses.leftKnee.xIndex]
+        let leftAnkleY = keyPoints[bodyPoses.leftHip.yIndex] - keyPoints[bodyPoses.leftKnee.yIndex]
+        
+        // Calculate Hip Hinge
+        //let hip_hinge = (atan2(right_knee_hip_angle_x, right_knee_hip_angle_y) - atan2(right_hip_shoulder_angle_x, right_hip_shoulder_angle_y)) * 57.2958
+        let hinge = abs(Double((atan2(leftKneeX, leftKneeY) - atan2(leftAnkleX, leftAnkleY)) * 57.2958)).rounded()
+        self.hingeAngles[BodyAngleContants.KNEE_HIP_ANGLE] = hinge
+        
+        // Write the hip hinge into text
+        
+        
+        if (hinge >= CorrectKneeHingeConstants.CORRECT_KNEE_L && hinge <= CorrectKneeHingeConstants.CORRECT_KNEE_R) {
+            drawTextInImage(hinge: Double(hinge),
+                            hingeDesc: "Perfect Knee hinge",
+                            image: image,
+                            textColor: UIColor.green,
+                            yOffset: 50.0)
+            return true
+        } else {
+            drawTextInImage(hinge: Double(hinge),
+                            hingeDesc: "Knee hinge",
+                            image: image,
+                            textColor: UIColor.white,
+                            yOffset: 50.0)
+            return false
         }
     }
     
@@ -236,6 +277,7 @@ class OnnxPoseUtils : NSObject, ObservableObject {
                                                    context: context,
                                                    image: image,
                                                    angleRange: [CorrectSwingHipHingeConstants.CORRECT_HIP_L, CorrectSwingHipHingeConstants.CORRECT_HIP_R])
+                        _ = calculateKneeHinge(keyPoints: keypoints, bodyArray: swingArray, context: context, image: image)
                         bodyInPosition = true
                     } else {
                         bodyInPosition = false
@@ -334,18 +376,22 @@ class OnnxPoseUtils : NSObject, ObservableObject {
         return UIImage(cgImage: thumbnailImage)
     }
     
-    func drawTextInImage(hinge: Double, hingeDesc: String, correctPosition: String, image: UIImage, textColor: UIColor) {
+    func drawTextInImage(hinge: Double, 
+                         hingeDesc: String,
+                         image: UIImage,
+                         textColor: UIColor,
+                         yOffset: CGFloat) {
         let textFont = UIFont(name: "Helvetica", size: 50)!
         let textFontAttributes = [
             NSAttributedString.Key.font: textFont,
             NSAttributedString.Key.foregroundColor: textColor,
         ] as [NSAttributedString.Key : Any]
         let hip_text = hingeDesc + ":" + hinge.description + "º"
-        let rect = CGRect(origin: CGPoint.zero, size: image.size)
-        let addTextRect = rect.offsetBy(dx: 0.0, dy: 50.0)
+        let rect = CGRect(origin: CGPoint.zero, size: image.size).offsetBy(dx: 0.0, dy: yOffset)
+        //let addTextRect = rect.offsetBy(dx: 0.0, dy: yOffset + 50.0)
         
         hip_text.draw(in: rect, withAttributes: textFontAttributes)
-        correctPosition.draw(in: addTextRect, withAttributes: textFontAttributes)
+        //correctPosition.draw(in: addTextRect, withAttributes: textFontAttributes)
     }
     
     func drawSpecificLine(context: CGContext, kp1_x: Float32, kp1_y: Float32,
